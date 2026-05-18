@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/readme/fusca_motor_2.png" width="100px" alt="GitHub Readme Stats" />
+  <img src="./assets/readme/sapphire_gem.png" width="125px" alt="GitHub Readme Stats" />
   <h1 style="font-size: 28px; margin: 10px 0;">Crystal Crash</h1>
   <p>Jogo de quebra-cabeça baseado em fisica</p>
 </div>
