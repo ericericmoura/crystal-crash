@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Game/Game.vcxproj" Id="1d4ee01f-efa4-489c-9125-bbe68baddc50" />
+  <Project Path="NiEngine/NiEngine.vcxproj" Id="6a487422-1a10-48f1-847e-ff9983033a4f" />
+</Solution>

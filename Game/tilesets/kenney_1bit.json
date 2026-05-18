@@ -1,0 +1,147 @@
+{
+  "columns": 20,
+  "image": "..\/graphics\/tilemap.png",
+  "imageheight": 339,
+  "imagewidth": 339,
+  "margin": 0,
+  "name": "kenney_1bit",
+  "spacing": 1,
+  "tilecount": 400,
+  "tiledversion": "1.12.1",
+  "tileheight": 16,
+  "tiles": [
+    {
+      "id": 83,
+      "properties": [
+        {
+          "name": "oneSidedCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "properties": [
+        {
+          "name": "oneSidedCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "properties": [
+        {
+          "name": "oneSidedCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "properties": [
+        {
+          "name": "oneSidedCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 128,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": 129,
+      "properties": [
+        {
+          "name": "fullCollision",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    }
+  ],
+  "tilewidth": 16,
+  "type": "tileset",
+  "version": "1.10"
+}

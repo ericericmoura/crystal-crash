@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{62620a0b-5500-4582-8ef3-2fa50ea5b0f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{9ac5a910-107e-417f-8668-ddeb1d3c4094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Tilemap">
+      <UniqueIdentifier>{fc07fcd5-2f01-43dd-a386-7f9d36334d53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{432a4a3b-1020-4926-a8dd-831efaa50860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{8a97655f-b77c-4122-9242-4d1067d336da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Tilemap">
+      <UniqueIdentifier>{515bdfea-0bbd-43ea-8027-1a10ffc7f0db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Entity">
+      <UniqueIdentifier>{2e01dede-8e04-4df0-9e72-e3ac29859fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{73efe3c5-4070-40d0-8a17-0457128776f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FileIO">
+      <UniqueIdentifier>{b7938ed1-f6db-482a-a1ba-c0026c854f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tags">
+      <UniqueIdentifier>{4524a3e4-e45c-40bc-a4de-7555a738fb54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FileIO\Blueprints">
+      <UniqueIdentifier>{2feddb9a-e8cd-4992-b06f-4a06026e1574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FileIO\References">
+      <UniqueIdentifier>{f08de629-59fe-41be-bf17-a232d9de32af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Hashes">
+      <UniqueIdentifier>{cc0c52bc-1435-4bde-a91c-ea8186b04926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Entity">
+      <UniqueIdentifier>{9d68ae7c-b8e8-499f-a0e0-2e8395a0a8b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Sound">
+      <UniqueIdentifier>{55bc7469-95ab-4301-89e3-c61457ab3b18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Sound">
+      <UniqueIdentifier>{1be0fd15-f59c-4faf-9b0d-10e5d45199a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Core">
+      <UniqueIdentifier>{735ac33a-3f63-4016-ac20-acf8e4a29f98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Rendering">
+      <UniqueIdentifier>{b0f54e59-c671-4ce7-98e5-80f4882386f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics and Collision">
+      <UniqueIdentifier>{d257c0bd-6d95-4481-8536-a1c29cdd761b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Rendering">
+      <UniqueIdentifier>{c79e4c66-b8dd-41cb-b5a0-1a13b83ab894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Core">
+      <UniqueIdentifier>{b829d8f7-5039-43d0-91b9-9f9841b63fe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics and Collision">
+      <UniqueIdentifier>{78d10d8b-9f85-475d-a005-9743b15bee94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Rendering\Transitions">
+      <UniqueIdentifier>{2f06c847-2fc9-4a2b-bcb4-8353f10ae22a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Rendering\Transitions">
+      <UniqueIdentifier>{d45302c5-4ab4-451e-ac92-e1aa0fbd3d6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{80ae5c23-609d-434c-afcd-c5cc11b157e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{4e97eb4f-990d-440d-adfa-6ac477807177}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NiEngine\Component.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\ComponentStore.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Converter.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\DataHandler.h">
+      <Filter>Header Files\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\FileUtility.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\GameModeTag.h">
+      <Filter>Header Files\Tags</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\GameObjectTag.h">
+      <Filter>Header Files\Tags</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\GraphicsComponent.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\PhysicsComponent.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\ShapeGraphicsComponent.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\StandardGraphicsComponent.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\TransformComponent.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\UpdateComponent.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\TilemapCollisionComponent.h">
+      <Filter>Header Files\Components\Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\TilemapGraphicsComponent.h">
+      <Filter>Header Files\Components\Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\LayerBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\TileBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\LevelBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\TilesetBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\TilesetReference.h">
+      <Filter>Header Files\FileIO\References</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\MapUtility.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\PolygonBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Vector2iHash.h">
+      <Filter>Header Files\Hashes</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\ComponentLocator.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\AnimatedGraphicsComponent.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Animation.h">
+      <Filter>Header Files\Components\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\SoundBufferStore.h">
+      <Filter>Header Files\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\SoundEngine.h">
+      <Filter>Header Files\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\EventDispatcher.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\BitmapStore.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Id.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\ServiceLocator.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Subject.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Tilemap.h">
+      <Filter>Header Files\Engine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Camera.h">
+      <Filter>Header Files\Engine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Engine.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\CollisionBits.h">
+      <Filter>Header Files\Engine\Physics and Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\PhysicsEngine.h">
+      <Filter>Header Files\Engine\Physics and Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\GameMode.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\GameModeController.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\TilemapUtility.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\PropertyBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\ObjectBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\ObjectLayerBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Level.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\ObjectFactory.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\ScreenTransition.h">
+      <Filter>Header Files\Engine\Rendering\Transitions</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\WipeScreenTransition.h">
+      <Filter>Header Files\Engine\Rendering\Transitions</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\TextFadeScreenTransition.h">
+      <Filter>Header Files\Engine\Rendering\Transitions</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Panel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\HUDComponent.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Container.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\HitboxComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Component.cpp">
+      <Filter>Source Files\Components\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ComponentStore.cpp">
+      <Filter>Source Files\Components\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameModeController.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameMode.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TilemapCollisionComponent.cpp">
+      <Filter>Source Files\Components\Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TilemapGraphicsComponent.cpp">
+      <Filter>Source Files\Components\Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TransformComponent.cpp">
+      <Filter>Source Files\Components\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UpdateComponent.cpp">
+      <Filter>Source Files\Components\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StandardGraphicsComponent.cpp">
+      <Filter>Source Files\Components\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsComponent.cpp">
+      <Filter>Source Files\Components\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysicsComponent.cpp">
+      <Filter>Source Files\Components\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AnimatedGraphicsComponent.cpp">
+      <Filter>Source Files\Components\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="NiEngine\MathUtility.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SoundBufferStore.cpp">
+      <Filter>Source Files\Engine\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SoundEngine.cpp">
+      <Filter>Source Files\Engine\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tilemap.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EventDispatcher.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BitmapStore.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PhysicsEngine.cpp">
+      <Filter>Source Files\Engine\Physics and Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="NiEngine\ObjectTemplateBlueprint.h">
+      <Filter>Header Files\FileIO\Blueprints</Filter>
+    </ClCompile>
+    <ClCompile Include="NiEngine\TiledUtility.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Level.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjectFactory.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WipeScreenTransition.cpp">
+      <Filter>Source Files\Engine\Rendering\Transitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ScreenTransition.cpp">
+      <Filter>Source Files\Engine\Rendering\Transitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextFadeScreenTransition.cpp">
+      <Filter>Source Files\Engine\Rendering\Transitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Panel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HUDComponent.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Container.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HitboxComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{6a487422-1a10-48f1-847e-ff9983033a4f}</ProjectGuid>
+    <RootNamespace>NiEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\SFML\include;C:\Box2D\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\SFML\include;C:\Box2D\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\SFML\include;C:\Box2D\include;$(ProjectDir)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\SFML\lib;C:\Box2D\lib</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\SFML\include;C:\Box2D\include;$(ProjectDir)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\SFML\lib;C:\Box2D\lib</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="NiEngine\HitboxComponent.h" />
+    <ClInclude Include="NiEngine\Container.h" />
+    <ClInclude Include="NiEngine\Level.h" />
+    <ClInclude Include="NiEngine\Animation.h" />
+    <ClInclude Include="NiEngine\AnimatedGraphicsComponent.h" />
+    <ClInclude Include="NiEngine\ComponentLocator.h" />
+    <ClInclude Include="NiEngine\CollisionBits.h" />
+    <ClInclude Include="NiEngine\BitmapStore.h" />
+    <ClInclude Include="NiEngine\Camera.h" />
+    <ClInclude Include="NiEngine\Component.h" />
+    <ClInclude Include="NiEngine\ComponentStore.h" />
+    <ClInclude Include="NiEngine\Converter.h" />
+    <ClInclude Include="NiEngine\DataHandler.h" />
+    <ClInclude Include="NiEngine\Engine.h" />
+    <ClInclude Include="NiEngine\EventDispatcher.h" />
+    <ClInclude Include="NiEngine\FileUtility.h" />
+    <ClInclude Include="NiEngine\GameMode.h" />
+    <ClInclude Include="NiEngine\GameModeController.h" />
+    <ClInclude Include="NiEngine\GameModeTag.h" />
+    <ClInclude Include="NiEngine\GameObjectTag.h" />
+    <ClInclude Include="NiEngine\GraphicsComponent.h" />
+    <ClInclude Include="NiEngine\Id.h" />
+    <ClInclude Include="NiEngine\LayerBlueprint.h" />
+    <ClInclude Include="NiEngine\MapUtility.h" />
+    <ClInclude Include="NiEngine\ObjectBlueprint.h" />
+    <ClInclude Include="NiEngine\ObjectLayerBlueprint.h" />
+    <ClInclude Include="NiEngine\PhysicsComponent.h" />
+    <ClInclude Include="NiEngine\PhysicsEngine.h" />
+    <ClInclude Include="NiEngine\PolygonBlueprint.h" />
+    <ClInclude Include="NiEngine\ShapeGraphicsComponent.h" />
+    <ClInclude Include="NiEngine\Subject.h" />
+    <ClInclude Include="NiEngine\StandardGraphicsComponent.h" />
+    <ClInclude Include="NiEngine\TileBlueprint.h" />
+    <ClInclude Include="NiEngine\Tilemap.h" />
+    <ClInclude Include="NiEngine\LevelBlueprint.h" />
+    <ClInclude Include="NiEngine\TilemapCollisionComponent.h" />
+    <ClInclude Include="NiEngine\TilemapGraphicsComponent.h" />
+    <ClInclude Include="NiEngine\TilesetBlueprint.h" />
+    <ClInclude Include="NiEngine\TilesetReference.h" />
+    <ClInclude Include="NiEngine\TransformComponent.h" />
+    <ClInclude Include="NiEngine\UpdateComponent.h" />
+    <ClInclude Include="NiEngine\Vector2iHash.h" />
+    <ClInclude Include="NiEngine\ServiceLocator.h" />
+    <ClInclude Include="NiEngine\SoundBufferStore.h" />
+    <ClInclude Include="NiEngine\SoundEngine.h" />
+    <ClInclude Include="NiEngine\TilemapUtility.h" />
+    <ClInclude Include="NiEngine\ObjectFactory.h" />
+    <ClInclude Include="NiEngine\Panel.h" />
+    <ClInclude Include="NiEngine\PropertyBlueprint.h" />
+    <ClInclude Include="NiEngine\ScreenTransition.h" />
+    <ClInclude Include="NiEngine\WipeScreenTransition.h" />
+    <ClInclude Include="NiEngine\TextFadeScreenTransition.h" />
+    <ClInclude Include="NiEngine\HUDComponent.h" />
+    <ClInclude Include="NiEngine\Text.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\HitboxComponent.cpp" />
+    <ClCompile Include="src\Container.cpp" />
+    <ClCompile Include="src\Panel.cpp" />
+    <ClCompile Include="src\ScreenTransition.cpp" />
+    <ClCompile Include="src\ObjectFactory.cpp" />
+    <ClCompile Include="src\Level.cpp" />
+    <ClCompile Include="NiEngine\MathUtility.h" />
+    <ClCompile Include="NiEngine\ObjectTemplateBlueprint.h" />
+    <ClCompile Include="src\SoundBufferStore.cpp" />
+    <ClCompile Include="src\SoundEngine.cpp" />
+    <ClCompile Include="src\AnimatedGraphicsComponent.cpp" />
+    <ClCompile Include="src\BitmapStore.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Component.cpp" />
+    <ClCompile Include="src\ComponentStore.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\EventDispatcher.cpp" />
+    <ClCompile Include="src\GameMode.cpp" />
+    <ClCompile Include="src\GameModeController.cpp" />
+    <ClCompile Include="src\GraphicsComponent.cpp" />
+    <ClCompile Include="src\PhysicsComponent.cpp" />
+    <ClCompile Include="src\PhysicsEngine.cpp" />
+    <ClCompile Include="src\StandardGraphicsComponent.cpp" />
+    <ClCompile Include="src\Tilemap.cpp" />
+    <ClCompile Include="src\TilemapCollisionComponent.cpp" />
+    <ClCompile Include="src\TilemapGraphicsComponent.cpp" />
+    <ClCompile Include="src\TransformComponent.cpp" />
+    <ClCompile Include="src\UpdateComponent.cpp" />
+    <ClCompile Include="NiEngine\TiledUtility.h" />
+    <ClCompile Include="src\WipeScreenTransition.cpp" />
+    <ClCompile Include="src\TextFadeScreenTransition.cpp" />
+    <ClCompile Include="src\HUDComponent.cpp" />
+    <ClCompile Include="src\Text.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\nlohmann.json.3.12.0\build\native\nlohmann.json.targets" Condition="Exists('..\packages\nlohmann.json.3.12.0\build\native\nlohmann.json.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\nlohmann.json.3.12.0\build\native\nlohmann.json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nlohmann.json.3.12.0\build\native\nlohmann.json.targets'))" />
+  </Target>
+</Project>

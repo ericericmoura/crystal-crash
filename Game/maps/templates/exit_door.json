@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "gid":57,
+     "height":16,
+     "id":18,
+     "name":"door",
+     "opacity":1,
+     "properties":[
+            {
+             "name":"type_id",
+             "type":"int",
+             "value":3
+            }],
+     "rotation":0,
+     "type":"",
+     "visible":true,
+     "width":16
+    },
+ "tileset":
+    {
+     "firstgid":1,
+     "source":"..\/..\/tilesets\/kenney_1bit.json"
+    },
+ "type":"template"
+}
