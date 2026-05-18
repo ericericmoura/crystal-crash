@@ -8,16 +8,19 @@
 #include <NiEngine/GameMode.h>
 #include <NiEngine/ObjectTemplateBlueprint.h>
 #include <NiEngine/ObjectBlueprint.h>
+#include <SFML/Graphics/Rect.hpp>
 
 enum ObjectTypes
 {
-	None     = 0
+	None      = 0,
+	Slingshot = 1
 };
 
 class PlatformerObjectFactory : public ni::ObjectFactory
 {
 private:
-	void SpawnObject(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type) override;
+	void SpawnObject   (ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type) override;
+	void SpawnSlingshot(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, std::string texture_key, sf::IntRect texture_coordinates, ni::GameMode& mode);
 
 	template <typename T>
 	T GetAttributeFromObject(ni::ObjectBlueprint& object, ni::ObjectTemplateBlueprint& object_template, const std::string& attribute)

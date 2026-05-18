@@ -125,11 +125,11 @@
             }
         },
         "maps/level_1/level_1.json": {
-            "scale": 2,
-            "selectedLayer": 0,
+            "scale": 0.75,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 340.5,
-                "y": 461.5
+                "x": 304,
+                "y": 601.3333333333334
             }
         },
         "maps/level_10/level_10.json": {
@@ -366,6 +366,9 @@
             "scaleInDock": 2,
             "scaleInEditor": 4
         },
+        "tilesets/objects.json": {
+            "dynamicWrapping": true
+        },
         "tilesets/transparent_tiles.json": {
             "dynamicWrapping": true,
             "scaleInDock": 1,
@@ -383,7 +386,7 @@
     "last.exportedFilePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/backup",
     "last.externalTilesetPath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/tilesets",
     "last.imagePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/graphics",
-    "last.objectTemplatePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/templates",
+    "last.objectTemplatePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/maps/templates",
     "map.height": 30,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "json",
@@ -398,7 +401,7 @@
         "maps/level_9/level_9.json"
     ],
     "project": "game.tiled-project",
-    "property.type": "bool",
+    "property.type": "int",
     "recentFiles": [
         "maps/rules/woods_hills.tmx",
         "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
@@ -420,5 +423,5 @@
         "height": 32,
         "width": 32
     },
-    "tileset.type": 0
+    "tileset.type": 1
 }

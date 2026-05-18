@@ -23,13 +23,7 @@
       <UniqueIdentifier>{d225a748-a776-4bfa-aa98-b4c19963146c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Components">
-      <UniqueIdentifier>{9ee62a05-21a5-450a-aee6-2fe07dfb5d69}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Components\Obstacle Collision">
-      <UniqueIdentifier>{ef1846bb-3ac5-4bc7-bb74-e8424d940573}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Components\ObstacleCollision">
-      <UniqueIdentifier>{5882d7b5-e423-43ab-839e-a0948733bba2}</UniqueIdentifier>
+      <UniqueIdentifier>{166f42a6-1ea2-430d-83e7-623e2864921c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,44 +33,8 @@
     <ClCompile Include="PlatformerGameMode.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="CharacterPhysicsComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterPhysicsComponentCollision.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="ObstacleUpdateComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerUpdateComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="ObstacleCollisionComponent.cpp">
-      <Filter>Source Files\Components\ObstacleCollision</Filter>
-    </ClCompile>
-    <ClCompile Include="ObstacleSolidCollisionComponent.cpp">
-      <Filter>Source Files\Components\ObstacleCollision</Filter>
-    </ClCompile>
-    <ClCompile Include="ObstacleHarmfulCollisionComponent.cpp">
-      <Filter>Source Files\Components\ObstacleCollision</Filter>
-    </ClCompile>
     <ClCompile Include="PlatformerObjectFactory.cpp">
       <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="MovingObstacleUpdateComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="ExitDoorUpdateComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyUpdateComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WalkerEnemyUpdateComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="JumperEnemyUpdateComponent.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,44 +44,11 @@
     <ClInclude Include="PlatformerGameMode.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="CharacterPhysicsComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="ObstacleUpdateComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerUpdateComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="ObstacleCollisionComponent.h">
-      <Filter>Header Files\Components\Obstacle Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="ObstacleSolidCollisionComponent.h">
-      <Filter>Header Files\Components\Obstacle Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="ObstacleHarmfulCollisionComponent.h">
-      <Filter>Header Files\Components\Obstacle Collision</Filter>
-    </ClInclude>
     <ClInclude Include="PlatformerObjectFactory.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="MovingObstacleUpdateComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="ExitDoorUpdateComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyUpdateComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WalkerEnemyUpdateComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LevelStartBlueprint.h">
       <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="JumperEnemyUpdateComponent.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

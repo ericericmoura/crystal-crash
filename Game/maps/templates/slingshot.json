@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "gid":2,
+     "height":199,
+     "id":1,
+     "name":"slingshot",
+     "opacity":1,
+     "properties":[
+            {
+             "name":"type_id",
+             "type":"int",
+             "value":1
+            }],
+     "rotation":0,
+     "type":"",
+     "visible":true,
+     "width":23
+    },
+ "tileset":
+    {
+     "firstgid":1,
+     "source":"..\/..\/tilesets\/objects.json"
+    },
+ "type":"template"
+}

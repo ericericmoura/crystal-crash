@@ -139,21 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CharacterPhysicsComponent.cpp" />
-    <ClCompile Include="CharacterPhysicsComponentCollision.cpp" />
-    <ClCompile Include="EnemyUpdateComponent.cpp" />
-    <ClCompile Include="ExitDoorUpdateComponent.cpp" />
-    <ClCompile Include="JumperEnemyUpdateComponent.cpp" />
-    <ClCompile Include="MovingObstacleUpdateComponent.cpp" />
-    <ClCompile Include="ObstacleCollisionComponent.cpp" />
-    <ClCompile Include="ObstacleHarmfulCollisionComponent.cpp" />
-    <ClCompile Include="ObstacleSolidCollisionComponent.cpp" />
-    <ClCompile Include="ObstacleUpdateComponent.cpp" />
     <ClCompile Include="PlatformerGameMode.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlatformerObjectFactory.cpp" />
-    <ClCompile Include="PlayerUpdateComponent.cpp" />
-    <ClCompile Include="WalkerEnemyUpdateComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NiEngine\NiEngine.vcxproj">
@@ -164,20 +152,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CharacterPhysicsComponent.h" />
-    <ClInclude Include="EnemyUpdateComponent.h" />
-    <ClInclude Include="ExitDoorUpdateComponent.h" />
-    <ClInclude Include="JumperEnemyUpdateComponent.h" />
     <ClInclude Include="LevelStartBlueprint.h" />
-    <ClInclude Include="MovingObstacleUpdateComponent.h" />
-    <ClInclude Include="ObstacleCollisionComponent.h" />
-    <ClInclude Include="ObstacleHarmfulCollisionComponent.h" />
-    <ClInclude Include="ObstacleSolidCollisionComponent.h" />
-    <ClInclude Include="ObstacleUpdateComponent.h" />
     <ClInclude Include="PlatformerGameMode.h" />
     <ClInclude Include="PlatformerObjectFactory.h" />
-    <ClInclude Include="PlayerUpdateComponent.h" />
-    <ClInclude Include="WalkerEnemyUpdateComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

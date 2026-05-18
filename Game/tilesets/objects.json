@@ -1,0 +1,42 @@
+{ "columns":0,
+ "grid":
+    {
+     "height":1,
+     "orientation":"orthogonal",
+     "width":1
+    },
+ "margin":0,
+ "name":"objects",
+ "spacing":0,
+ "tilecount":4,
+ "tiledversion":"1.12.1",
+ "tileheight":267,
+ "tiles":[
+        {
+         "id":0,
+         "image":"..\/graphics\/Lamp Post 1 SHORT - Silver.png",
+         "imageheight":199,
+         "imagewidth":23
+        }, 
+        {
+         "id":1,
+         "image":"..\/graphics\/Lamp Post 1 SHORT.png",
+         "imageheight":199,
+         "imagewidth":23
+        }, 
+        {
+         "id":2,
+         "image":"..\/graphics\/Lamp Post 1 TALL - Silver.png",
+         "imageheight":267,
+         "imagewidth":25
+        }, 
+        {
+         "id":3,
+         "image":"..\/graphics\/Lamp Post 1 TALL.png",
+         "imageheight":267,
+         "imagewidth":25
+        }],
+ "tilewidth":25,
+ "type":"tileset",
+ "version":"1.10"
+}

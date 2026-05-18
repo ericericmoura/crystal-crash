@@ -24,7 +24,7 @@
 PlatformerGameMode::PlatformerGameMode() : hud_(sf::Color::Black, {20, 0}, { 20, 15 }, false, 2, {0, 0})
 {	
 	ni::DataHandler<LevelStartBlueprint> config_handler("maps/config.json");
-	ni::Converter::pixels_per_meters_ = 16;
+	ni::Converter::pixels_per_meters_ = 32;
 
 	LevelStartBlueprint config = config_handler.GetBlueprint();
 
