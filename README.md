@@ -14,7 +14,7 @@
 
 ## Descrição
 
-Jogo baseado em fisica inspirado em Angry Birds.
+Esse jogo é inspirado em Angry Birds
 
 ## Licença
 
