@@ -1,1 +1,2 @@
-..\rules\ground_autotile_rules.tmx
+..\rules\woods.tmx
+..\rules\woods_hills.tmx

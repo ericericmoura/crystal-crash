@@ -26,6 +26,26 @@
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        ":/automap-tiles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 150.5,
+                "y": 157
+            }
+        },
+        "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/tilesets/kenney_1bit.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/tilesets/transparent_tiles.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
         "maps/backup/level_5/level_5.json": {
             "scale": 1.805,
             "selectedLayer": 0,
@@ -105,14 +125,11 @@
             }
         },
         "maps/level_1/level_1.json": {
-            "expandedObjectLayers": [
-                8
-            ],
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 240,
-                "y": 159.75
+                "x": 340.5,
+                "y": 461.5
             }
         },
         "maps/level_10/level_10.json": {
@@ -282,20 +299,44 @@
                 "y": 221.5
             }
         },
+        "maps/rules/ground_autotile_rules - Copy.tmx": {
+            "scale": 1.7139465875370918,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 246.50709833795014,
+                "y": 151.696675900277
+            }
+        },
         "maps/rules/ground_autotile_rules.tmx": {
             "scale": 3,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 145.66666666666669,
-                "y": 125
+                "x": 145.83333333333334,
+                "y": 124.99999999999999
             }
         },
         "maps/rules/ground_autotile_rules_karsioriart.tmx": {
             "scale": 2,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 246.5,
-                "y": 335
+                "x": 303,
+                "y": 306
+            }
+        },
+        "maps/rules/woods.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 312,
+                "y": 472
+            }
+        },
+        "maps/rules/woods_hills.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 144,
+                "y": 353.5
             }
         },
         "maps/tilesets/kenney_1bit.json": {
@@ -333,16 +374,19 @@
         "tilesets/transparent_tiles.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 4,
-            "scaleInEditor": 8
+            "scaleInEditor": 2
+        },
+        "tilesets/woods.json": {
+            "dynamicWrapping": false
         }
     },
     "last.exportedFilePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/backup",
     "last.externalTilesetPath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/tilesets",
-    "last.imagePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/graphics",
+    "last.imagePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/graphics",
     "last.objectTemplatePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/templates",
     "map.height": 30,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
-    "map.lastUsedFormat": "tmx",
+    "map.lastUsedFormat": "json",
     "map.layerDataFormat": "1",
     "map.tileHeight": 32,
     "map.tileWidth": 32,
@@ -354,23 +398,23 @@
         "maps/level_9/level_9.json"
     ],
     "project": "game.tiled-project",
-    "property.type": "float",
+    "property.type": "bool",
     "recentFiles": [
+        "maps/rules/woods_hills.tmx",
+        "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
+        "maps/rules/ground_autotile_rules_karsioriart.tmx",
+        "tilesets/transparent_tiles.tsx",
+        "maps/rules/ground_autotile_rules.tmx",
+        "maps/rules/ground_autotile_rules - Copy.tmx",
+        "maps/level_1/level_1.json",
         "maps/level_15/level_15.json",
         "tilesets/kenney_1bit.json",
-        "maps/level_1/level_1.json",
         "maps/level_9/level_9.json",
         "maps/level_7/level_7.json",
-        "maps/level_6/level_6.json",
-        "maps/level_4/level_4.json",
-        "maps/level_3/level_3.json",
-        "maps/level_2/level_2.json",
-        "maps/level_14/level_14.json",
-        "maps/level_13/level_13.json",
-        "maps/level_12/level_12.json"
+        "maps/level_6/level_6.json"
     ],
     "tileset.lastUsedExportFilter": "JSON tileset files (*.tsj *.json)",
-    "tileset.lastUsedFormat": "tsx",
+    "tileset.lastUsedFormat": "json",
     "tileset.spacing": 0,
     "tileset.tileSize": {
         "height": 32,

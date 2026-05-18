@@ -14,10 +14,6 @@
 class PlatformerGameMode : public ni::GameMode
 {
 public:
-	inline static const std::string kSpikeTag  = "spike";
-	inline static const std::string kPlayerTag = "player";
-	inline static const std::string kEnemyTag  = "enemy";
-
 	PlatformerGameMode();
 
 	void RestartLevel();
@@ -27,13 +23,10 @@ public:
 
 private:	
 	inline static std::string kMainGameFontKey = "fonts/ARCADECLASSIC.TTF";
-	inline static std::string kMainMusicKey    = "sounds/main_music.wav";
 
 	bool transitioning_   = false;
 	bool restart_level_   = false;
 	bool load_next_level_ = false;
-
-	int player_death_counter_ = 0;
 
 	ni::TextFadeScreenTransition game_over_transition_;
 

@@ -1,0 +1,14 @@
+{ "columns":16,
+ "image":"..\/graphics\/Tilesheet - WOODS.png",
+ "imageheight":288,
+ "imagewidth":512,
+ "margin":0,
+ "name":"woods",
+ "spacing":0,
+ "tilecount":144,
+ "tiledversion":"1.12.1",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}
