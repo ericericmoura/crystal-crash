@@ -16,6 +16,9 @@ struct TileBlueprint
 	bool is_hill_ = false;
 	bool one_sided_collision_ = false;
 
+	std::string  image_key_ = "";
+	sf::Vector2i image_size_ = {};
+
 	PolygonBlueprint polygon_blueprint_;
 
 	inline bool operator==(const TileBlueprint& b) const
@@ -38,10 +41,13 @@ struct TileBlueprintHash
 				seed ^= h + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 			};
 
+		hash_combine(std::hash<int>{}(t.image_size_.x));
+		hash_combine(std::hash<int>{}(t.image_size_.y));
 		hash_combine(std::hash<int>{}(t.id_));
 		hash_combine(std::hash<bool>{}(t.is_hill_));
 		hash_combine(std::hash<bool>{}(t.one_sided_collision_));
 		hash_combine(PolygonBlueprintHash{}(t.polygon_blueprint_));
+		hash_combine(std::hash<std::string>{}(t.image_key_));
 
 		return seed;
 	}
@@ -51,7 +57,10 @@ inline void to_json(json& j, const TileBlueprint& tb)
 {
 	j =
 	{
-		{"id", tb.id_}
+		{"id", tb.id_},
+		{"image", tb.image_key_},
+		{"imageheight", tb.image_size_.y},
+		{"imagewidth" , tb.image_size_.x},
 	};
 
 	j["properties"] += 
@@ -75,6 +84,9 @@ inline void to_json(json& j, const TileBlueprint& tb)
 inline void from_json(const json& j, TileBlueprint& tb)
 {
 	j.at("id").get_to(tb.id_);
+	j.at("imageheight").get_to(tb.image_size_.y);
+	j.at("imagewidth" ).get_to(tb.image_size_.x);
+	j.at("image"      ).get_to(tb.image_key_   );
 
 	if (j.contains("objectgroup") && j.at("objectgroup").contains("objects") && j.at("objectgroup").at("objects").size() > 0)
 	{

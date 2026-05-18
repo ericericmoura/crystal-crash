@@ -1,28 +1,29 @@
 {
-    "activeFile": "maps/level_9/level_9.json",
+    "activeFile": "maps/level_1/level_1.json",
     "expandedProjectPaths": [
-        "maps/templates",
+        "maps/level_9",
+        "maps/level_11",
+        "maps/backup",
         "maps/level_5",
         "maps/level_12",
+        "maps/level_13",
+        "maps/backup/level_5",
+        "maps/level_1",
         "maps/backup/level_6",
-        "maps/level_15",
-        "maps/level_7",
+        "maps/level_14",
+        "maps/rules",
+        "maps/level_2",
+        "maps/templates",
+        "maps",
         "maps/level_4",
+        "tilesets",
         "maps/level_3",
         "maps/level_01",
-        "tilesets",
-        "maps/level_1",
-        "maps/level_02",
-        "maps/backup",
-        ".",
-        "maps/level_14",
-        "maps/level_11",
-        "maps/level_9",
-        "maps/level_13",
-        "maps/level_2",
-        "maps/backup/level_5",
         "maps/level_6",
-        "maps"
+        "maps/level_15",
+        "maps/level_02",
+        "maps/level_7",
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -34,8 +35,8 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 150.5,
-                "y": 157
+                "x": 246.5,
+                "y": 151.75
             }
         },
         "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/tilesets/kenney_1bit.tsx": {
@@ -125,11 +126,11 @@
             }
         },
         "maps/level_1/level_1.json": {
-            "scale": 0.75,
-            "selectedLayer": 1,
+            "scale": 0.5,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 304,
-                "y": 601.3333333333334
+                "x": 817,
+                "y": 604
             }
         },
         "maps/level_10/level_10.json": {
@@ -327,8 +328,8 @@
             "scale": 1,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 312,
-                "y": 472
+                "x": 800,
+                "y": 480.5
             }
         },
         "maps/rules/woods_hills.tmx": {
@@ -367,7 +368,9 @@
             "scaleInEditor": 4
         },
         "tilesets/objects.json": {
-            "dynamicWrapping": true
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "tilesets/transparent_tiles.json": {
             "dynamicWrapping": true,
@@ -380,7 +383,9 @@
             "scaleInEditor": 2
         },
         "tilesets/woods.json": {
-            "dynamicWrapping": false
+            "dynamicWrapping": false,
+            "scaleInDock": 2,
+            "scaleInEditor": 2
         }
     },
     "last.exportedFilePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/backup",
@@ -395,26 +400,27 @@
     "map.tileWidth": 32,
     "map.width": 50,
     "openFiles": [
+        "tilesets/woods.json",
         "maps/level_1/level_1.json",
-        "tilesets/kenney_1bit.json",
-        "maps/level_15/level_15.json",
-        "maps/level_9/level_9.json"
+        "maps/rules/woods.tmx",
+        "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
+        "tilesets/objects.json"
     ],
     "project": "game.tiled-project",
-    "property.type": "int",
+    "property.type": "list",
     "recentFiles": [
-        "maps/rules/woods_hills.tmx",
+        "tilesets/woods.json",
+        "tilesets/objects.json",
         "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
+        "maps/rules/woods.tmx",
+        "maps/level_1/level_1.json",
+        "maps/rules/woods_hills.tmx",
         "maps/rules/ground_autotile_rules_karsioriart.tmx",
         "tilesets/transparent_tiles.tsx",
         "maps/rules/ground_autotile_rules.tmx",
         "maps/rules/ground_autotile_rules - Copy.tmx",
-        "maps/level_1/level_1.json",
         "maps/level_15/level_15.json",
-        "tilesets/kenney_1bit.json",
-        "maps/level_9/level_9.json",
-        "maps/level_7/level_7.json",
-        "maps/level_6/level_6.json"
+        "tilesets/kenney_1bit.json"
     ],
     "tileset.lastUsedExportFilter": "JSON tileset files (*.tsj *.json)",
     "tileset.lastUsedFormat": "json",

@@ -8,7 +8,7 @@
 #include <NiEngine/GameMode.h>
 #include <NiEngine/ObjectTemplateBlueprint.h>
 #include <NiEngine/ObjectBlueprint.h>
-#include <SFML/Graphics/Rect.hpp>
+#include <NiEngine/TileBlueprint.h>
 
 enum ObjectTypes
 {
@@ -20,7 +20,7 @@ class PlatformerObjectFactory : public ni::ObjectFactory
 {
 private:
 	void SpawnObject   (ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type) override;
-	void SpawnSlingshot(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, std::string texture_key, sf::IntRect texture_coordinates, ni::GameMode& mode);
+	void SpawnSlingshot(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TileBlueprint& tile_blueprint, ni::GameMode& mode);
 
 	template <typename T>
 	T GetAttributeFromObject(ni::ObjectBlueprint& object, ni::ObjectTemplateBlueprint& object_template, const std::string& attribute)

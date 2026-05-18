@@ -24,6 +24,7 @@
     <ProjectGuid>{1d4ee01f-efa4-489c-9125-bbe68baddc50}</ProjectGuid>
     <RootNamespace>Game</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>CrystalCrash</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -142,6 +143,7 @@
     <ClCompile Include="PlatformerGameMode.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlatformerObjectFactory.cpp" />
+    <ClCompile Include="SlingshotUpdateComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NiEngine\NiEngine.vcxproj">
@@ -155,6 +157,7 @@
     <ClInclude Include="LevelStartBlueprint.h" />
     <ClInclude Include="PlatformerGameMode.h" />
     <ClInclude Include="PlatformerObjectFactory.h" />
+    <ClInclude Include="SlingshotUpdateComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

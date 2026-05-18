@@ -26,3 +26,13 @@ void ni::EventDispatcher::operator()(const sf::Event::KeyReleased& event)
 {
 	on_key_released_.Notify(event);
 }
+
+void ni::EventDispatcher::operator()(const sf::Event::MouseButtonPressed& event)
+{
+	on_mouse_button_pressed_.Notify(event);
+}
+
+void ni::EventDispatcher::operator()(const sf::Event::MouseButtonReleased& event)
+{
+	on_mouse_button_released_.Notify(event);
+}

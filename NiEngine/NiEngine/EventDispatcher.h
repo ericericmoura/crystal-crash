@@ -16,13 +16,18 @@ private:
 	Subject<const sf::Event::Closed&>	   on_closed_;
 	Subject<const sf::Event::KeyPressed&>  on_key_pressed_;
 	Subject<const sf::Event::KeyReleased&> on_key_released_;
+	Subject<const sf::Event::MouseButtonPressed&> on_mouse_button_pressed_;
+	Subject<const sf::Event::MouseButtonReleased&> on_mouse_button_released_;
 
 public:
 	EventDispatcher();	
-
+	
 	int OnClosed  	 (std::function<void(const sf::Event::Closed&)> callback)	   { return on_closed_.Subscribe(callback);		  };
 	int OnKeyPressed (std::function<void(const sf::Event::KeyPressed&)> callback)  { return on_key_pressed_.Subscribe(callback);  };
 	int OnKeyReleased(std::function<void(const sf::Event::KeyReleased&)> callback) { return on_key_released_.Subscribe(callback); };
+
+	int OnMouseButtonPressed (std::function<void(const sf::Event::MouseButtonPressed& )> callback) { return on_mouse_button_pressed_.Subscribe(callback);  };
+	int OnMouseButtonReleased(std::function<void(const sf::Event::MouseButtonReleased&)> callback) { return on_mouse_button_released_.Subscribe(callback); };
 
 	void RemoveKeyPressedEvent (int id) { on_key_pressed_.Remove(id);  };
 	void RemoveKeyReleasedEvent(int id) { on_key_released_.Remove(id); };
@@ -30,6 +35,8 @@ public:
 	void operator()(const sf::Event::Closed& event);
 	void operator()(const sf::Event::KeyPressed& event);
 	void operator()(const sf::Event::KeyReleased& event);
+	void operator()(const sf::Event::MouseButtonPressed & event);
+	void operator()(const sf::Event::MouseButtonReleased& event);
 
 	template <typename T>
 	void operator()(const T&) const {};

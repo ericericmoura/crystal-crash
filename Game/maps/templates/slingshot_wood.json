@@ -1,9 +1,9 @@
 { "object":
     {
-     "gid":3,
-     "height":267,
+     "gid":2,
+     "height":199,
      "id":1,
-     "name":"slingshot",
+     "name":"slingshot wood",
      "opacity":1,
      "properties":[
             {
@@ -14,7 +14,7 @@
      "rotation":0,
      "type":"",
      "visible":true,
-     "width":25
+     "width":23
     },
  "tileset":
     {
