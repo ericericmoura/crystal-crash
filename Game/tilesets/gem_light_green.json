@@ -1,0 +1,15 @@
+{ "columns":10,
+ "image":"..\/graphics\/gems\/GEM 1 - LIGHT GREEN.png",
+ "imageheight":30,
+ "imagewidth":180,
+ "margin":0,
+ "name":"gem_light_green",
+ "objectalignment":"topleft",
+ "spacing":0,
+ "tilecount":10,
+ "tiledversion":"1.12.1",
+ "tileheight":30,
+ "tilewidth":18,
+ "type":"tileset",
+ "version":"1.10"
+}

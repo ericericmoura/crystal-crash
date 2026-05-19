@@ -1,29 +1,29 @@
 {
-    "activeFile": "maps/level_1/level_1.json",
+    "activeFile": "tilesets/gems.json",
     "expandedProjectPaths": [
-        "maps/level_9",
+        "maps/level_7",
+        "maps/level_02",
         "maps/level_11",
         "maps/backup",
-        "maps/level_5",
-        "maps/level_12",
-        "maps/level_13",
-        "maps/backup/level_5",
-        "maps/level_1",
-        "maps/backup/level_6",
-        "maps/level_14",
-        "maps/rules",
-        "maps/level_2",
-        "maps/templates",
-        "maps",
-        "maps/level_4",
-        "tilesets",
         "maps/level_3",
-        "maps/level_01",
+        "maps/level_4",
+        "maps",
         "maps/level_6",
+        "maps/level_5",
+        "maps/level_2",
+        "maps/backup/level_5",
+        "maps/level_9",
         "maps/level_15",
-        "maps/level_02",
-        "maps/level_7",
-        "."
+        "maps/level_13",
+        "maps/backup/level_6",
+        "maps/level_1",
+        "tilesets",
+        ".",
+        "maps/level_12",
+        "maps/rules",
+        "maps/level_01",
+        "maps/level_14",
+        "maps/templates"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -126,11 +126,11 @@
             }
         },
         "maps/level_1/level_1.json": {
-            "scale": 0.5,
+            "scale": 1.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 817,
-                "y": 604
+                "x": 223.99999999999997,
+                "y": 666.6666666666666
             }
         },
         "maps/level_10/level_10.json": {
@@ -352,6 +352,14 @@
         "maps/transparent_tiles.tsx": {
             "dynamicWrapping": true
         },
+        "tilesets/gem_light_green.json": {
+            "dynamicWrapping": false
+        },
+        "tilesets/gems.json": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
         "tilesets/karsioriart_tiles_and_backgrounds.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1.5,
@@ -390,7 +398,7 @@
     },
     "last.exportedFilePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/backup",
     "last.externalTilesetPath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/tilesets",
-    "last.imagePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/graphics",
+    "last.imagePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/graphics/gems",
     "last.objectTemplatePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/maps/templates",
     "map.height": 30,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
@@ -402,32 +410,31 @@
     "openFiles": [
         "tilesets/woods.json",
         "maps/level_1/level_1.json",
-        "maps/rules/woods.tmx",
-        "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
-        "tilesets/objects.json"
+        "tilesets/objects.json",
+        "tilesets/gems.json"
     ],
     "project": "game.tiled-project",
-    "property.type": "list",
+    "property.type": "float",
     "recentFiles": [
-        "tilesets/woods.json",
         "tilesets/objects.json",
-        "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
-        "maps/rules/woods.tmx",
+        "tilesets/gems.json",
+        "tilesets/woods.json",
         "maps/level_1/level_1.json",
+        "maps/rules/woods.tmx",
+        "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
         "maps/rules/woods_hills.tmx",
         "maps/rules/ground_autotile_rules_karsioriart.tmx",
         "tilesets/transparent_tiles.tsx",
         "maps/rules/ground_autotile_rules.tmx",
         "maps/rules/ground_autotile_rules - Copy.tmx",
-        "maps/level_15/level_15.json",
-        "tilesets/kenney_1bit.json"
+        "maps/level_15/level_15.json"
     ],
     "tileset.lastUsedExportFilter": "JSON tileset files (*.tsj *.json)",
     "tileset.lastUsedFormat": "json",
     "tileset.spacing": 0,
     "tileset.tileSize": {
-        "height": 32,
-        "width": 32
+        "height": 30,
+        "width": 18
     },
-    "tileset.type": 1
+    "tileset.type": 0
 }

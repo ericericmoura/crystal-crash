@@ -14,6 +14,8 @@
 class PlatformerGameMode : public ni::GameMode
 {
 public:
+	inline static std::string kSlingshotAmmoTag = "slingshot_ammo";
+
 	PlatformerGameMode();
 
 	void RestartLevel();
