@@ -18,6 +18,15 @@ struct TilemapUtility
 		return result;
 	}
 
+	static sf::IntRect GetTextureBounds(sf::Vector2i coordinates, sf::Vector2i tile_size, int spacing = 0)
+	{
+		sf::IntRect result;
+		result.size = tile_size;
+		result.position.x = coordinates.x * (tile_size.x + spacing);
+		result.position.y = coordinates.y * (tile_size.y + spacing);
+		return result;
+	}
+
 	static bool IsTileEmpty(const std::vector<int>& map, sf::Vector2i map_size, sf::Vector2i tile_grid_position)
 	{
 		bool is_out_of_bounds = tile_grid_position.x < 0 || tile_grid_position.x >= map_size.x ||

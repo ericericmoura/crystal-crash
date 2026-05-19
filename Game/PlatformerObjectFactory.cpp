@@ -61,12 +61,21 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 {
 	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
 
-	auto graphics = std::make_unique<ni::AnimatedGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tileset.texture_key_), tileset.tile_size_, 1);
+	auto graphics = std::make_unique<ni::AnimatedGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tileset.texture_key_), tileset.tile_size_, 0);
+
+	ni::Animation shine;
+	shine.animation_row = 0;
+	shine.frame_count = 10;
+	shine.start_frame = 1;
+	shine.key_ = "shine";
+
+	graphics->RegisterAnimation(shine);
+	graphics->Play("shine", .2, true);
 
 	ni::TransformComponent transform;
 	transform.GetTransformable().setPosition(object.position_);
 
-	mode.GetComponentStore().RegisterTagForId(id, PlatformerGameMode::kSlingshotAmmoTag);
-	mode.GetComponentStore().AttachGraphicsComponent(id, std::move(graphics));
+	mode.GetComponentStore().RegisterTagForId        (id, PlatformerGameMode::kSlingshotAmmoTag);
+	mode.GetComponentStore().AttachGraphicsComponent (id, std::move(graphics));
 	mode.GetComponentStore().AttachTransformComponent(id, transform);
 }

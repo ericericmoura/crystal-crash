@@ -13,7 +13,7 @@ struct Animation
 
 	int GetEndFrame() const
 	{
-		return start_frame + frame_count;
+		return start_frame + frame_count - 2;
 	}
 };
 

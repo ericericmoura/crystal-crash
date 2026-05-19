@@ -86,8 +86,8 @@ void ni::AnimatedGraphicsComponent::NextFrame()
 {
 	current_frame_++;
 	if (current_frame_ < current_animation_.GetEndFrame())
-	{
-		current_frame_rect_ = TilemapUtility::GetTextureBounds({current_frame_, current_animation_.animation_row}, current_frame_rect_.size.x, 1);
+	{		
+		current_frame_rect_ = TilemapUtility::GetTextureBounds({current_frame_, current_animation_.animation_row}, current_frame_rect_.size, frame_spacing_);
 		
 		time_since_last_animation_frame_ = ni::Engine::time_elapsed;
 		return;
