@@ -1,0 +1,15 @@
+{ "columns":11,
+ "image":"..\/graphics\/gems\/GEM 3 - DARK BLUE.png",
+ "imageheight":28,
+ "imagewidth":308,
+ "margin":0,
+ "name":"gem_dark_blue",
+ "objectalignment":"topleft",
+ "spacing":0,
+ "tilecount":11,
+ "tiledversion":"1.12.1",
+ "tileheight":28,
+ "tilewidth":28,
+ "type":"tileset",
+ "version":"1.10"
+}

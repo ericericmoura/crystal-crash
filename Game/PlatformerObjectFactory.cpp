@@ -15,6 +15,7 @@
 #include <NiEngine/DataHandler.h>
 #include <NiEngine/FileUtility.h>
 #include <NiEngine/TileBlueprint.h>
+#include <NiEngine/Animation.h>
 
 #include "PlatformerGameMode.h"
 #include "SlingshotUpdateComponent.h"
@@ -65,12 +66,12 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	ni::Animation shine;
 	shine.animation_row = 0;
-	shine.frame_count = 10;
+	shine.frame_count = tileset.columns_;
 	shine.start_frame = 1;
 	shine.key_ = "shine";
 
 	graphics->RegisterAnimation(shine);
-	graphics->Play("shine", .2, true);
+	graphics->Play("shine", .15, true);
 
 	ni::TransformComponent transform;
 	transform.GetTransformable().setPosition(object.position_);

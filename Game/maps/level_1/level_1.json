@@ -32,6 +32,12 @@
                  "template":"..\/templates\/gem_light_green.json",
                  "x":128,
                  "y":768
+                }, 
+                {
+                 "id":14,
+                 "template":"..\/templates\/gem_dark_blue.json",
+                 "x":96,
+                 "y":768
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -122,7 +128,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":14,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.12.1",
@@ -147,6 +153,10 @@
         {
          "firstgid":153,
          "source":"..\/..\/tilesets\/gem_light_green.json"
+        }, 
+        {
+         "firstgid":163,
+         "source":"..\/..\/tilesets\/gem_dark_blue.json"
         }],
  "tilewidth":32,
  "type":"map",
