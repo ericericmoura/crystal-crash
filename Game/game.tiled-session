@@ -1,29 +1,29 @@
 {
-    "activeFile": "tilesets/gems.json",
+    "activeFile": "maps/level_1/level_1.json",
     "expandedProjectPaths": [
-        "maps/level_7",
-        "maps/level_02",
-        "maps/level_11",
-        "maps/backup",
-        "maps/level_3",
-        "maps/level_4",
-        "maps",
-        "maps/level_6",
-        "maps/level_5",
-        "maps/level_2",
-        "maps/backup/level_5",
-        "maps/level_9",
         "maps/level_15",
-        "maps/level_13",
-        "maps/backup/level_6",
-        "maps/level_1",
-        "tilesets",
-        ".",
-        "maps/level_12",
-        "maps/rules",
-        "maps/level_01",
+        "maps/level_9",
+        "maps/backup/level_5",
+        "maps",
+        "maps/level_5",
+        "maps/backup",
         "maps/level_14",
-        "maps/templates"
+        "maps/level_6",
+        "maps/level_01",
+        "maps/rules",
+        ".",
+        "maps/templates",
+        "maps/level_2",
+        "maps/level_11",
+        "maps/level_1",
+        "maps/level_12",
+        "maps/level_7",
+        "maps/level_4",
+        "tilesets",
+        "maps/level_02",
+        "maps/backup/level_6",
+        "maps/level_3",
+        "maps/level_13"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -129,8 +129,8 @@
             "scale": 1.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 223.99999999999997,
-                "y": 666.6666666666666
+                "x": 254.33333333333337,
+                "y": 655.3333333333333
             }
         },
         "maps/level_10/level_10.json": {
@@ -352,8 +352,14 @@
         "maps/transparent_tiles.tsx": {
             "dynamicWrapping": true
         },
+        "tilesets/gem_dark_blue.json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "tilesets/gem_light_green.json": {
-            "dynamicWrapping": false
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 4
         },
         "tilesets/gems.json": {
             "dynamicWrapping": true,
@@ -408,26 +414,25 @@
     "map.tileWidth": 32,
     "map.width": 50,
     "openFiles": [
-        "tilesets/woods.json",
         "maps/level_1/level_1.json",
-        "tilesets/objects.json",
-        "tilesets/gems.json"
+        "tilesets/gem_light_green.json",
+        "tilesets/gem_dark_blue.json"
     ],
     "project": "game.tiled-project",
     "property.type": "float",
     "recentFiles": [
+        "tilesets/gem_dark_blue.json",
+        "tilesets/gem_light_green.json",
+        "maps/level_1/level_1.json",
         "tilesets/objects.json",
         "tilesets/gems.json",
         "tilesets/woods.json",
-        "maps/level_1/level_1.json",
         "maps/rules/woods.tmx",
         "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
         "maps/rules/woods_hills.tmx",
         "maps/rules/ground_autotile_rules_karsioriart.tmx",
         "tilesets/transparent_tiles.tsx",
-        "maps/rules/ground_autotile_rules.tmx",
-        "maps/rules/ground_autotile_rules - Copy.tmx",
-        "maps/level_15/level_15.json"
+        "maps/rules/ground_autotile_rules.tmx"
     ],
     "tileset.lastUsedExportFilter": "JSON tileset files (*.tsj *.json)",
     "tileset.lastUsedFormat": "json",

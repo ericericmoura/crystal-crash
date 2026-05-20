@@ -46,8 +46,7 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 
 	object.position_.y -= tile.image_size_.y;
 
-	auto update = std::make_unique<SlingshotUpdateComponent>(mode.GetComponentStore());
-
+	auto update   = std::make_unique<SlingshotUpdateComponent>(mode.GetComponentStore(), object.position_, tile.image_size_);
 	auto graphics = std::make_unique<ni::AnimatedGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tile.image_key_), tile.image_size_, 1);
 
 	ni::TransformComponent transform;
@@ -75,6 +74,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	ni::TransformComponent transform;
 	transform.GetTransformable().setPosition(object.position_);
+	transform.GetTransformable().setOrigin({tileset.tile_size_.x / 2.0f, tileset.tile_size_.y / 2.0f });
 
 	mode.GetComponentStore().RegisterTagForId        (id, PlatformerGameMode::kSlingshotAmmoTag);
 	mode.GetComponentStore().AttachGraphicsComponent (id, std::move(graphics));
