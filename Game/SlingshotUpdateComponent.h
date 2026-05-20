@@ -21,8 +21,9 @@ public:
 	void Update() override;
 
 private:
-	bool is_dragging_ = false;
-	
+	inline static const float kMaxDragDistance = 100.0f;
+
+	bool is_dragging_       = false;
 	bool loaded_ammo_queue_ = false;
 
 	std::queue<ni::Id<ni::GameObjectTag>> ammo_queue_ = {};

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cstdint>
+#include <algorithm>
 
 #include <SFML/Window/Mouse.hpp>
 #include <SFML/Window/Event.hpp>
@@ -57,19 +58,20 @@ void SlingshotUpdateComponent::Update()
 
 	mouse_current_position_ = sf::Mouse::getPosition();
 
-	sf::Vector2f dir	= sf::Vector2f(mouse_current_position_ - mouse_start_position_);
-	float distance = dir.length();
-	float deg      = 0;
-	if (distance != 0)
+	sf::Vector2f dir = sf::Vector2f(mouse_current_position_ - mouse_start_position_);
+	if (dir.x == 0 && dir.y == 0)
 	{
-		deg = dir.angle().asDegrees();
+		return;
 	}
 
+	float distance = std::min(dir.length(), kMaxDragDistance);
 
-	
-	//std::cout << "\nmouse drag angle: "    << deg;
-	//std::cout << "\nmouse drag distance: " << distance;
-	//std::cout << "\n";
+	dir = dir.normalized();
+
+	sf::Vector2f ammo_position = initial_ammo_position_;
+	ammo_position += dir * distance;
+
+	ammo_transform->GetTransformable().setPosition(ammo_position);
 }
 
 void SlingshotUpdateComponent::Reload()
