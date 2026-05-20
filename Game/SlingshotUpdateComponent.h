@@ -21,7 +21,8 @@ public:
 	void Update() override;
 
 private:
-	inline static const float kMaxDragDistance = 100.0f;
+	inline static const float kMaxDragDistance  = 100.0f;
+	inline static const float kMinMouseDistance = 20.0f;
 
 	bool is_dragging_       = false;
 	bool loaded_ammo_queue_ = false;
@@ -30,8 +31,8 @@ private:
 
 	ni::Id<ni::GameObjectTag> current_ammo_id_ = {};
 
-	sf::Vector2i mouse_start_position_   = {};
-	sf::Vector2i mouse_current_position_ = {};
+	sf::Vector2f mouse_start_position_   = {};
+	sf::Vector2f mouse_current_position_ = {};
 
 	sf::Vector2f initial_ammo_position_ = {};
 

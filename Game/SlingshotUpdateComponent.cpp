@@ -13,6 +13,7 @@
 #include <NiEngine/TransformComponent.h>
 
 #include "PlatformerGameMode.h"
+#include <NiEngine/GameMode.h>
 
 SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& component_locator, sf::Vector2f start_position, sf::Vector2i sprite_size) : ni::UpdateComponent(component_locator)
 {
@@ -22,8 +23,15 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonPressed([this](const sf::Event::MouseButtonPressed& event) {
 		if (event.button == sf::Mouse::Button::Left)
 		{
+			mouse_start_position_ = ni::GameMode::GetMousePositionInWorldCoordinates();
+
+			if (mouse_start_position_.x - kMinMouseDistance > initial_ammo_position_.x ||
+				(mouse_start_position_ - initial_ammo_position_).length() > kMinMouseDistance)
+			{
+				return;
+			}
+
 			is_dragging_ = true;
-			mouse_start_position_ = sf::Mouse::getPosition();
 		}
 	});
 
@@ -31,6 +39,9 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 		if (event.button == sf::Mouse::Button::Left)
 		{
 			is_dragging_ = false;
+
+			ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
+			ammo_transform->GetTransformable().setPosition(initial_ammo_position_);
 		}
 	});
 }
@@ -52,13 +63,13 @@ void SlingshotUpdateComponent::Update()
 	if (current_ammo_id_.id_ == UINT32_MAX)
 	{
 		Reload();
-	}
+	}	
 
 	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);	
 
-	mouse_current_position_ = sf::Mouse::getPosition();
+	mouse_current_position_ = ni::GameMode::GetMousePositionInWorldCoordinates();
 
-	sf::Vector2f dir = sf::Vector2f(mouse_current_position_ - mouse_start_position_);
+	sf::Vector2f dir = mouse_current_position_ - mouse_start_position_;
 	if (dir.x == 0 && dir.y == 0)
 	{
 		return;

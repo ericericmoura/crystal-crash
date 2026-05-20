@@ -112,6 +112,8 @@ void PlatformerGameMode::Update(ni::GameModeController& controller)
 
 void PlatformerGameMode::Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store)
 {
+	ni::GameMode::Render(target, states, store);
+
 	world_camera_.ApplyTo(target);
 
 	level_.RenderTilemap(target, states, store);

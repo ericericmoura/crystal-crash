@@ -59,17 +59,4 @@ void ni::GameMode::Update(GameModeController& controller)
 void ni::GameMode::Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store)
 {	
 	mouse_position_in_world_coodinates_ = world_camera_.GetCoordinatesFromPixel(target, sf::Mouse::getPosition());
-
-	world_camera_.ApplyTo(target);
-
-	level_.RenderTilemap(target, states, store);
-	component_store_.Render(target, states, store);
-
-	transitions_camera_.ApplyTo(target);
-
-	if (current_transition_)
-	{
-		current_transition_->Render(target, states, store);
-	}
-	engine_title_transition_.Render(target, states, store);
 }
