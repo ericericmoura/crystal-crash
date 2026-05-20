@@ -2,10 +2,10 @@
 
 #include <memory>
 
-#include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
-#include <NiEngine/BitmapStore.h>
+#include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 #include <NiEngine/ComponentStore.h>
 #include <NiEngine/Id.h>
 #include <NiEngine/GameObjectTag.h>
@@ -15,6 +15,8 @@
 #include <NiEngine/TextFadeScreenTransition.h>
 #include <NiEngine/Camera.h>
 
+#include "BitmapStore.h"
+
 namespace ni {
 
 class GameModeController;
@@ -22,6 +24,8 @@ class GameModeController;
 class GameMode
 {
 private:
+	inline static sf::Vector2f mouse_position_in_world_coodinates_ = {};
+
 	Id<GameObjectTag> current_game_object_id_{ 0 };
 
 	bool box2d_enabled = false;
@@ -44,6 +48,11 @@ protected:
 
 public:
 	GameMode();
+
+	static sf::Vector2f GetMousePositionInWorldCoordinates() 
+	{
+		return mouse_position_in_world_coodinates_;
+	}
 
 	ComponentStore& GetComponentStore()
 	{

@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
-
+#include <SFML/Window/Mouse.hpp>
 #include <NiEngine/BitmapStore.h>
 #include <NiEngine/GameModeController.h>
 
@@ -58,6 +58,8 @@ void ni::GameMode::Update(GameModeController& controller)
 
 void ni::GameMode::Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store)
 {	
+	mouse_position_in_world_coodinates_ = world_camera_.GetCoordinatesFromPixel(target, sf::Mouse::getPosition());
+
 	world_camera_.ApplyTo(target);
 
 	level_.RenderTilemap(target, states, store);
