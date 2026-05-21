@@ -137,6 +137,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="NiEngine\DynamicBodyPhysicsComponent.h" />
     <ClInclude Include="NiEngine\HitboxComponent.h" />
     <ClInclude Include="NiEngine\Container.h" />
     <ClInclude Include="NiEngine\Level.h" />
@@ -196,6 +197,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\DynamicBodyPhysicsComponent.cpp" />
     <ClCompile Include="src\HitboxComponent.cpp" />
     <ClCompile Include="src\Container.cpp" />
     <ClCompile Include="src\Panel.cpp" />

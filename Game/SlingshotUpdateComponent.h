@@ -1,5 +1,7 @@
 #pragma once
 
+#include <math_functions.h>
+
 #include <queue>
 
 #include <SFML/System/Vector2.hpp>
@@ -35,6 +37,9 @@ private:
 	sf::Vector2f mouse_current_position_ = {};
 
 	sf::Vector2f initial_ammo_position_ = {};
+
+	float  launch_force_     = 0.0f;
+	b2Vec2 launch_direction_ = {};
 
 	void Reload();
 	void LoadAmmoQueue();

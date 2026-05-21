@@ -11,9 +11,10 @@
 #include <NiEngine/ServiceLocator.h>
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/TransformComponent.h>
+#include <NiEngine/GameMode.h>
+#include <NiEngine/Converter.h>
 
 #include "PlatformerGameMode.h"
-#include <NiEngine/GameMode.h>
 
 SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& component_locator, sf::Vector2f start_position, sf::Vector2i sprite_size) : ni::UpdateComponent(component_locator)
 {
@@ -76,6 +77,9 @@ void SlingshotUpdateComponent::Update()
 	}
 
 	float distance = std::min(dir.length(), kMaxDragDistance);
+
+	launch_force_     = distance;
+	launch_direction_ = ni::Converter::PixelsToMeters(dir);
 
 	dir = dir.normalized();
 
