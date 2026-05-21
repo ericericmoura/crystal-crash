@@ -106,7 +106,7 @@ void ni::Level::LoadLevel(int index)
 		{
 			continue;
 		}
-		tilemap_.LoadTiles(layer_blueprint, tileset_blueprints_);
+		tilemap_.LoadTiles(layer_blueprint, tileset_blueprints_);		
 	}
 }
 

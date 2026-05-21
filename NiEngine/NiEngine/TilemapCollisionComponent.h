@@ -2,6 +2,7 @@
 
 #include <id.h>
 #include <math_functions.h>
+#include <box2d.h>
 
 #include <vector>
 #include <unordered_map>
@@ -25,7 +26,8 @@ using EdgesMap = std::unordered_map<sf::Vector2i, sf::Vector2i, Vector2iHash>;
 class TilemapCollisionComponent
 {
 private:
-	b2BodyId body_id_ = {};
+	b2WorldId world_id_ = {};
+	b2BodyId  body_id_  = {};
 
 	EdgesMap exposed_edges_   = {};
 	EdgesMap one_sided_edges_ = {};
@@ -43,7 +45,14 @@ public:
 	{
 		exposed_edges_ = {};
 		one_sided_edges_ = {};
-		body_id_ = {};
+
+		b2ShapeId shapes[2]{};
+		int count = b2Body_GetShapes(body_id_, shapes, 2);
+
+		for (int i = 0; i < count; ++i)
+		{
+			b2DestroyShape(shapes[i], false);
+		}
 	}
 
 	void AddTile(sf::Vector2i grid_position, int tile_gid, const TilesetBlueprint& tileset, const LayerBlueprint& layer, sf::Vector2i map_size, sf::Vector2i tile_size);

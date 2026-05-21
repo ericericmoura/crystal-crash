@@ -1,5 +1,9 @@
 #include "PlatformerGameMode.h"
 
+#include <id.h>
+#include <types.h>
+#include <box2d.h>
+
 #include <memory>
 #include <utility>
 #include <format>
@@ -22,12 +26,14 @@
 #include "PlatformerObjectFactory.h"
 
 PlatformerGameMode::PlatformerGameMode() : hud_(sf::Color::Black, {20, 0}, { 20, 15 }, false, 2, {0, 0})
-{	
+{		
+	// Map configuration
 	ni::DataHandler<LevelStartBlueprint> config_handler("maps/config.json");
 	ni::Converter::pixels_per_meters_ = 32;
 
 	LevelStartBlueprint config = config_handler.GetBlueprint();
 
+	// UI configuration
 	auto level_text = std::make_unique<ni::Text>(kMainGameFontKey, std::format("Level {}", config.start_level_), sf::Color::White, 30);
 	level_text->SetTextOutline(2, sf::Color::Black);
 	int text_component_index = hud_.AddComponent(std::move(level_text));
@@ -36,14 +42,33 @@ PlatformerGameMode::PlatformerGameMode() : hud_(sf::Color::Black, {20, 0}, { 20,
 	deaths_text->SetTextOutline(2, sf::Color::Black);
 	int death_text_component_index = hud_.AddComponent(std::move(deaths_text));
 
+	// Physics configuration
+
+	SetBox2dEnabled(true);
+
+	b2WorldDef world_def = b2DefaultWorldDef();
+	world_def.gravity = { 0, 9.8f };
+
+	b2WorldId world_id = b2CreateWorld(&world_def);
+
+	GetPhysicsEngine().CreateWorld(world_def);
+
 	auto factory = std::make_unique<PlatformerObjectFactory>();
 	factory->SetWorldId(GetPhysicsEngine().GetWorldId());
 
+	level_.EnableTilemapCollisions(GetPhysicsEngine().GetWorldId());
 	level_.RegisterObjectFactory(std::move(factory));
 	level_.SetTotalLevelCount   (config.total_level_count_);
 	level_.LoadLevelByIndex     (*this, config.start_level_);
 	world_camera_.FitTo(level_.GetCurrentTilemap().GetBounds());
 
+	level_.OnLastLevelFinished([this]() {
+		paused_ = true;
+		game_over_transition_.Play();
+		game_over_transition_.StopHalfway();
+	});
+
+	// Transition config
 	game_over_transition_   .Init(2, "Game   Over!", kMainGameFontKey, 50, sf::Color::White, sf::Color::Black, transitions_camera_.GetView().getSize());
 	
 	if (!config.skip_intro_)
@@ -81,11 +106,6 @@ PlatformerGameMode::PlatformerGameMode() : hud_(sf::Color::Black, {20, 0}, { 20,
 	});	
 	current_transition_->OnTransitionFinished([this]() {
 		transitioning_ = false;
-	});
-	level_.OnLastLevelFinished([this]() {
-		paused_ = true;
-		game_over_transition_.Play();
-		game_over_transition_.StopHalfway();
 	});
 }
 

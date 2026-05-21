@@ -13,7 +13,6 @@
 #include <NiEngine/LayerBlueprint.h>
 #include <NiEngine/TilesetBlueprint.h>
 #include <NiEngine/TileBlueprint.h>
-#include <NiEngine/Tilemap.h>
 #include <NiEngine/CollisionBits.h>
 #include <NiEngine/TilemapUtility.h>
 

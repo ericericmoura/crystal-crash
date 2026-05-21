@@ -60,6 +60,7 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 			b2Vec2 velocity = launch_direction_ * (1 * (launch_force_ / 100));
 
 			b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
+			ammo_physics->Activate();
 		}
 	});
 }

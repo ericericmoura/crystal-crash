@@ -4,6 +4,8 @@
 #include <box2d.h>
 #include <math_functions.h>
 
+#include <iostream>
+
 #include <SFML/System/Vector2.hpp>
 #include <NiEngine/Converter.h>
 #include <NiEngine/TransformComponent.h>

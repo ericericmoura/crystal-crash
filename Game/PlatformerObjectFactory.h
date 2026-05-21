@@ -21,7 +21,7 @@ enum ObjectTypes
 class PlatformerObjectFactory : public ni::ObjectFactory
 {
 public:
-	void SetWorldId(b2WorldId world_id) const { world_id_ = world_id; }
+	void SetWorldId(b2WorldId world_id) { world_id_ = world_id; }
 
 private:
 	b2WorldId world_id_;
