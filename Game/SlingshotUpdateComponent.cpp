@@ -57,10 +57,10 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 			b2Body_SetTransform(ammo_physics->GetBodyId(), ni::Converter::PixelsToMeters(ammo_transform->GetTransformable().getPosition()), b2Rot_identity);
 
 			launch_direction_ *= -1;
-			b2Vec2 velocity = launch_direction_ * (1 * (launch_force_ / 100));
+			b2Vec2 velocity = launch_direction_ * 20;
 
-			b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
 			ammo_physics->Activate();
+			b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
 		}
 	});
 }

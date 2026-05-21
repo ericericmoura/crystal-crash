@@ -87,7 +87,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	b2Circle circle{};
 	circle.radius =   circle_radius;
-	circle.center = { circle_radius/2.0f, circle_radius/2.0f };
+	circle.center = { 0, 0 };
 
 	b2CreateCircleShape(body_id, &projectile_shape_def, &circle);
 
