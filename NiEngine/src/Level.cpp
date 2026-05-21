@@ -7,6 +7,7 @@
 #include <vector>
 #include <utility>
 #include <format>
+#include <memory>
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -57,6 +58,8 @@ void ni::Level::LoadLevelByIndex(GameMode& mode, int index)
 	current_level_ = index;
 	ReloadLevel(mode);
 }
+
+
 
 void ni::Level::EnableTilemapCollisions(b2WorldId world_id)
 {

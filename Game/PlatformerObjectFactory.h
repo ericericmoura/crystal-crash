@@ -1,5 +1,7 @@
 #pragma once
 
+#include <id.h>
+
 #include <vector>
 #include <string>
 
@@ -8,7 +10,6 @@
 #include <NiEngine/GameMode.h>
 #include <NiEngine/ObjectTemplateBlueprint.h>
 #include <NiEngine/ObjectBlueprint.h>
-#include <NiEngine/TileBlueprint.h>
 
 enum ObjectTypes
 {
@@ -19,7 +20,12 @@ enum ObjectTypes
 
 class PlatformerObjectFactory : public ni::ObjectFactory
 {
+public:
+	void SetWorldId(b2WorldId world_id) const { world_id_ = world_id; }
+
 private:
+	b2WorldId world_id_;
+
 	void SpawnObject   (ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type) override;
 	void SpawnSlingshot(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode);
 	void SpawnAmmo     (ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode);

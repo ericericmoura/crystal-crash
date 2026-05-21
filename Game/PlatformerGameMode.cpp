@@ -37,6 +37,8 @@ PlatformerGameMode::PlatformerGameMode() : hud_(sf::Color::Black, {20, 0}, { 20,
 	int death_text_component_index = hud_.AddComponent(std::move(deaths_text));
 
 	auto factory = std::make_unique<PlatformerObjectFactory>();
+	factory->SetWorldId(GetPhysicsEngine().GetWorldId());
+
 	level_.RegisterObjectFactory(std::move(factory));
 	level_.SetTotalLevelCount   (config.total_level_count_);
 	level_.LoadLevelByIndex     (*this, config.start_level_);

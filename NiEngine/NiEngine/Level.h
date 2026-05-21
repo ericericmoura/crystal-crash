@@ -1,7 +1,5 @@
 #pragma once
 
-#include <id.h>
-
 #include <vector>
 #include <string>
 #include <memory>
@@ -36,9 +34,10 @@ public:
 
 	void SetTotalLevelCount(int count);
 
-	void ReloadLevel  (GameMode& mode);
-	void LoadNextLevel(GameMode& mode);
+	void ReloadLevel     (GameMode& mode);
+	void LoadNextLevel   (GameMode& mode);
 	void LoadLevelByIndex(GameMode& mode, int index);
+	
 	void RegisterObjectFactory(std::unique_ptr<ObjectFactory> factory);
 
 	int GetCurrentLevelIndex() const { return current_level_; }
