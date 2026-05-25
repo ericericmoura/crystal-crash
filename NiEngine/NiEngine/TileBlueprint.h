@@ -1,9 +1,11 @@
 #pragma once
 
 #include <type_traits>
+#include <string>
 
 #include <nlohmann/json.hpp>
 #include <NiEngine/PolygonBlueprint.h>
+#include <SFML/System/Vector2.hpp>
 
 using json = nlohmann::json;
 
@@ -84,9 +86,13 @@ inline void to_json(json& j, const TileBlueprint& tb)
 inline void from_json(const json& j, TileBlueprint& tb)
 {
 	j.at("id").get_to(tb.id_);
-	j.at("imageheight").get_to(tb.image_size_.y);
-	j.at("imagewidth" ).get_to(tb.image_size_.x);
-	j.at("image"      ).get_to(tb.image_key_   );
+
+	if (j.contains("image"))
+	{
+		j.at("imageheight").get_to(tb.image_size_.y);
+		j.at("imagewidth" ).get_to(tb.image_size_.x);
+		j.at("image"      ).get_to(tb.image_key_   );
+	}
 
 	if (j.contains("objectgroup") && j.at("objectgroup").contains("objects") && j.at("objectgroup").at("objects").size() > 0)
 	{

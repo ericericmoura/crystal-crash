@@ -353,6 +353,7 @@
             "dynamicWrapping": true
         },
         "tilesets/gem_dark_blue.json": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -403,7 +404,7 @@
         }
     },
     "last.exportedFilePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/backup",
-    "last.externalTilesetPath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/tilesets",
+    "last.externalTilesetPath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/tilesets",
     "last.imagePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/graphics/gems",
     "last.objectTemplatePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/maps/templates",
     "map.height": 30,
@@ -419,13 +420,13 @@
         "tilesets/gem_dark_blue.json"
     ],
     "project": "game.tiled-project",
-    "property.type": "float",
+    "property.type": "bool",
     "recentFiles": [
-        "tilesets/gem_dark_blue.json",
         "tilesets/gem_light_green.json",
+        "tilesets/gem_dark_blue.json",
+        "tilesets/gems.json",
         "maps/level_1/level_1.json",
         "tilesets/objects.json",
-        "tilesets/gems.json",
         "tilesets/woods.json",
         "maps/rules/woods.tmx",
         "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
