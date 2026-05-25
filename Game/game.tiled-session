@@ -1,29 +1,29 @@
 {
-    "activeFile": "maps/level_1/level_1.json",
+    "activeFile": "tilesets/gem_light_green.json",
     "expandedProjectPaths": [
-        "maps/level_15",
-        "maps/level_9",
-        "maps/backup/level_5",
-        "maps",
-        "maps/level_5",
-        "maps/backup",
-        "maps/level_14",
-        "maps/level_6",
-        "maps/level_01",
-        "maps/rules",
-        ".",
-        "maps/templates",
-        "maps/level_2",
-        "maps/level_11",
-        "maps/level_1",
-        "maps/level_12",
-        "maps/level_7",
-        "maps/level_4",
         "tilesets",
-        "maps/level_02",
+        "maps/rules",
+        "maps/level_1",
+        "maps/backup/level_5",
+        "maps/level_01",
+        "maps",
+        "maps/level_2",
+        "maps/level_12",
+        "maps/level_5",
         "maps/backup/level_6",
+        "maps/level_14",
+        "maps/level_15",
+        "maps/level_7",
+        "maps/templates",
+        "maps/level_13",
+        "maps/level_6",
         "maps/level_3",
-        "maps/level_13"
+        "maps/backup",
+        "maps/level_4",
+        "maps/level_11",
+        "maps/level_9",
+        "maps/level_02",
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -129,8 +129,8 @@
             "scale": 1.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 254.33333333333337,
-                "y": 655.3333333333333
+                "x": 809.3333333333333,
+                "y": 456.99999999999994
             }
         },
         "maps/level_10/level_10.json": {
@@ -355,7 +355,7 @@
         "tilesets/gem_dark_blue.json": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInEditor": 2
         },
         "tilesets/gem_light_green.json": {
             "dynamicWrapping": false,
@@ -416,18 +416,19 @@
     "map.width": 50,
     "openFiles": [
         "maps/level_1/level_1.json",
+        "tilesets/woods.json",
         "tilesets/gem_light_green.json",
         "tilesets/gem_dark_blue.json"
     ],
     "project": "game.tiled-project",
     "property.type": "bool",
     "recentFiles": [
-        "tilesets/gem_light_green.json",
-        "tilesets/gem_dark_blue.json",
-        "tilesets/gems.json",
         "maps/level_1/level_1.json",
-        "tilesets/objects.json",
         "tilesets/woods.json",
+        "tilesets/gem_dark_blue.json",
+        "tilesets/gem_light_green.json",
+        "tilesets/gems.json",
+        "tilesets/objects.json",
         "maps/rules/woods.tmx",
         "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
         "maps/rules/woods_hills.tmx",

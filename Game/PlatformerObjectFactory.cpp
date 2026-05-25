@@ -27,6 +27,8 @@
 #include "PlatformerGameMode.h"
 #include "SlingshotUpdateComponent.h"
 #include "AmmoUpdateComponent.h"
+#include <SFML/System/Vector2.hpp>
+#include <math_functions.h>
 
 void PlatformerObjectFactory::SpawnObject(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type)
 {
@@ -84,13 +86,33 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	b2BodyId body_id = b2CreateBody(world_id_, &projectile_body_def);
 
-	float circle_radius = ni::Converter::PixelsToMeters(20.0f);
+	ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
+	tile.polygon_blueprint_.offset_points_;
 
-	b2Circle circle{};
-	circle.radius =   circle_radius;
-	circle.center = { 0, 0 };
 
-	b2CreateCircleShape(body_id, &projectile_shape_def, &circle);
+	const int kVerticesCount = tile.polygon_blueprint_.offset_points_.size() + 1;
+	
+	sf::Vector2i initial_vertice = tile.polygon_blueprint_.position_;
+
+	std::vector<b2Vec2> points = {};
+	for (int i = 0; i < kVerticesCount - 1; ++i)
+	{
+		auto offset = tile.polygon_blueprint_.offset_points_.at(i);
+		auto vertice_position = initial_vertice + offset;
+
+		points.push_back(ni::Converter::PixelsToMeters(vertice_position));
+	}
+
+	b2Hull hull = b2ComputeHull(points.data(), kVerticesCount);
+	b2Polygon polygon = b2MakePolygon(&hull, 0);
+
+	polygon.centroid = 
+	{
+		ni::Converter::PixelsToMeters(tileset.tile_size_.x/2.0f), 
+		ni::Converter::PixelsToMeters(tileset.tile_size_.y/2.0f)
+	};
+
+	b2CreatePolygonShape(body_id, &projectile_shape_def, &polygon);
 
 	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
 

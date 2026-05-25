@@ -80,7 +80,7 @@ void ni::TilemapCollisionComponent::AddFullCollisionForTile(
 		if (!TilemapUtility::IsTileEmpty(layer.data_, map_size, neighbor)) continue;
 
 		sf::Vector2i start = tile_position + edge.start_offset;
-		sf::Vector2i end = tile_position + edge.end_offset;
+		sf::Vector2i end   = tile_position + edge.end_offset;
 		exposed_edges_[start] = end;
 	}
 }

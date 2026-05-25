@@ -28,15 +28,15 @@
                  "y":800
                 }, 
                 {
-                 "id":11,
-                 "template":"..\/templates\/gem_light_green.json",
-                 "x":128,
-                 "y":768
-                }, 
-                {
                  "id":14,
                  "template":"..\/templates\/gem_dark_blue.json",
                  "x":96,
+                 "y":768
+                }, 
+                {
+                 "id":15,
+                 "template":"..\/templates\/gem_dark_blue.json",
+                 "x":64,
                  "y":768
                 }],
          "opacity":1,
@@ -128,7 +128,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":15,
+ "nextobjectid":16,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.12.1",
@@ -147,15 +147,15 @@
          "source":"..\/..\/tilesets\/objects.json"
         }, 
         {
-         "firstgid":152,
+         "firstgid":151,
          "source":"..\/..\/tilesets\/gems.json"
         }, 
         {
-         "firstgid":153,
+         "firstgid":151,
          "source":"..\/..\/tilesets\/gem_light_green.json"
         }, 
         {
-         "firstgid":163,
+         "firstgid":161,
          "source":"..\/..\/tilesets\/gem_dark_blue.json"
         }],
  "tilewidth":32,
