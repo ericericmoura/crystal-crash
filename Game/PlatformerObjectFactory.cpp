@@ -26,6 +26,7 @@
 
 #include "PlatformerGameMode.h"
 #include "SlingshotUpdateComponent.h"
+#include "AmmoUpdateComponent.h"
 
 void PlatformerObjectFactory::SpawnObject(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type)
 {
@@ -91,8 +92,9 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	b2CreateCircleShape(body_id, &projectile_shape_def, &circle);
 
-	auto physics   = std::make_unique<ni::DynamicBodyPhysicsComponent>(body_id, false);
+	auto update = std::make_unique<AmmoUpdateComponent>(mode.GetComponentStore());
 
+	auto physics  = std::make_unique<ni::DynamicBodyPhysicsComponent>(body_id, false);
 	auto graphics = std::make_unique<ni::AnimatedGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tileset.texture_key_), tileset.tile_size_, 0);	
 
 	ni::Animation shine;
@@ -109,7 +111,8 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	transform.GetTransformable().setOrigin({tileset.tile_size_.x / 2.0f, tileset.tile_size_.y / 2.0f });
 
 	mode.GetComponentStore().RegisterTagForId        (id, PlatformerGameMode::kSlingshotAmmoTag);
-	mode.GetComponentStore().AttachPhysicsComponent  (id, std::move(physics));
+	mode.GetComponentStore().AttachUpdateComponent   (id, std::move(update  ));
+	mode.GetComponentStore().AttachPhysicsComponent  (id, std::move(physics ));
 	mode.GetComponentStore().AttachGraphicsComponent (id, std::move(graphics));
 	mode.GetComponentStore().AttachTransformComponent(id, transform);
 }

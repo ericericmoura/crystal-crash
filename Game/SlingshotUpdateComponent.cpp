@@ -1,9 +1,8 @@
 #include "SlingshotUpdateComponent.h"
 
 #include <math_functions.h>
-#include <box2d.h>
 
-#include <iostream>
+#include <algorithm>
 #include <cstdint>
 
 #include <SFML/Window/Mouse.hpp>
@@ -14,9 +13,8 @@
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/TransformComponent.h>
 #include <NiEngine/GameMode.h>
-#include <NiEngine/Converter.h>
-#include <NiEngine/DynamicBodyPhysicsComponent.h>
 
+#include "AmmoUpdateComponent.h"
 #include "PlatformerGameMode.h"
 
 SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& component_locator, sf::Vector2f start_position, sf::Vector2i sprite_size) : ni::UpdateComponent(component_locator)
@@ -44,23 +42,12 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 		{
 			is_dragging_ = false;
 
-			auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator_.GetPhysicsComponent(current_ammo_id_));
-			ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
+			auto ammo_update = static_cast<AmmoUpdateComponent*>(component_locator_.GetUpdateComponent(current_ammo_id_));
 
-			if (!ammo_physics || !ammo_transform)
+			if (ammo_update)
 			{
-#ifdef _DEBUG
-				std::cout << "\nAmmo physics and transform not found!!!";
-#endif // _DEBUG
-				return;
+				ammo_update->Launch(launch_direction_, launch_force_);
 			}
-			b2Body_SetTransform(ammo_physics->GetBodyId(), ni::Converter::PixelsToMeters(ammo_transform->GetTransformable().getPosition()), b2Rot_identity);
-
-			launch_direction_ *= -1;
-			b2Vec2 velocity = launch_direction_ * 20;
-
-			ammo_physics->Activate();
-			b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
 		}
 	});
 }
