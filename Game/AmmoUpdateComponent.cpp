@@ -18,7 +18,7 @@ AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni:
 	owner_id_ = owner_id;
 }
 
-void AmmoUpdateComponent::Launch(b2Vec2 direction, float impulse)
+void AmmoUpdateComponent::Launch(b2Vec2 direction, float impulse_ratio)
 {
 	auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator_.GetPhysicsComponent(owner_id_));
 	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(owner_id_);
@@ -33,7 +33,7 @@ void AmmoUpdateComponent::Launch(b2Vec2 direction, float impulse)
 	b2Body_SetTransform(ammo_physics->GetBodyId(), ni::Converter::PixelsToMeters(ammo_transform->GetTransformable().getPosition()), b2Rot_identity);
 
 	direction *= -1;
-	b2Vec2 velocity = direction * impulse;
+	b2Vec2 velocity = direction * (impulse_ratio * max_speed_);
 
 	ammo_physics->Activate();
 	b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);

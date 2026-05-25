@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <cstdint>
+#include <cmath>
 
 #include <SFML/Window/Mouse.hpp>
 #include <SFML/Window/Event.hpp>
@@ -42,11 +43,14 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 		{
 			is_dragging_ = false;
 
+			float length        = std::min (drag_distance_, kMaxDragDistance);
+			float impulse_ratio = std::sqrt(length / kMaxDragDistance);
+
 			auto ammo_update = static_cast<AmmoUpdateComponent*>(component_locator_.GetUpdateComponent(current_ammo_id_));
 
 			if (ammo_update)
 			{
-				ammo_update->Launch(launch_direction_, launch_force_);
+				ammo_update->Launch(drag_direction_, impulse_ratio);
 			}
 		}
 	});
@@ -83,9 +87,10 @@ void SlingshotUpdateComponent::Update()
 
 	float distance = std::min(dir.length(), kMaxDragDistance);
 
-	launch_force_     = distance;
+	drag_distance_ = distance;
+
 	dir = dir.normalized();
-	launch_direction_ = { dir.x, dir.y };
+	drag_direction_ = { dir.x, dir.y };
 
 	sf::Vector2f ammo_position = initial_ammo_position_;
 	ammo_position += dir * distance;

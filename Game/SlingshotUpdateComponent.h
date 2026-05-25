@@ -23,7 +23,7 @@ public:
 	void Update() override;
 
 private:
-	inline static const float kMaxDragDistance  = 100.0f;
+	inline static const float kMaxDragDistance  = 150.0f;
 	inline static const float kMinMouseDistance = 20.0f;
 
 	bool is_dragging_       = false;
@@ -38,8 +38,8 @@ private:
 
 	sf::Vector2f initial_ammo_position_ = {};
 
-	float  launch_force_     = 0.0f;
-	b2Vec2 launch_direction_ = {};
+	float  drag_distance_     = 0.0f;
+	b2Vec2 drag_direction_ = {};
 
 	void Reload();
 	void LoadAmmoQueue();

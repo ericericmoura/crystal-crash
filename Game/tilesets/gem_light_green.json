@@ -9,6 +9,67 @@
  "tilecount":10,
  "tiledversion":"1.12.1",
  "tileheight":30,
+ "tiles":[
+        {
+         "id":0,
+         "objectgroup":
+            {
+             "draworder":"index",
+             "id":2,
+             "name":"",
+             "objects":[
+                    {
+                     "height":0,
+                     "id":1,
+                     "name":"",
+                     "opacity":1,
+                     "polygon":[
+                            {
+                             "x":0,
+                             "y":0
+                            }, 
+                            {
+                             "x":4.5,
+                             "y":-7.5
+                            }, 
+                            {
+                             "x":13.5,
+                             "y":-7.5
+                            }, 
+                            {
+                             "x":18,
+                             "y":0
+                            }, 
+                            {
+                             "x":18,
+                             "y":15
+                            }, 
+                            {
+                             "x":13.5,
+                             "y":22.5
+                            }, 
+                            {
+                             "x":4.5,
+                             "y":22.5
+                            }, 
+                            {
+                             "x":0,
+                             "y":15
+                            }],
+                     "rotation":0,
+                     "type":"",
+                     "visible":true,
+                     "width":0,
+                     "x":0,
+                     "y":7.5
+                    }],
+             "opacity":1,
+             "type":"objectgroup",
+             "visible":true,
+             "x":0,
+             "y":0
+            }
+        }],
  "tilewidth":18,
  "type":"tileset",
  "version":"1.10"
