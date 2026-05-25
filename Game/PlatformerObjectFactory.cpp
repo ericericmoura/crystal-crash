@@ -92,7 +92,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	b2CreateCircleShape(body_id, &projectile_shape_def, &circle);
 
-	auto update = std::make_unique<AmmoUpdateComponent>(mode.GetComponentStore());
+	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
 
 	auto physics  = std::make_unique<ni::DynamicBodyPhysicsComponent>(body_id, false);
 	auto graphics = std::make_unique<ni::AnimatedGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tileset.texture_key_), tileset.tile_size_, 0);	
@@ -104,7 +104,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	shine.key_ = "shine";
 
 	graphics->RegisterAnimation(shine);
-	graphics->Play("shine", .15, true);
+	graphics->Play("shine", 0.15f, true);
 
 	ni::TransformComponent transform;
 	transform.GetTransformable().setPosition(object.position_);
