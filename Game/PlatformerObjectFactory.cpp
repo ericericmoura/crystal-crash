@@ -58,7 +58,7 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 	chain_transform.GetTransformable().setOrigin({ 7.0f/2.0f, 0 });
 
 	mode.GetComponentStore().AttachGraphicsComponent (chain_id, std::move(chain_graphics));
-	mode.GetComponentStore().AttachTransformComponent(chain_id, chain_transform);	
+	mode.GetComponentStore().AttachTransformComponent(chain_id, chain_transform);
 
 	// Creating Slingshot
 	int gid = object_template.tile_gid_ - tileset.first_gid_ - 1;
@@ -73,7 +73,7 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 	auto graphics = std::make_unique<ni::AnimatedGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tile.image_key_), tile.image_size_, 1);
 
 	ni::TransformComponent transform;
-	transform.GetTransformable().setPosition(object.position_);
+	transform.GetTransformable().setPosition(object.position_);	
 
 	mode.GetComponentStore().AttachUpdateComponent   (id, std::move(update));
 	mode.GetComponentStore().AttachGraphicsComponent (id, std::move(graphics));
@@ -101,7 +101,6 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
 	tile.polygon_blueprint_.offset_points_;
-
 
 	const int kVerticesCount = tile.polygon_blueprint_.offset_points_.size();
 	

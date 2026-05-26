@@ -39,8 +39,7 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 		{
 			mouse_start_position_ = ni::GameMode::GetMousePositionInWorldCoordinates();
 
-			if (mouse_start_position_.x - kMinMouseDistance > initial_ammo_position_.x ||
-				(mouse_start_position_ - initial_ammo_position_).length() > kMinMouseDistance)
+			if (mouse_start_position_.x - kMinMouseDistance > initial_ammo_position_.x || (mouse_start_position_ - initial_ammo_position_).length() > kMinMouseDistance)
 			{
 				return;
 			}
@@ -52,6 +51,10 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonReleased([this](const sf::Event::MouseButtonReleased& event) {
 		if (event.button == sf::Mouse::Button::Left)
 		{
+			if (!is_dragging_)
+			{
+				return;
+			}
 			is_dragging_ = false;
 
 			float length        = std::min (drag_distance_, kMaxDragDistance);
@@ -105,6 +108,7 @@ void SlingshotUpdateComponent::Update()
 	chain_transform->GetTransformable().setRotation(dir.angle() - sf::degrees(90));	
 
 	auto chain_graphics = static_cast<ni::StandardGraphicsComponent*>(component_locator_.GetGraphicsComponents(chain_id_).front());
+	chain_graphics->SetVisible(true);
 	chain_graphics->SetTextureFrameRect({ {0, 0}, {7, static_cast<int>(drag_distance_) } });
 
 	sf::Vector2f ammo_position = initial_ammo_position_;
@@ -124,6 +128,9 @@ void SlingshotUpdateComponent::Reload()
 
 	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
 	ammo_transform->GetTransformable().setPosition(initial_ammo_position_);
+
+	auto chain_graphics = static_cast<ni::StandardGraphicsComponent*>(component_locator_.GetGraphicsComponents(chain_id_).front());
+	chain_graphics->SetVisible(false);
 }
 
 void SlingshotUpdateComponent::LoadAmmoQueue()

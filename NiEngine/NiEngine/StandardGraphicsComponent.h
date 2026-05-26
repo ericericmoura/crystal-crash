@@ -17,9 +17,11 @@ protected:
 	std::string texture_key_;
 	sf::IntRect current_frame_rect_;
 
-	bool flip_h_   = false;
+	bool flip_h_ = false;
 	bool centered_ = false;
 	bool texture_repeat_ = false;
+
+	bool visible_ = true;
 
 	sf::Vector2i repeat_amount_;
 
@@ -30,18 +32,23 @@ public:
 	void SetOriginCentered(bool center);
 	void SetTiled(bool value);
 
-	void SetSpriteRepeating (sf::Vector2i amount);
-	
+	void SetVisible(bool value)
+	{
+		visible_ = value;
+	}
+
+	void SetSpriteRepeating(sf::Vector2i amount);
+
 	void SetTextureRepeating(bool value)
 	{
 		texture_repeat_ = value;
 	}
 
 	void SetTextureFrameRect(sf::IntRect frame_rect);
-	
+
 	sf::Vector2i GetSpriteSize() const;
 
-	virtual void Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store) override;	
+	virtual void Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store) override;
 };
 
 }

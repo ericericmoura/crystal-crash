@@ -40,6 +40,10 @@ sf::Vector2i ni::StandardGraphicsComponent::GetSpriteSize() const
 
 void ni::StandardGraphicsComponent::Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store)
 {
+	if (!visible_)
+	{
+		return;
+	}
 	bool isFrameRectValid = current_frame_rect_.size.x > 0 && current_frame_rect_.size.y > 0;
 	for (int x = 0; x <= repeat_amount_.x; ++x)
 	{
