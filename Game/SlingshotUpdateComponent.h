@@ -19,7 +19,7 @@ class ComponentLocator;
 class SlingshotUpdateComponent : public ni::UpdateComponent
 {
 public:
-	SlingshotUpdateComponent(ni::ComponentLocator& component_locator, sf::Vector2f start_position, sf::Vector2i sprite_size);
+	SlingshotUpdateComponent(ni::ComponentLocator& component_locator, sf::Vector2f start_position, sf::Vector2i sprite_size, ni::Id<ni::GameObjectTag> chain_id);
 	void Update() override;
 
 private:
@@ -28,6 +28,8 @@ private:
 
 	bool is_dragging_       = false;
 	bool loaded_ammo_queue_ = false;
+
+	ni::Id<ni::GameObjectTag> chain_id_ = {};
 
 	std::queue<ni::Id<ni::GameObjectTag>> ammo_queue_ = {};
 

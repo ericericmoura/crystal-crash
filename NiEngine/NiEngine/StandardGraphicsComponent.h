@@ -19,7 +19,7 @@ protected:
 
 	bool flip_h_   = false;
 	bool centered_ = false;
-	bool repeat_   = false;
+	bool texture_repeat_ = false;
 
 	sf::Vector2i repeat_amount_;
 
@@ -30,7 +30,14 @@ public:
 	void SetOriginCentered(bool center);
 	void SetTiled(bool value);
 
-	void SetRepeating(sf::Vector2i amount);
+	void SetSpriteRepeating (sf::Vector2i amount);
+	
+	void SetTextureRepeating(bool value)
+	{
+		texture_repeat_ = value;
+	}
+
+	void SetTextureFrameRect(sf::IntRect frame_rect);
 	
 	sf::Vector2i GetSpriteSize() const;
 

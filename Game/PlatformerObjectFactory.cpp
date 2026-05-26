@@ -4,11 +4,13 @@
 #include <box2d.h>
 #include <id.h>
 #include <collision.h>
+#include <math_functions.h>
 
 #include <vector>
 #include <memory>
 #include <utility>
 
+#include <SFML/System/Vector2.hpp>
 #include <NiEngine/TilesetBlueprint.h>
 #include <NiEngine/GameMode.h>
 #include <NiEngine/ObjectTemplateBlueprint.h>
@@ -23,12 +25,11 @@
 #include <NiEngine/Animation.h>
 #include <NiEngine/DynamicBodyPhysicsComponent.h>
 #include <NiEngine/Converter.h>
+#include <NiEngine/StandardGraphicsComponent.h>
 
 #include "PlatformerGameMode.h"
 #include "SlingshotUpdateComponent.h"
 #include "AmmoUpdateComponent.h"
-#include <SFML/System/Vector2.hpp>
-#include <math_functions.h>
 
 void PlatformerObjectFactory::SpawnObject(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type)
 {
@@ -48,6 +49,18 @@ void PlatformerObjectFactory::SpawnObject(ni::ObjectBlueprint object, ni::Object
 
 void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)
 {
+	// Creating chain
+	ni::Id<ni::GameObjectTag> chain_id = mode.CreateGameObject();
+
+	auto chain_graphics = std::make_unique<ni::StandardGraphicsComponent>("graphics/Chain - Silver.png");
+
+	ni::TransformComponent chain_transform;
+	chain_transform.GetTransformable().setOrigin({ 7.0f/2.0f, 0 });
+
+	mode.GetComponentStore().AttachGraphicsComponent (chain_id, std::move(chain_graphics));
+	mode.GetComponentStore().AttachTransformComponent(chain_id, chain_transform);	
+
+	// Creating Slingshot
 	int gid = object_template.tile_gid_ - tileset.first_gid_ - 1;
 
 	ni::TileBlueprint& tile = tileset.tiles_.at(gid);
@@ -56,7 +69,7 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 
 	object.position_.y -= tile.image_size_.y;
 
-	auto update   = std::make_unique<SlingshotUpdateComponent>(mode.GetComponentStore(), object.position_, tile.image_size_);
+	auto update   = std::make_unique<SlingshotUpdateComponent>(mode.GetComponentStore(), object.position_, tile.image_size_, chain_id);
 	auto graphics = std::make_unique<ni::AnimatedGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tile.image_key_), tile.image_size_, 1);
 
 	ni::TransformComponent transform;

@@ -23,10 +23,14 @@ void ni::StandardGraphicsComponent::SetOriginCentered(bool center)
 	centered_ = true;
 }
 
-void ni::StandardGraphicsComponent::SetRepeating(sf::Vector2i amount)
+void ni::StandardGraphicsComponent::SetSpriteRepeating(sf::Vector2i amount)
 {
-	repeat_ = true;
 	repeat_amount_ = amount;
+}
+
+void ni::StandardGraphicsComponent::SetTextureFrameRect(sf::IntRect frame_rect)
+{
+	current_frame_rect_ = frame_rect;
 }
 
 sf::Vector2i ni::StandardGraphicsComponent::GetSpriteSize() const
@@ -42,6 +46,10 @@ void ni::StandardGraphicsComponent::Render(sf::RenderTarget& target, sf::RenderS
 		for (int y = 0; y <= repeat_amount_.y; ++y)
 		{
 			sf::Sprite sprite(store.GetTexture(texture_key_));
+			if (texture_repeat_)
+			{
+				store.GetTexture(texture_key_).setRepeated(true);
+			}
 
 			sprite.scale({ flip_h_ ? -1.0f : 1.0f, 1.0f });	
 

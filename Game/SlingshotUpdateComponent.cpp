@@ -14,14 +14,25 @@
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/TransformComponent.h>
 #include <NiEngine/GameMode.h>
+#include <NiEngine/GameObjectTag.h>
+#include <NiEngine/Id.h>
+#include <NiEngine/StandardGraphicsComponent.h>
 
 #include "AmmoUpdateComponent.h"
 #include "PlatformerGameMode.h"
 
-SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& component_locator, sf::Vector2f start_position, sf::Vector2i sprite_size) : ni::UpdateComponent(component_locator)
+SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& component_locator, sf::Vector2f start_position, sf::Vector2i sprite_size, ni::Id<ni::GameObjectTag> chain_id) : ni::UpdateComponent(component_locator)
 {
+	chain_id_ = chain_id;
+
 	initial_ammo_position_    = start_position;
 	initial_ammo_position_.x += sprite_size.x / 2.0f;
+
+	ni::TransformComponent* chain_transform = component_locator_.GetTransformComponent(chain_id_);
+	chain_transform->GetTransformable().setPosition(initial_ammo_position_);
+
+	auto chain_graphics = static_cast<ni::StandardGraphicsComponent*>(component_locator_.GetGraphicsComponents(chain_id_).front());
+	chain_graphics->SetTextureRepeating(true);
 
 	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonPressed([this](const sf::Event::MouseButtonPressed& event) {
 		if (event.button == sf::Mouse::Button::Left)
@@ -89,6 +100,12 @@ void SlingshotUpdateComponent::Update()
 
 	dir = dir.normalized();
 	drag_direction_ = { dir.x, dir.y };
+
+	ni::TransformComponent* chain_transform = component_locator_.GetTransformComponent(chain_id_);
+	chain_transform->GetTransformable().setRotation(dir.angle() - sf::degrees(90));	
+
+	auto chain_graphics = static_cast<ni::StandardGraphicsComponent*>(component_locator_.GetGraphicsComponents(chain_id_).front());
+	chain_graphics->SetTextureFrameRect({ {0, 0}, {7, static_cast<int>(drag_distance_) } });
 
 	sf::Vector2f ammo_position = initial_ammo_position_;
 	ammo_position += dir * distance;
