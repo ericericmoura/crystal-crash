@@ -28,15 +28,15 @@
                  "y":800
                 }, 
                 {
-                 "id":14,
-                 "template":"..\/templates\/gem_dark_blue.json",
-                 "x":96,
+                 "id":16,
+                 "template":"..\/templates\/gem_light_green.json",
+                 "x":128,
                  "y":768
                 }, 
                 {
-                 "id":15,
-                 "template":"..\/templates\/gem_dark_blue.json",
-                 "x":64,
+                 "id":17,
+                 "template":"..\/templates\/gem_light_green.json",
+                 "x":96,
                  "y":768
                 }],
          "opacity":1,
@@ -128,7 +128,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":16,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.12.1",

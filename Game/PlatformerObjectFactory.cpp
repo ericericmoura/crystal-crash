@@ -90,27 +90,25 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	tile.polygon_blueprint_.offset_points_;
 
 
-	const int kVerticesCount = tile.polygon_blueprint_.offset_points_.size() + 1;
+	const int kVerticesCount = tile.polygon_blueprint_.offset_points_.size();
 	
 	sf::Vector2i initial_vertice = tile.polygon_blueprint_.position_;
 
+	sf::Vector2i half_size = { tileset.tile_size_.x / 2, tileset.tile_size_.y / 2 };
+
 	std::vector<b2Vec2> points = {};
-	for (int i = 0; i < kVerticesCount - 1; ++i)
+	for (int i = 0; i < kVerticesCount; ++i)
 	{
 		auto offset = tile.polygon_blueprint_.offset_points_.at(i);
 		auto vertice_position = initial_vertice + offset;
 
+		vertice_position -= half_size;
+
 		points.push_back(ni::Converter::PixelsToMeters(vertice_position));
 	}
 
-	b2Hull hull = b2ComputeHull(points.data(), kVerticesCount);
-	b2Polygon polygon = b2MakePolygon(&hull, 0);
-
-	polygon.centroid = 
-	{
-		ni::Converter::PixelsToMeters(tileset.tile_size_.x/2.0f), 
-		ni::Converter::PixelsToMeters(tileset.tile_size_.y/2.0f)
-	};
+	b2Hull hull       = b2ComputeHull(points.data(), kVerticesCount);
+	b2Polygon polygon = b2MakePolygon(&hull, 0);	
 
 	b2CreatePolygonShape(body_id, &projectile_shape_def, &polygon);
 
