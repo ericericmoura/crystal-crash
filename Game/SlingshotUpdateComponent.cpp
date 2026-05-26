@@ -51,6 +51,8 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 			if (ammo_update)
 			{
 				ammo_update->Launch(drag_direction_, impulse_ratio);
+
+				Reload();
 			}
 		}
 	});
@@ -58,13 +60,9 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 
 void SlingshotUpdateComponent::Update()
 {
-	if (ammo_queue_.empty())
+	if (ammo_queue_.empty() && !loaded_ammo_queue_)
 	{
-		if (!loaded_ammo_queue_)
-		{
-			LoadAmmoQueue();
-		}
-		else return;
+		LoadAmmoQueue();
 	}
 	if (!is_dragging_)
 	{
@@ -73,7 +71,7 @@ void SlingshotUpdateComponent::Update()
 	if (current_ammo_id_.id_ == UINT32_MAX)
 	{
 		Reload();
-	}	
+	}
 
 	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);	
 
@@ -100,8 +98,15 @@ void SlingshotUpdateComponent::Update()
 
 void SlingshotUpdateComponent::Reload()
 {
+	if (ammo_queue_.empty())
+	{
+		return;
+	}
 	current_ammo_id_ = ammo_queue_.front();
 	ammo_queue_.pop();
+
+	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
+	ammo_transform->GetTransformable().setPosition(initial_ammo_position_);
 }
 
 void SlingshotUpdateComponent::LoadAmmoQueue()
@@ -114,7 +119,4 @@ void SlingshotUpdateComponent::LoadAmmoQueue()
 	loaded_ammo_queue_ = true;
 
 	Reload();
-
-	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
-	ammo_transform->GetTransformable().setPosition(initial_ammo_position_);
 }
