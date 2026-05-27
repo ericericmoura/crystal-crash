@@ -7,11 +7,6 @@
      "opacity":1,
      "properties":[
             {
-             "name":"ammo",
-             "type":"list",
-             "value":[]
-            }, 
-            {
              "name":"type_id",
              "type":"int",
              "value":1

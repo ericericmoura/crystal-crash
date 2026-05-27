@@ -48,9 +48,6 @@
     <ClCompile Include="AmmoUpdateComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="GiantAmmoUpdateComponent.cpp">
-      <Filter>Source Files\Components</Filter>
-    </ClCompile>
     <ClCompile Include="SlingshotUpdateComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
@@ -75,9 +72,6 @@
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="AmmoUpdateComponent.h">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="GiantAmmoUpdateComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="SlingshotUpdateComponent.h">

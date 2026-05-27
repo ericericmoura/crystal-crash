@@ -17,8 +17,10 @@
 #include <NiEngine/Id.h>
 #include <NiEngine/ServiceLocator.h>
 
-AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator) : UpdateComponent(component_locator)
+AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator, float max_speed) : UpdateComponent(component_locator)
 {
+	max_speed_ = max_speed;
+
 	owner_id_ = owner_id;
 
 	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonPressed([this](const sf::Event::MouseButtonPressed& event) {

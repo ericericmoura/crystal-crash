@@ -7,9 +7,14 @@
      "opacity":1,
      "properties":[
             {
-             "name":"speed",
+             "name":"max_speed",
              "type":"float",
-             "value":5
+             "value":40
+            }, 
+            {
+             "name":"speed_multiplier",
+             "type":"float",
+             "value":2
             }, 
             {
              "name":"type_id",

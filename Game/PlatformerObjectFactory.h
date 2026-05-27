@@ -33,6 +33,13 @@ private:
 	template <typename T>
 	T GetAttributeFromObject(ni::ObjectBlueprint& object, ni::ObjectTemplateBlueprint& object_template, const std::string& attribute)
 	{
+		auto it = object_template.properties_map_.find(attribute);
+
+		if (it == object_template.properties_map_.end())
+		{
+			return {};
+		}
+
 		T result = object_template.properties_map_.at(attribute).GetValue<T>();
 
 		if (object.properties_.contains(attribute)) result = object.properties_.at(attribute).GetValue<T>();

@@ -129,11 +129,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 1.5,
-            "selectedLayer": 0,
+            "scale": 0.75,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 279,
-                "y": 872.6666666666666
+                "x": 920,
+                "y": 340
             }
         },
         "maps/level_10/level_10.json": {
@@ -328,11 +328,11 @@
             }
         },
         "maps/rules/woods.tmx": {
-            "scale": 3,
+            "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 157.83333333333331,
-                "y": 142
+                "x": 226.5,
+                "y": 186
             }
         },
         "maps/rules/woods_hills.tmx": {
@@ -424,7 +424,7 @@
         "maps/level_1/level_1.json"
     ],
     "project": "game.tiled-project",
-    "property.type": "bool",
+    "property.type": "float",
     "recentFiles": [
         "tilesets/gem_light_green.json",
         "tilesets/gem_dark_blue.json",

@@ -17,7 +17,7 @@
 class AmmoUpdateComponent : public ni::UpdateComponent
 {
 public:
-	AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator);
+	AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator, float max_speed);
 
 	void Launch(b2Vec2 direction, float impulse_ratio);
 	void Update() override;

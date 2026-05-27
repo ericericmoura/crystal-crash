@@ -87,13 +87,25 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
 
-	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
+	float max_speed = GetAttributeFromObject<float>(object, object_template, "max_speed");
+
+	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore(), max_speed);
 	
 	b2ShapeDef projectile_shape_def = update->GetAmmoShapeDefinition();
 
 	// Registering Ammo Abilities
-	update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>(1.0f));
-	update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, 2.0f, projectile_shape_def));
+
+	float speed_multiplier  = GetAttributeFromObject<float>(object, object_template, "speed_multiplier");
+	float growth_multiplier = GetAttributeFromObject<float>(object, object_template, "growth_multiplier");
+
+	if (speed_multiplier > 0)
+	{
+		update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>(speed_multiplier));
+	}
+	if (growth_multiplier > 0)
+	{
+		update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, growth_multiplier, projectile_shape_def));
+	}
 
 	// Defining the body and shape  
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();

@@ -3,13 +3,18 @@
      "gid":1,
      "height":28,
      "id":14,
-     "name":"",
+     "name":"gem - blue",
      "opacity":1,
      "properties":[
             {
-             "name":"speed",
+             "name":"growth_multiplier",
              "type":"float",
-             "value":5
+             "value":2
+            }, 
+            {
+             "name":"max_speed",
+             "type":"float",
+             "value":30
             }, 
             {
              "name":"type_id",
