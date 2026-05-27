@@ -54,8 +54,11 @@
     <ClCompile Include="SlingshotUpdateComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="GrowthAmmoAbility.cpp">
+      <Filter>Source Files\Components\Ammo Abilities</Filter>
+    </ClCompile>
     <ClCompile Include="ImpulseAmmoAbility.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components\Ammo Abilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,8 +86,11 @@
     <ClInclude Include="AmmoAbility.h">
       <Filter>Header Files\Components\Ammo Abilities</Filter>
     </ClInclude>
+    <ClInclude Include="GrowthAmmoAbility.h">
+      <Filter>Header Files\Components\Ammo Abilities</Filter>
+    </ClInclude>
     <ClInclude Include="ImpulseAmmoAbility.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components\Ammo Abilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -30,6 +30,7 @@
 #include "SlingshotUpdateComponent.h"
 #include "AmmoUpdateComponent.h"
 #include "ImpulseAmmoAbility.h"
+#include "GrowthAmmoAbility.h"
 
 void PlatformerObjectFactory::SpawnObject(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type)
 {
@@ -82,12 +83,17 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 
 void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)
 {
+	ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
+
 	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
 
 	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
+	
+	b2ShapeDef projectile_shape_def = update->GetAmmoShapeDefinition();
 
 	// Registering Ammo Abilities
 	update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>(3.0f));
+	update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, 3.0f, projectile_shape_def));
 
 	// Defining the body and shape  
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();
@@ -97,12 +103,8 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	projectile_body_def.linearDamping = 0.05f;
 	projectile_body_def.enableSleep   = true;
 
-	b2ShapeDef projectile_shape_def = update->GetAmmoShapeDefinition();
 
-	b2BodyId body_id = b2CreateBody(world_id_, &projectile_body_def);
-
-	ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
-	tile.polygon_blueprint_.offset_points_;
+	b2BodyId body_id = b2CreateBody(world_id_, &projectile_body_def);	
 
 	b2Polygon polygon = ni::PolygonUtility::CreatePolygonFromOffsetPoints(tile.polygon_blueprint_, tileset.tile_size_);
 
