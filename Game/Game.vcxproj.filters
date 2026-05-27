@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Components">
       <UniqueIdentifier>{166f42a6-1ea2-430d-83e7-623e2864921c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Components\Ammo Abilities">
+      <UniqueIdentifier>{35c658bc-4a63-41e1-be7d-63eb30e0aab4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Ammo Abilities">
+      <UniqueIdentifier>{3394fc1b-cbd3-4882-8a2d-c984fc6396a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -36,13 +42,19 @@
     <ClCompile Include="PlatformerObjectFactory.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="SlingshotUpdateComponent.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AmmoAbility.cpp">
+      <Filter>Source Files\Components\Ammo Abilities</Filter>
     </ClCompile>
     <ClCompile Include="AmmoUpdateComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="GiantAmmoUpdateComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SlingshotUpdateComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ImpulseAmmoAbility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,13 +71,19 @@
     <ClInclude Include="LevelStartBlueprint.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="SlingshotUpdateComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AmmoUpdateComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="GiantAmmoUpdateComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SlingshotUpdateComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="AmmoAbility.h">
+      <Filter>Header Files\Components\Ammo Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ImpulseAmmoAbility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

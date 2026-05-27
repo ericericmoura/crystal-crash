@@ -140,8 +140,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AmmoAbility.cpp" />
     <ClCompile Include="AmmoUpdateComponent.cpp" />
     <ClCompile Include="GiantAmmoUpdateComponent.cpp" />
+    <ClCompile Include="ImpulseAmmoAbility.cpp" />
     <ClCompile Include="PlatformerGameMode.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlatformerObjectFactory.cpp" />
@@ -156,8 +158,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AmmoAbility.h" />
     <ClInclude Include="AmmoUpdateComponent.h" />
     <ClInclude Include="GiantAmmoUpdateComponent.h" />
+    <ClInclude Include="ImpulseAmmoAbility.h" />
     <ClInclude Include="LevelStartBlueprint.h" />
     <ClInclude Include="PlatformerGameMode.h" />
     <ClInclude Include="PlatformerObjectFactory.h" />
