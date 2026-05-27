@@ -81,9 +81,11 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 
 void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)
 {
-	// Defining the body and shape
 	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
 
+	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
+
+	// Defining the body and shape
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();
 	projectile_body_def.type          = b2_dynamicBody;
 	projectile_body_def.isBullet      = true;
@@ -91,11 +93,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	projectile_body_def.linearDamping = 0.05f;
 	projectile_body_def.enableSleep   = true;
 
-	b2ShapeDef projectile_shape_def           = b2DefaultShapeDef();
-	projectile_shape_def.density              = 10.0f;
-	projectile_shape_def.material.restitution = 0.25f;
-	projectile_shape_def.material.friction    = 0.3f;
-	projectile_shape_def.enableHitEvents      = true;
+	b2ShapeDef projectile_shape_def = update->GetAmmoShapeDefinition();
 
 	b2BodyId body_id = b2CreateBody(world_id_, &projectile_body_def);
 
@@ -106,9 +104,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	b2CreatePolygonShape(body_id, &projectile_shape_def, &polygon);
 
-	// Creating components
-	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
-
+	// Creating components	
 	auto physics  = std::make_unique<ni::DynamicBodyPhysicsComponent>(body_id, false);
 	auto graphics = std::make_unique<ni::AnimatedGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tileset.texture_key_), tileset.tile_size_, 0);	
 

@@ -2,9 +2,12 @@
 
 #include <box2d.h>
 #include <math_functions.h>
+#include <types.h>
 
 #include <iostream>
 
+#include <SFML/Window/Event.hpp>
+#include <SFML/Window/Mouse.hpp>
 #include <NiEngine/DynamicBodyPhysicsComponent.h>
 #include <NiEngine/Converter.h>
 #include <NiEngine/TransformComponent.h>
@@ -13,8 +16,6 @@
 #include <NiEngine/GameObjectTag.h>
 #include <NiEngine/Id.h>
 #include <NiEngine/ServiceLocator.h>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Window/Mouse.hpp>
 
 AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator) : UpdateComponent(component_locator)
 {
@@ -55,6 +56,16 @@ void AmmoUpdateComponent::Launch(b2Vec2 direction, float impulse_ratio)
 
 void AmmoUpdateComponent::Update()
 {
+}
+
+b2ShapeDef AmmoUpdateComponent::GetAmmoShapeDefinition()
+{
+	b2ShapeDef projectile_shape_def = b2DefaultShapeDef();
+	projectile_shape_def.density = 10.0f;
+	projectile_shape_def.material.restitution = 0.25f;
+	projectile_shape_def.material.friction = 0.3f;
+	projectile_shape_def.enableHitEvents = true;
+	return projectile_shape_def;
 }
 
 void AmmoUpdateComponent::ActivateAbility()

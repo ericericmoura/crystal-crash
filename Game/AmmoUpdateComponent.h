@@ -6,6 +6,7 @@
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/GameObjectTag.h>
 #include <NiEngine/Id.h>
+#include <types.h>
 
 class AmmoUpdateComponent : public ni::UpdateComponent
 {
@@ -14,6 +15,8 @@ public:
 
 	void Launch(b2Vec2 direction, float impulse_ratio);
 	void Update() override;
+
+	b2ShapeDef GetAmmoShapeDefinition();
 
 private:
 	float max_speed_ = 40.0f;
