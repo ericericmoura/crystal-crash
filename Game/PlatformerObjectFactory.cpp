@@ -92,8 +92,8 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	b2ShapeDef projectile_shape_def = update->GetAmmoShapeDefinition();
 
 	// Registering Ammo Abilities
-	update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>(3.0f));
-	update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, 3.0f, projectile_shape_def));
+	update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>(1.0f));
+	update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, 2.0f, projectile_shape_def));
 
 	// Defining the body and shape  
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();
@@ -102,7 +102,6 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	projectile_body_def.gravityScale  = 2.0f;
 	projectile_body_def.linearDamping = 0.05f;
 	projectile_body_def.enableSleep   = true;
-
 
 	b2BodyId body_id = b2CreateBody(world_id_, &projectile_body_def);	
 

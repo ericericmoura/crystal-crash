@@ -26,7 +26,7 @@ void GrowthAmmoAbility::Activate(ni::ComponentLocator& component_locator, ni::Id
 {
 	auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator.GetPhysicsComponent(ammo_id));
 
-	b2ShapeId* shape_array = nullptr;
+	b2ShapeId shape_array[1];
 	b2Body_GetShapes(ammo_physics->GetBodyId(), shape_array, 1);
 
 	if (shape_array)
@@ -37,6 +37,8 @@ void GrowthAmmoAbility::Activate(ni::ComponentLocator& component_locator, ni::Id
 	b2Polygon polygon = ni::PolygonUtility::CreatePolygonFromOffsetPoints(polygon_blueprint_, tile_size_, growth_multiplier_);
 	b2CreatePolygonShape(ammo_physics->GetBodyId(), &shape_definition_, &polygon);
 
+	b2Body_ApplyMassFromShapes(ammo_physics->GetBodyId());
+
 	ni::TransformComponent* ammo_transform = component_locator.GetTransformComponent(ammo_id);
-	ammo_transform->GetTransformable().setScale({ growth_multiplier_, growth_multiplier_ });
+	ammo_transform->GetTransformable().setScale({ growth_multiplier_, growth_multiplier_ });	
 }
