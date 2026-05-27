@@ -68,11 +68,10 @@ b2ShapeDef AmmoUpdateComponent::GetAmmoShapeDefinition()
 	return projectile_shape_def;
 }
 
-void AmmoUpdateComponent::ActivateAbility()
+void AmmoUpdateComponent::ActivateAbilities()
 {
-	auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator_.GetPhysicsComponent(owner_id_));
-
-	b2Vec2 velocity = b2Body_GetLinearVelocity(ammo_physics->GetBodyId());
-	velocity *= 3;
-	b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
+	for (auto& ability : ammo_abilities_)
+	{
+		ability->Activate(component_locator_, owner_id_);
+	}
 }

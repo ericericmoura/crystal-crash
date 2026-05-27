@@ -29,6 +29,7 @@
 #include "PlatformerGameMode.h"
 #include "SlingshotUpdateComponent.h"
 #include "AmmoUpdateComponent.h"
+#include "ImpulseAmmoAbility.h"
 
 void PlatformerObjectFactory::SpawnObject(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type)
 {
@@ -85,7 +86,10 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 
 	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
 
-	// Defining the body and shape
+	// Registering Ammo Abilities
+	update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>());
+
+	// Defining the body and shape  
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();
 	projectile_body_def.type          = b2_dynamicBody;
 	projectile_body_def.isBullet      = true;
