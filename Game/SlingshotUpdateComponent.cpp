@@ -33,6 +33,12 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 
 	auto chain_graphics = static_cast<ni::StandardGraphicsComponent*>(component_locator_.GetGraphicsComponents(chain_id_).front());
 	chain_graphics->SetTextureRepeating(true);
+	chain_graphics->SetVisible(false);
+
+	chain_graphics->SetTextureFrameRect({ {0, 0}, {7, 0 } });
+
+	drag_distance_  = 0;
+	drag_direction_ = { 0, 0 };
 
 	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonPressed([this](const sf::Event::MouseButtonPressed& event) {
 		if (event.button == sf::Mouse::Button::Left)
@@ -63,10 +69,16 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 			auto ammo_update = static_cast<AmmoUpdateComponent*>(component_locator_.GetUpdateComponent(current_ammo_id_));
 
 			if (ammo_update)
-			{
+			{				
 				ammo_update->Launch(drag_direction_, impulse_ratio);
 
 				Reload();
+
+				drag_distance_  = 0;
+				drag_direction_ = { 0, 0 };	
+
+				auto chain_graphics = static_cast<ni::StandardGraphicsComponent*>(component_locator_.GetGraphicsComponents(chain_id_).front());
+				chain_graphics->SetVisible(false);
 			}
 		}
 	});
@@ -127,10 +139,7 @@ void SlingshotUpdateComponent::Reload()
 	ammo_queue_.pop();
 
 	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
-	ammo_transform->GetTransformable().setPosition(initial_ammo_position_);
-
-	auto chain_graphics = static_cast<ni::StandardGraphicsComponent*>(component_locator_.GetGraphicsComponents(chain_id_).front());
-	chain_graphics->SetVisible(false);
+	ammo_transform->GetTransformable().setPosition(initial_ammo_position_);		
 }
 
 void SlingshotUpdateComponent::LoadAmmoQueue()
