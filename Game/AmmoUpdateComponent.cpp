@@ -24,9 +24,9 @@ AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni:
 	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonPressed([this](const sf::Event::MouseButtonPressed& event) {
 		if (active_ && !ability_used_ && event.button == sf::Mouse::Button::Left)
 		{ 
-			ActivateAbility();
-
 			ability_used_ = true;
+
+			ActivateAbilities();
 		}
 	});
 }

@@ -198,7 +198,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\PolygonUtility.cpp" />
     <ClCompile Include="src\DynamicBodyPhysicsComponent.cpp" />
     <ClCompile Include="src\HitboxComponent.cpp" />
     <ClCompile Include="src\Container.cpp" />

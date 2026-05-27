@@ -346,26 +346,23 @@
     <ClCompile Include="src\TextFadeScreenTransition.cpp">
       <Filter>Source Files\Engine\Rendering\Transitions</Filter>
     </ClCompile>
-    <ClCompile Include="src\Panel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\HUDComponent.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="src\Container.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="src\Text.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\HitboxComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components\Entity</Filter>
     </ClCompile>
     <ClCompile Include="src\DynamicBodyPhysicsComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="src\PolygonUtility.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Panel.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Text.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

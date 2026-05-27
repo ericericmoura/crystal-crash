@@ -13,6 +13,6 @@ public:
 	void Activate(ni::ComponentLocator& component_locator, ni::Id<ni::GameObjectTag> ammo_id) override;
 
 private:
-	float impulse_multiplier_ = 3.0f;
+	float impulse_multiplier_ = 0;
 };
 

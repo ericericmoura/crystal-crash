@@ -15,18 +15,18 @@ namespace ni
 
 struct PolygonUtility
 {
-	static b2Polygon CreatePolygonFromOffsetPoints(PolygonBlueprint polygon, sf::Vector2i polygon_size)
+	static b2Polygon CreatePolygonFromOffsetPoints(PolygonBlueprint polygon_blueprint, sf::Vector2i polygon_size)
 	{
-		const int kVerticesCount = polygon.offset_points_.size();
+		const int kVerticesCount = polygon_blueprint.offset_points_.size();
 
-		sf::Vector2i initial_vertice = polygon.position_;
+		sf::Vector2i initial_vertice = polygon_blueprint.position_;
 
 		sf::Vector2i half_size = { polygon_size.x / 2, polygon_size.y / 2 };
 
 		std::vector<b2Vec2> points = {};
 		for (int i = 0; i < kVerticesCount; ++i)
 		{
-			auto offset = polygon.offset_points_.at(i);
+			auto offset = polygon_blueprint.offset_points_.at(i);
 			auto vertice_position = initial_vertice + offset;
 
 			vertice_position -= half_size;
@@ -35,7 +35,7 @@ struct PolygonUtility
 		}
 
 		b2Hull hull = b2ComputeHull(points.data(), kVerticesCount);
-		b2Polygon polygon = b2MakePolygon(&hull, 0);
+		return b2MakePolygon(&hull, 0);
 	}
 };
 

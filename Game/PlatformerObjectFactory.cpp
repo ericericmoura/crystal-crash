@@ -87,7 +87,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
 
 	// Registering Ammo Abilities
-	update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>());
+	update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>(3.0f));
 
 	// Defining the body and shape  
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();
