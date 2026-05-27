@@ -35,12 +35,11 @@ private:
 	{
 		auto it = object_template.properties_map_.find(attribute);
 
-		if (it == object_template.properties_map_.end())
+		T result{};
+		if (it != object_template.properties_map_.end())
 		{
-			return {};
+			result = object_template.properties_map_.at(attribute).GetValue<T>();
 		}
-
-		T result = object_template.properties_map_.at(attribute).GetValue<T>();
 
 		if (object.properties_.contains(attribute)) result = object.properties_.at(attribute).GetValue<T>();
 
