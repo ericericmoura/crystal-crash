@@ -192,11 +192,13 @@
     <ClInclude Include="NiEngine\TextFadeScreenTransition.h" />
     <ClInclude Include="NiEngine\HUDComponent.h" />
     <ClInclude Include="NiEngine\Text.h" />
+    <ClInclude Include="NiEngine\PolygonUtility.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PolygonUtility.cpp" />
     <ClCompile Include="src\DynamicBodyPhysicsComponent.cpp" />
     <ClCompile Include="src\HitboxComponent.cpp" />
     <ClCompile Include="src\Container.cpp" />

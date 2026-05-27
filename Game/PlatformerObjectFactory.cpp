@@ -4,7 +4,6 @@
 #include <box2d.h>
 #include <id.h>
 #include <collision.h>
-#include <math_functions.h>
 
 #include <vector>
 #include <memory>
@@ -24,8 +23,8 @@
 #include <NiEngine/TileBlueprint.h>
 #include <NiEngine/Animation.h>
 #include <NiEngine/DynamicBodyPhysicsComponent.h>
-#include <NiEngine/Converter.h>
 #include <NiEngine/StandardGraphicsComponent.h>
+#include <NiEngine/PolygonUtility.h>
 
 #include "PlatformerGameMode.h"
 #include "SlingshotUpdateComponent.h"
@@ -82,6 +81,7 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 
 void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)
 {
+	// Defining the body and shape
 	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
 
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();
@@ -102,28 +102,11 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
 	tile.polygon_blueprint_.offset_points_;
 
-	const int kVerticesCount = tile.polygon_blueprint_.offset_points_.size();
-	
-	sf::Vector2i initial_vertice = tile.polygon_blueprint_.position_;
-
-	sf::Vector2i half_size = { tileset.tile_size_.x / 2, tileset.tile_size_.y / 2 };
-
-	std::vector<b2Vec2> points = {};
-	for (int i = 0; i < kVerticesCount; ++i)
-	{
-		auto offset = tile.polygon_blueprint_.offset_points_.at(i);
-		auto vertice_position = initial_vertice + offset;
-
-		vertice_position -= half_size;
-
-		points.push_back(ni::Converter::PixelsToMeters(vertice_position));
-	}
-
-	b2Hull hull       = b2ComputeHull(points.data(), kVerticesCount);
-	b2Polygon polygon = b2MakePolygon(&hull, 0);	
+	b2Polygon polygon = ni::PolygonUtility::CreatePolygonFromOffsetPoints(tile.polygon_blueprint_, tileset.tile_size_);
 
 	b2CreatePolygonShape(body_id, &projectile_shape_def, &polygon);
 
+	// Creating components
 	auto update = std::make_unique<AmmoUpdateComponent>(id, mode.GetComponentStore());
 
 	auto physics  = std::make_unique<ni::DynamicBodyPhysicsComponent>(body_id, false);

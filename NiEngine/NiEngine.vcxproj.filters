@@ -236,22 +236,25 @@
     <ClInclude Include="NiEngine\TextFadeScreenTransition.h">
       <Filter>Header Files\Engine\Rendering\Transitions</Filter>
     </ClInclude>
-    <ClInclude Include="NiEngine\Panel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="NiEngine\HUDComponent.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="NiEngine\Container.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="NiEngine\Text.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="NiEngine\DynamicBodyPhysicsComponent.h">
+      <Filter>Header Files\Components\Entity</Filter>
     </ClInclude>
     <ClInclude Include="NiEngine\HitboxComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="NiEngine\DynamicBodyPhysicsComponent.h">
+    <ClInclude Include="NiEngine\Panel.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\Text.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\PolygonUtility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -359,6 +362,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\DynamicBodyPhysicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PolygonUtility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

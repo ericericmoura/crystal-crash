@@ -12,10 +12,22 @@
 #include <NiEngine/UpdateComponent.h>
 #include <NiEngine/GameObjectTag.h>
 #include <NiEngine/Id.h>
+#include <NiEngine/ServiceLocator.h>
+#include <SFML/Window/Event.hpp>
+#include <SFML/Window/Mouse.hpp>
 
 AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator) : UpdateComponent(component_locator)
 {
 	owner_id_ = owner_id;
+
+	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonPressed([this](const sf::Event::MouseButtonPressed& event) {
+		if (active_ && !ability_used_ && event.button == sf::Mouse::Button::Left)
+		{ 
+			ActivateAbility();
+
+			ability_used_ = true;
+		}
+	});
 }
 
 void AmmoUpdateComponent::Launch(b2Vec2 direction, float impulse_ratio)
@@ -37,7 +49,19 @@ void AmmoUpdateComponent::Launch(b2Vec2 direction, float impulse_ratio)
 
 	ammo_physics->Activate();
 	b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
+
+	active_ = true;
 }
 
 void AmmoUpdateComponent::Update()
-{}
+{
+}
+
+void AmmoUpdateComponent::ActivateAbility()
+{
+	auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator_.GetPhysicsComponent(owner_id_));
+
+	b2Vec2 velocity = b2Body_GetLinearVelocity(ammo_physics->GetBodyId());
+	velocity *= 3;
+	b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
+}

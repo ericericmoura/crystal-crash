@@ -18,5 +18,9 @@ public:
 private:
 	float max_speed_ = 40.0f;
 
+	bool ability_used_ = false;
+	bool active_ = false;
+
+	virtual void ActivateAbility();
 };
 
