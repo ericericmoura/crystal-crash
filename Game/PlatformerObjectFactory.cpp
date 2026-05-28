@@ -33,6 +33,8 @@
 #include "ImpulseAmmoAbility.h"
 #include "GrowthAmmoAbility.h"
 #include "MultiplicateAmmoAbility.h"
+#include "TrailUpdateComponent.h"
+#include "TrailGraphicsComponent.h"
 
 void PlatformerObjectFactory::SpawnObject(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type)
 {
@@ -86,7 +88,7 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)
 {
 	// Initializing some variables
-		ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
+	ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
 
 	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
 
@@ -149,4 +151,17 @@ ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint
 	mode.GetComponentStore().AttachTransformComponent(id, transform);
 
 	return id;
+}
+
+ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmoParticles(ni::GameMode& mode, ni::Id<ni::GameObjectTag> target_id)
+{
+	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
+
+	auto update   = std::make_unique<TrailUpdateComponent  >(mode.GetComponentStore(), id, target_id);
+	auto graphics = std::make_unique<TrailGraphicsComponent>();
+
+	mode.GetComponentStore().AttachUpdateComponent(id, std::move(update));
+	mode.GetComponentStore().AttachGraphicsComponent(id, std::move(graphics));
+
+	return ni::Id<ni::GameObjectTag>();
 }

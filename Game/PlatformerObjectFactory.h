@@ -26,12 +26,13 @@ public:
 	void SetWorldId(b2WorldId world_id) { world_id_ = world_id; }
 	
 	static ni::Id<ni::GameObjectTag> SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode);
+	static ni::Id<ni::GameObjectTag> SpawnAmmoParticles(ni::GameMode& mode, ni::Id<ni::GameObjectTag> target_id);
 
 private:
 	b2WorldId world_id_;
 
 	void SpawnObject   (ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type) override;
-	void SpawnSlingshot(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode);
+	void SpawnSlingshot(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode);	
 
 	template <typename T>
 	static T GetAttributeFromObject(ni::ObjectBlueprint& object, ni::ObjectTemplateBlueprint& object_template, const std::string& attribute)

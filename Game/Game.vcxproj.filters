@@ -60,6 +60,12 @@
     <ClCompile Include="MultiplicateAmmoAbility.cpp">
       <Filter>Source Files\Components\Ammo Abilities</Filter>
     </ClCompile>
+    <ClCompile Include="TrailGraphicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TrailUpdateComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -91,6 +97,12 @@
     </ClInclude>
     <ClInclude Include="MultiplicateAmmoAbility.h">
       <Filter>Header Files\Components\Ammo Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="TrailGraphicsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TrailUpdateComponent.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <memory>
+#include <utility>
 
 #include <math_functions.h>
 #include <types.h>
@@ -11,7 +12,6 @@
 #include <NiEngine/GameObjectTag.h>
 #include <NiEngine/Id.h>
 
-#include <utility>
 #include "AmmoAbility.h"
 
 class AmmoUpdateComponent : public ni::UpdateComponent
@@ -37,7 +37,7 @@ private:
 	float max_speed_ = 40.0f;
 
 	bool abilities_used_ = false;
-	bool active_       = false;
+	bool active_         = false;
 
 	std::vector<std::unique_ptr<AmmoAbility>> ammo_abilities_ = {};
 };

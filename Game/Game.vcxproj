@@ -149,6 +149,8 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlatformerObjectFactory.cpp" />
     <ClCompile Include="SlingshotUpdateComponent.cpp" />
+    <ClCompile Include="TrailGraphicsComponent.cpp" />
+    <ClCompile Include="TrailUpdateComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NiEngine\NiEngine.vcxproj">
@@ -168,6 +170,8 @@
     <ClInclude Include="PlatformerGameMode.h" />
     <ClInclude Include="PlatformerObjectFactory.h" />
     <ClInclude Include="SlingshotUpdateComponent.h" />
+    <ClInclude Include="TrailGraphicsComponent.h" />
+    <ClInclude Include="TrailUpdateComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
