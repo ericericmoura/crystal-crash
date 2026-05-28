@@ -1,29 +1,29 @@
 {
-    "activeFile": "tilesets/gem_light_green.json",
+    "activeFile": "maps/level_1/level_1.json",
     "expandedProjectPaths": [
-        "maps/backup/level_5",
-        "maps",
-        "maps/level_14",
-        "maps/backup/level_6",
-        "maps/level_6",
-        "maps/level_12",
-        "maps/level_01",
-        "maps/level_3",
-        "maps/level_4",
-        ".",
-        "maps/level_5",
-        "maps/level_11",
-        "maps/level_02",
         "maps/level_7",
-        "maps/templates",
-        "maps/level_13",
-        "maps/level_1",
-        "maps/rules",
+        "maps/backup/level_6",
         "maps/level_9",
-        "maps/level_15",
+        "maps/templates",
+        "maps/level_4",
+        "maps",
         "tilesets",
-        "maps/backup",
-        "maps/level_2"
+        "maps/level_15",
+        "maps/level_2",
+        "maps/level_6",
+        "maps/level_02",
+        "maps/level_1",
+        "maps/level_01",
+        ".",
+        "maps/level_14",
+        "maps/level_5",
+        "maps/level_12",
+        "maps/level_13",
+        "maps/level_3",
+        "maps/level_11",
+        "maps/backup/level_5",
+        "maps/rules",
+        "maps/backup"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -129,11 +129,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 3,
+            "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 134.83333333333331,
-                "y": 738.3333333333333
+                "x": 152.25,
+                "y": 765
             }
         },
         "maps/level_10/level_10.json": {
@@ -331,8 +331,8 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 800.25,
-                "y": 500
+                "x": 805.5,
+                "y": 480.25
             }
         },
         "maps/rules/woods_hills.tmx": {
@@ -426,10 +426,10 @@
     "project": "game.tiled-project",
     "property.type": "float",
     "recentFiles": [
-        "maps/level_1/level_1.json",
-        "maps/rules/woods.tmx",
-        "tilesets/gem_dark_blue.json",
         "tilesets/gem_light_green.json",
+        "tilesets/gem_dark_blue.json",
+        "maps/rules/woods.tmx",
+        "maps/level_1/level_1.json",
         "tilesets/woods.json",
         "tilesets/gems.json",
         "tilesets/objects.json",
