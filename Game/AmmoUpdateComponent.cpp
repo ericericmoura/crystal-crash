@@ -26,8 +26,6 @@ AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni:
 	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonPressed([this](const sf::Event::MouseButtonPressed& event) {
 		if (active_ && !abilities_used_ && event.button == sf::Mouse::Button::Left)
 		{ 
-			abilities_used_ = true;
-
 			ActivateAbilities();
 		}
 	});
@@ -77,6 +75,8 @@ b2ShapeDef AmmoUpdateComponent::GetAmmoShapeDefinition()
 
 void AmmoUpdateComponent::ActivateAbilities(bool child_ammo)
 {
+	abilities_used_ = true;
+
 	for (auto& ability : ammo_abilities_)
 	{
 		if (child_ammo && !ability->propagate_)

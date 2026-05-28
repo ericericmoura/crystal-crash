@@ -129,11 +129,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 0.33,
+            "scale": 3,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1159.090909090909,
-                "y": 490.9090909090909
+                "x": 134.83333333333331,
+                "y": 738.3333333333333
             }
         },
         "maps/level_10/level_10.json": {
@@ -331,8 +331,8 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 800,
-                "y": 499.75
+                "x": 800.25,
+                "y": 500
             }
         },
         "maps/rules/woods_hills.tmx": {

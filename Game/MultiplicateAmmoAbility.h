@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/System/Angle.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/GameObjectTag.h>
 #include <NiEngine/Id.h>
@@ -21,6 +22,7 @@ public:
 		ni::ObjectTemplateBlueprint object_template, 
 		ni::TilesetBlueprint tileset, 
 		ni::GameMode* mode, 
+		sf::Vector2i sprite_size,
 		int amount,
 		sf::Angle spread,
 		bool propagate = false
@@ -35,9 +37,16 @@ private:
 	
 	ni::GameMode* mode_ = nullptr;
 
+	sf::Vector2i sprite_size_ = {};
+
 	int amount_ = 0;
 	sf::Angle spread_ = {};
 
-	void SpawnAmmo(ni::ComponentLocator& component_locator, ni::TransformComponent& owner_transform, ni::DynamicBodyPhysicsComponent& owner_physics, sf::Angle spread);
+	void SpawnAmmo(
+		ni::ComponentLocator& component_locator, 
+		ni::TransformComponent& owner_transform, 
+		ni::DynamicBodyPhysicsComponent& owner_physics, 
+		sf::Angle spread, 
+		sf::Vector2f offset);
 };
 

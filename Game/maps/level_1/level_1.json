@@ -14,74 +14,12 @@
                  "y":704
                 }, 
                 {
-                 "id":19,
-                 "properties":[
-                        {
-                         "name":"growth_multiplier",
-                         "type":"float",
-                         "value":0.5
-                        }, 
-                        {
-                         "name":"max_speed",
-                         "type":"float",
-                         "value":40
-                        }, 
-                        {
-                         "name":"speed_multiplier",
-                         "type":"float",
-                         "value":5
-                        }],
-                 "template":"..\/templates\/gem_dark_blue.json",
-                 "x":67,
-                 "y":762
-                }, 
-                {
-                 "id":20,
-                 "template":"..\/templates\/gem_light_green.json",
-                 "x":102.333333333333,
-                 "y":760
-                }, 
-                {
-                 "id":21,
-                 "properties":[
-                        {
-                         "name":"growth_multiplier",
-                         "type":"float",
-                         "value":4
-                        }, 
-                        {
-                         "name":"speed_multiplier",
-                         "type":"float",
-                         "value":0.5
-                        }],
-                 "template":"..\/templates\/gem_dark_blue.json",
-                 "x":123,
-                 "y":761.333333333333
-                }, 
-                {
-                 "id":22,
-                 "properties":[
-                        {
-                         "name":"growth_multiplier",
-                         "type":"float",
-                         "value":2
-                        }, 
-                        {
-                         "name":"speed_multiplier",
-                         "type":"float",
-                         "value":4
-                        }],
-                 "template":"..\/templates\/gem_light_green.json",
-                 "x":84.6666666666667,
-                 "y":719
-                }, 
-                {
                  "id":23,
                  "properties":[
                         {
                          "name":"growth_multiplier",
                          "type":"float",
-                         "value":2
+                         "value":1.5
                         }, 
                         {
                          "name":"max_speed",
@@ -91,7 +29,7 @@
                         {
                          "name":"speed_multiplier",
                          "type":"float",
-                         "value":2
+                         "value":1
                         }],
                  "template":"..\/templates\/gem_dark_blue.json",
                  "x":121.333333333333,
