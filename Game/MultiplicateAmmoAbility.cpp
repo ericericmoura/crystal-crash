@@ -64,8 +64,8 @@ void MultiplicateAmmoAbility::Activate(ni::ComponentLocator& component_locator, 
 	sf::Vector2f perp = sf::Vector2f(-velocity.y, velocity.x).normalized();
 
 	sf::Vector2f offset_spacing(sprite_size_);
-	offset_spacing.x *= component_locator.GetTransformComponent(owner_id)->GetTransformable().getScale().x + 2;
-	offset_spacing.y *= component_locator.GetTransformComponent(owner_id)->GetTransformable().getScale().y + 2;
+	offset_spacing.x *= component_locator.GetTransformComponent(owner_id)->GetTransformable().getScale().x + 1;
+	offset_spacing.y *= component_locator.GetTransformComponent(owner_id)->GetTransformable().getScale().y + 1;
 
 	for (int i = 0; i < half_amount; ++i)
 	{
@@ -79,7 +79,7 @@ void MultiplicateAmmoAbility::Activate(ni::ComponentLocator& component_locator, 
 	}
 	for (int i = 0; i < half_amount; ++i)
 	{
-		sf::Angle ammo_spread = spread_ * -(i + 1);  // negated
+		sf::Angle ammo_spread = spread_ * -(i + 1);
 
 		sf::Vector2f offset;
 		offset.x = -perp.x * offset_spacing.x * (i + 1);
@@ -98,8 +98,10 @@ void MultiplicateAmmoAbility::SpawnAmmo(ni::ComponentLocator& component_locator,
 
 	auto ammo_update = static_cast<AmmoUpdateComponent*>(component_locator.GetUpdateComponent(ammo_id));
 
-	sf::Vector2f velocity = ni::Converter::MetersToPixels(b2Body_GetLinearVelocity(owner_physics.GetBodyId()));
-	velocity = velocity.rotatedBy(spread);
+	sf::Vector2f owner_velocity = ni::Converter::MetersToPixels(b2Body_GetLinearVelocity(owner_physics.GetBodyId()));
+
+	sf::Vector2f base_direction = owner_velocity.normalized().rotatedBy(spread);
+	sf::Vector2f velocity       = base_direction * owner_velocity.length();
 
 	ammo_update->Launch(ni::Converter::PixelsToMeters(velocity));
 	ammo_update->ActivateAbilities(true);
