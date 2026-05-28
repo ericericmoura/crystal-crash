@@ -72,3 +72,12 @@ void ni::GameModeController::Render(sf::RenderTarget& target, sf::RenderStates s
 	}
 	game_modes_.at(current_game_mode)->Render(target, states, store);
 }
+
+void ni::GameModeController::SpawnComponents()
+{
+	if (current_game_mode.id_ == 0)
+	{
+		return;
+	}
+	game_modes_.at(current_game_mode)->SpawnComponents();
+}

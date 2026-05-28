@@ -35,6 +35,7 @@ public:
 	virtual void PhysicsUpdate(float delta);
 	virtual void Update();
 	virtual void Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store);
+	virtual void SpawnComponents();
 };
 
 }

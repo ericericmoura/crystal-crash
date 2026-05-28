@@ -65,5 +65,6 @@ void ni::Engine::Run()
 
 		window_.display();
 
+		game_mode_controller_.SpawnComponents();
 	}
 }

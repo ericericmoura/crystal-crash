@@ -3,7 +3,7 @@
 #include <id.h>
 
 #include <vector>
-#include <iostream>
+#include <string>
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -16,8 +16,8 @@
 #include <NiEngine/GraphicsComponent.h>
 #include <NiEngine/AnimatedGraphicsComponent.h>
 #include <NiEngine/Tilemap.h>
-#include <string>
 #include <NiEngine/UpdateComponent.h>
+#include <NiEngine/GameMode.h>
 
 ni::TransformComponent* ni::ComponentStore::GetTransformComponent(Id<ni::GameObjectTag> id)
 {
@@ -170,4 +170,16 @@ std::vector<ni::GraphicsComponent*> ni::ComponentStore::GetGraphicsComponents(Id
 	}
 
 	return result;
+}
+
+void ni::ComponentStore::SpawnComponents(ni::GameMode& mode)
+{
+	if (update_components_.empty())
+	{
+		return;
+	}
+	for (auto& [id, component] : update_components_)
+	{
+		component->SpawnComponents(mode);
+	}
 }

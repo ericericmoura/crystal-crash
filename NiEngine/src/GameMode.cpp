@@ -60,3 +60,8 @@ void ni::GameMode::Render(sf::RenderTarget& target, sf::RenderStates states, Bit
 {	
 	mouse_position_in_world_coodinates_ = world_camera_.GetCoordinatesFromPixel(target, sf::Mouse::getPosition());
 }
+
+void ni::GameMode::SpawnComponents()
+{
+	component_store_.SpawnComponents(*this);
+}

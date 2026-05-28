@@ -22,7 +22,7 @@ public:
 	virtual PhysicsComponent*   GetPhysicsComponent  (Id<GameObjectTag> id) = 0;
 	virtual UpdateComponent *   GetUpdateComponent   (Id<GameObjectTag> id) = 0;
 	virtual std::vector<GraphicsComponent*> GetGraphicsComponents(Id<GameObjectTag> id) = 0;
-	virtual AnimatedGraphicsComponent* GetFirstAnimatedGraphicsComponent(Id<GameObjectTag> id) = 0;
+	virtual AnimatedGraphicsComponent*      GetFirstAnimatedGraphicsComponent(Id<GameObjectTag> id) = 0;
 
 	virtual Id<GameObjectTag> GetIdByTag (std::string tag) = 0;
 	virtual std::vector<ni::Id<ni::GameObjectTag>> GetIdsByTag(std::string tag) = 0;

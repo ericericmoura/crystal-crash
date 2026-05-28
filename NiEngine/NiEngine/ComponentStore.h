@@ -27,9 +27,9 @@ namespace ni {
 class ComponentStore : public ComponentLocator
 {
 private:
-	std::unordered_map<Id<GameObjectTag>, std::unique_ptr<TransformComponent>>             transform_components_ = {};
-	std::unordered_map<Id<GameObjectTag>, std::unique_ptr<PhysicsComponent>>               physics_components_   = {};
-	std::unordered_map<Id<GameObjectTag>, std::vector<std::unique_ptr<GraphicsComponent>>> graphics_components_  = {};
+	std::unordered_map<Id<GameObjectTag>, std::unique_ptr<TransformComponent>>             transform_components_  = {};
+	std::unordered_map<Id<GameObjectTag>, std::unique_ptr<PhysicsComponent>>               physics_components_    = {};
+	std::unordered_map<Id<GameObjectTag>, std::vector<std::unique_ptr<GraphicsComponent>>> graphics_components_   = {};
 	std::unordered_map<Id<GameObjectTag>, std::unique_ptr<UpdateComponent>>                update_components_     = {};
 
 public:
@@ -87,7 +87,7 @@ public:
 	void Update();
 	void Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store);
 
-
+	void SpawnComponents(ni::GameMode& mode);
 };
 
 }
