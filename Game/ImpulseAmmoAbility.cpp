@@ -7,8 +7,9 @@
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/DynamicBodyPhysicsComponent.h>
 #include <NiEngine/Id.h>
+#include "AmmoAbility.h"
 
-ImpulseAmmoAbility::ImpulseAmmoAbility(float impulse_multiplier) : impulse_multiplier_(impulse_multiplier)
+ImpulseAmmoAbility::ImpulseAmmoAbility(float impulse_multiplier, bool propagate) : AmmoAbility(propagate), impulse_multiplier_(impulse_multiplier)
 {}
 
 void ImpulseAmmoAbility::Activate(ni::ComponentLocator& component_locator, ni::Id<ni::GameObjectTag> ammo_id)

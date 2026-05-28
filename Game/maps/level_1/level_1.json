@@ -10,8 +10,8 @@
                 {
                  "id":2,
                  "template":"..\/templates\/slingshot.json",
-                 "x":160,
-                 "y":800
+                 "x":1312,
+                 "y":704
                 }, 
                 {
                  "id":19,
@@ -87,6 +87,11 @@
                          "name":"max_speed",
                          "type":"float",
                          "value":30
+                        }, 
+                        {
+                         "name":"speed_multiplier",
+                         "type":"float",
+                         "value":2
                         }],
                  "template":"..\/templates\/gem_dark_blue.json",
                  "x":121.333333333333,

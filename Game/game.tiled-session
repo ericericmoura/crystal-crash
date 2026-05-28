@@ -1,29 +1,29 @@
 {
-    "activeFile": "maps/level_1/level_1.json",
+    "activeFile": "tilesets/gem_light_green.json",
     "expandedProjectPaths": [
         "maps/backup/level_5",
-        "tilesets",
-        "maps/level_4",
-        "maps/level_2",
-        "maps/level_3",
         "maps",
-        "maps/level_7",
-        "maps/level_6",
-        "maps/level_02",
-        "maps/level_13",
+        "maps/level_14",
         "maps/backup/level_6",
-        "maps/level_5",
+        "maps/level_6",
         "maps/level_12",
         "maps/level_01",
-        "maps/level_1",
-        "maps/level_14",
-        "maps/level_9",
-        "maps/templates",
-        "maps/level_11",
-        "maps/level_15",
-        "maps/rules",
+        "maps/level_3",
+        "maps/level_4",
         ".",
-        "maps/backup"
+        "maps/level_5",
+        "maps/level_11",
+        "maps/level_02",
+        "maps/level_7",
+        "maps/templates",
+        "maps/level_13",
+        "maps/level_1",
+        "maps/rules",
+        "maps/level_9",
+        "maps/level_15",
+        "tilesets",
+        "maps/backup",
+        "maps/level_2"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -129,11 +129,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 0.75,
-            "selectedLayer": 2,
+            "scale": 0.33,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 920,
-                "y": 340
+                "x": 1159.090909090909,
+                "y": 490.9090909090909
             }
         },
         "maps/level_10/level_10.json": {
@@ -331,8 +331,8 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 226.5,
-                "y": 186
+                "x": 800,
+                "y": 499.75
             }
         },
         "maps/rules/woods_hills.tmx": {
@@ -402,7 +402,7 @@
         },
         "tilesets/woods.json": {
             "dynamicWrapping": false,
-            "scaleInDock": 2,
+            "scaleInDock": 1,
             "scaleInEditor": 3
         }
     },
@@ -426,10 +426,10 @@
     "project": "game.tiled-project",
     "property.type": "float",
     "recentFiles": [
-        "tilesets/gem_light_green.json",
-        "tilesets/gem_dark_blue.json",
-        "maps/rules/woods.tmx",
         "maps/level_1/level_1.json",
+        "maps/rules/woods.tmx",
+        "tilesets/gem_dark_blue.json",
+        "tilesets/gem_light_green.json",
         "tilesets/woods.json",
         "tilesets/gems.json",
         "tilesets/objects.json",

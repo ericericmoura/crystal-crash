@@ -81,9 +81,10 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 	mode.GetComponentStore().AttachTransformComponent(id, transform);
 }
 
-void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)
+ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)
 {
-	ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
+	// Initializing some variables
+		ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
 
 	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
 
@@ -94,7 +95,6 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	b2ShapeDef projectile_shape_def = update->GetAmmoShapeDefinition();
 
 	// Registering Ammo Abilities
-
 	float speed_multiplier  = GetAttributeFromObject<float>(object, object_template, "speed_multiplier");
 	float growth_multiplier = GetAttributeFromObject<float>(object, object_template, "growth_multiplier");
 
@@ -104,7 +104,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	}
 	if (growth_multiplier > 0)
 	{
-		update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, growth_multiplier, projectile_shape_def));
+		update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, growth_multiplier, projectile_shape_def, true));
 	}
 
 	// Defining the body and shape  
@@ -115,7 +115,7 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	projectile_body_def.linearDamping = 0.05f;
 	projectile_body_def.enableSleep   = true;
 
-	b2BodyId body_id = b2CreateBody(world_id_, &projectile_body_def);	
+	b2BodyId body_id = b2CreateBody(mode.GetPhysicsEngine().GetWorldId(), &projectile_body_def);
 
 	b2Polygon polygon = ni::PolygonUtility::CreatePolygonFromOffsetPoints(tile.polygon_blueprint_, tileset.tile_size_);
 
@@ -143,4 +143,6 @@ void PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTe
 	mode.GetComponentStore().AttachPhysicsComponent  (id, std::move(physics ));
 	mode.GetComponentStore().AttachGraphicsComponent (id, std::move(graphics));
 	mode.GetComponentStore().AttachTransformComponent(id, transform);
+
+	return id;
 }

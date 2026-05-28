@@ -57,6 +57,9 @@
     <ClCompile Include="ImpulseAmmoAbility.cpp">
       <Filter>Source Files\Components\Ammo Abilities</Filter>
     </ClCompile>
+    <ClCompile Include="MultiplicateAmmoAbility.cpp">
+      <Filter>Source Files\Components\Ammo Abilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -84,6 +87,9 @@
       <Filter>Header Files\Components\Ammo Abilities</Filter>
     </ClInclude>
     <ClInclude Include="ImpulseAmmoAbility.h">
+      <Filter>Header Files\Components\Ammo Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiplicateAmmoAbility.h">
       <Filter>Header Files\Components\Ammo Abilities</Filter>
     </ClInclude>
   </ItemGroup>

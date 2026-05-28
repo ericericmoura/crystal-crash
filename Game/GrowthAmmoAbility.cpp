@@ -14,7 +14,10 @@
 #include <NiEngine/PolygonUtility.h>
 #include <NiEngine/TransformComponent.h>
 
-GrowthAmmoAbility::GrowthAmmoAbility(ni::PolygonBlueprint polygon_blueprint, sf::Vector2i tile_size, float growth_multiplier, b2ShapeDef shape_definition)
+#include "AmmoAbility.h"
+
+GrowthAmmoAbility::GrowthAmmoAbility(ni::PolygonBlueprint polygon_blueprint, sf::Vector2i tile_size, float growth_multiplier, b2ShapeDef shape_definition, bool propagate) 
+	: AmmoAbility(propagate)
 {
 	shape_definition_  = shape_definition;
 	polygon_blueprint_ = polygon_blueprint;

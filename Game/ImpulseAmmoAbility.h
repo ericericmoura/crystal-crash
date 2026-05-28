@@ -9,7 +9,7 @@
 class ImpulseAmmoAbility : public AmmoAbility
 {
 public:	
-	ImpulseAmmoAbility(float impulse_multiplier);
+	ImpulseAmmoAbility(float impulse_multiplier, bool propagate = false);
 	void Activate(ni::ComponentLocator& component_locator, ni::Id<ni::GameObjectTag> ammo_id) override;
 
 private:

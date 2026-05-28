@@ -20,6 +20,8 @@ public:
 	AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator, float max_speed);
 
 	void Launch(b2Vec2 direction, float impulse_ratio);
+	void Launch(b2Vec2 velocity);
+
 	void Update() override;
 
 	void RegisterAbility(std::unique_ptr<AmmoAbility> ability)
@@ -29,14 +31,14 @@ public:
 
 	b2ShapeDef GetAmmoShapeDefinition();
 
+	void ActivateAbilities(bool child_ammo = false);
+
 private:
 	float max_speed_ = 40.0f;
 
-	bool ability_used_ = false;
+	bool abilities_used_ = false;
 	bool active_       = false;
 
 	std::vector<std::unique_ptr<AmmoAbility>> ammo_abilities_ = {};
-
-	void ActivateAbilities();
 };
 

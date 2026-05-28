@@ -144,6 +144,7 @@
     <ClCompile Include="AmmoUpdateComponent.cpp" />
     <ClCompile Include="GrowthAmmoAbility.cpp" />
     <ClCompile Include="ImpulseAmmoAbility.cpp" />
+    <ClCompile Include="MultiplicateAmmoAbility.cpp" />
     <ClCompile Include="PlatformerGameMode.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlatformerObjectFactory.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="GrowthAmmoAbility.h" />
     <ClInclude Include="ImpulseAmmoAbility.h" />
     <ClInclude Include="LevelStartBlueprint.h" />
+    <ClInclude Include="MultiplicateAmmoAbility.h" />
     <ClInclude Include="PlatformerGameMode.h" />
     <ClInclude Include="PlatformerObjectFactory.h" />
     <ClInclude Include="SlingshotUpdateComponent.h" />

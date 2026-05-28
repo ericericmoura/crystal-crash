@@ -13,7 +13,7 @@
 class GrowthAmmoAbility : public AmmoAbility
 {
 public:
-	GrowthAmmoAbility(ni::PolygonBlueprint polygon_blueprint, sf::Vector2i tile_size, float growth_multiplier, b2ShapeDef shape_definition);
+	GrowthAmmoAbility(ni::PolygonBlueprint polygon_blueprint, sf::Vector2i tile_size, float growth_multiplier, b2ShapeDef shape_definition, bool propagate = true);
 
 	void Activate(ni::ComponentLocator& component_locator, ni::Id<ni::GameObjectTag> ammo_id) override;
 

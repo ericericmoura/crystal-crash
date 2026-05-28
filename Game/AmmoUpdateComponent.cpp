@@ -24,9 +24,9 @@ AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni:
 	owner_id_ = owner_id;
 
 	ni::ServiceLocator::Instance().GetEventDispatcher().OnMouseButtonPressed([this](const sf::Event::MouseButtonPressed& event) {
-		if (active_ && !ability_used_ && event.button == sf::Mouse::Button::Left)
+		if (active_ && !abilities_used_ && event.button == sf::Mouse::Button::Left)
 		{ 
-			ability_used_ = true;
+			abilities_used_ = true;
 
 			ActivateAbilities();
 		}
@@ -34,6 +34,14 @@ AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni:
 }
 
 void AmmoUpdateComponent::Launch(b2Vec2 direction, float impulse_ratio)
+{
+	direction *= -1;
+	b2Vec2 velocity = direction * (impulse_ratio * max_speed_);
+
+	Launch(velocity);
+}
+
+void AmmoUpdateComponent::Launch(b2Vec2 velocity)
 {
 	auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator_.GetPhysicsComponent(owner_id_));
 	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(owner_id_);
@@ -46,9 +54,6 @@ void AmmoUpdateComponent::Launch(b2Vec2 direction, float impulse_ratio)
 		return;
 	}
 	b2Body_SetTransform(ammo_physics->GetBodyId(), ni::Converter::PixelsToMeters(ammo_transform->GetTransformable().getPosition()), b2Rot_identity);
-
-	direction *= -1;
-	b2Vec2 velocity = direction * (impulse_ratio * max_speed_);
 
 	ammo_physics->Activate();
 	b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
@@ -70,10 +75,14 @@ b2ShapeDef AmmoUpdateComponent::GetAmmoShapeDefinition()
 	return projectile_shape_def;
 }
 
-void AmmoUpdateComponent::ActivateAbilities()
+void AmmoUpdateComponent::ActivateAbilities(bool child_ammo)
 {
 	for (auto& ability : ammo_abilities_)
 	{
+		if (child_ammo && !ability->propagate_)
+		{
+			continue;
+		}		
 		ability->Activate(component_locator_, owner_id_);
 	}
 }
