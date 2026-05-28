@@ -16,6 +16,9 @@
 #include <NiEngine/GameObjectTag.h>
 #include <NiEngine/Id.h>
 #include <NiEngine/ServiceLocator.h>
+#include <NiEngine/GameMode.h>
+
+#include "PlatformerObjectFactory.h"
 
 AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator, float max_speed) : UpdateComponent(component_locator)
 {
@@ -57,10 +60,22 @@ void AmmoUpdateComponent::Launch(b2Vec2 velocity)
 	b2Body_SetLinearVelocity(ammo_physics->GetBodyId(), velocity);
 
 	active_ = true;
+	spawn_particles_ = true;
 }
 
 void AmmoUpdateComponent::Update()
 {
+}
+
+void AmmoUpdateComponent::SpawnComponents(ni::GameMode& mode)
+{
+	if (!particles_spawned_ && spawn_particles_)
+	{
+		PlatformerObjectFactory::SpawnAmmoParticles(mode, owner_id_);
+
+		particles_spawned_ = true;
+		spawn_particles_   = false;
+	}
 }
 
 b2ShapeDef AmmoUpdateComponent::GetAmmoShapeDefinition()

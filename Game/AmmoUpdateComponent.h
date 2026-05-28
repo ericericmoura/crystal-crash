@@ -11,6 +11,7 @@
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/GameObjectTag.h>
 #include <NiEngine/Id.h>
+#include <NiEngine/GameMode.h>
 
 #include "AmmoAbility.h"
 
@@ -23,6 +24,7 @@ public:
 	void Launch(b2Vec2 velocity);
 
 	void Update() override;
+	void SpawnComponents(ni::GameMode& mode) override;
 
 	void RegisterAbility(std::unique_ptr<AmmoAbility> ability)
 	{
@@ -38,6 +40,9 @@ private:
 
 	bool abilities_used_ = false;
 	bool active_         = false;
+
+	bool spawn_particles_   = false;
+	bool particles_spawned_ = false;
 
 	std::vector<std::unique_ptr<AmmoAbility>> ammo_abilities_ = {};
 };
