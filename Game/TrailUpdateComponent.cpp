@@ -31,6 +31,10 @@ void TrailUpdateComponent::Update()
 		auto graphics = static_cast<TrailGraphicsComponent*>(component_locator_.GetGraphicsComponents(owner_id_).front());
 		graphics->SetAlpha(fade_percentage);
 
+		if (fade_percentage <= 0)
+		{
+			component_locator_.MarkIdForDeletion(owner_id_);
+		}
 		return;
 	}
 

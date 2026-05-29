@@ -27,6 +27,8 @@ public:
 	virtual Id<GameObjectTag> GetIdByTag (std::string tag) = 0;
 	virtual std::vector<ni::Id<ni::GameObjectTag>> GetIdsByTag(std::string tag) = 0;
 
+	virtual void MarkIdForDeletion(ni::Id<GameObjectTag> id) = 0;
+
 protected:
 	std::unordered_map<std::string, std::vector<Id<GameObjectTag>>> id_tag_map_;
 };

@@ -76,7 +76,15 @@ void ni::ComponentStore::PhysicsUpdate(b2WorldId world_id, const Tilemap& curren
 			continue;
 		}
 		component->PhysicsUpdate(*transform, current_tilemap, delta);
-		component->PhysicsUpdate(*transform, world_id);
+		component->PhysicsUpdate(*transform, world_id);		
+	}
+
+	for (auto& id : ids_marked_for_deletion_)
+	{
+		if (physics_components_.contains(id))
+		{
+			physics_components_.erase(id);
+		}
 	}
 }
 
@@ -89,6 +97,14 @@ void ni::ComponentStore::Update()
 	for (auto& [id, component] : update_components_)
 	{
 		component->Update();
+	}
+
+	for (auto& id : ids_marked_for_deletion_)
+	{
+		if (update_components_.contains(id))
+		{
+			update_components_.erase(id);
+		}
 	}
 }
 
@@ -111,8 +127,19 @@ void ni::ComponentStore::Render(sf::RenderTarget& target, sf::RenderStates state
 		for (auto& component : components)
 		{
 			component->Render(target, local_state, store);
-		}
+		}		
+	}
 
+	for (auto& id : ids_marked_for_deletion_)
+	{
+		if (graphics_components_.contains(id))
+		{
+			graphics_components_.erase(id);
+		}
+		if (transform_components_.contains(id))
+		{
+			transform_components_.erase(id);
+		}
 	}
 }
 
@@ -182,4 +209,9 @@ void ni::ComponentStore::SpawnComponents(ni::GameMode& mode)
 	{
 		component->SpawnComponents(mode);
 	}
+}
+
+void ni::ComponentStore::MarkIdForDeletion(ni::Id<GameObjectTag> id)
+{
+	ids_marked_for_deletion_.emplace(id);
 }

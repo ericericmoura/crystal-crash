@@ -3,6 +3,7 @@
 #include <id.h>
 
 #include <unordered_map>
+#include <unordered_set>
 #include <memory>
 #include <utility>
 #include <vector>
@@ -33,6 +34,8 @@ private:
 	std::unordered_map<Id<GameObjectTag>, std::unique_ptr<PhysicsComponent>>               physics_components_    = {};
 	std::unordered_map<Id<GameObjectTag>, std::vector<std::unique_ptr<GraphicsComponent>>> graphics_components_   = {};
 	std::unordered_map<Id<GameObjectTag>, std::unique_ptr<UpdateComponent>>                update_components_     = {};
+
+	std::unordered_set<Id<GameObjectTag>> ids_marked_for_deletion_ = {};
 
 public:
 	// Component Attaching/Removing	
@@ -90,6 +93,8 @@ public:
 	void Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store);
 
 	void SpawnComponents(ni::GameMode& mode);
+
+	void MarkIdForDeletion(ni::Id<GameObjectTag> id) override;
 };
 
 }
