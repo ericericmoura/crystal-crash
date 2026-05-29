@@ -160,8 +160,11 @@ ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmoParticles(ni::GameMo
 	auto update   = std::make_unique<TrailUpdateComponent  >(mode.GetComponentStore(), id, target_id);
 	auto graphics = std::make_unique<TrailGraphicsComponent>();
 
-	mode.GetComponentStore().AttachUpdateComponent(id, std::move(update));
+	ni::TransformComponent transform;
+
+	mode.GetComponentStore().AttachUpdateComponent  (id, std::move(update));
 	mode.GetComponentStore().AttachGraphicsComponent(id, std::move(graphics));
+	mode.GetComponentStore().AttachTransformComponent(id, transform);
 
 	return ni::Id<ni::GameObjectTag>();
 }

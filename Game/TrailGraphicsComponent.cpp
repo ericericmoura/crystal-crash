@@ -5,6 +5,7 @@
 #include <SFML/Graphics/PrimitiveType.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics/Color.hpp>
+#include <SFML/Graphics/Vertex.hpp>
 #include <NiEngine/BitmapStore.h>
 
 TrailGraphicsComponent::TrailGraphicsComponent()
@@ -14,7 +15,10 @@ TrailGraphicsComponent::TrailGraphicsComponent()
 
 void TrailGraphicsComponent::SpawnParticle(sf::Vector2f position)
 {
-	vertices_.append({ position, sf::Color::White, {} });
+	sf::Vertex vertex{};
+	vertex.position = position;
+	vertex.color = sf::Color::White;
+	vertices_.append(vertex);
 }
 
 void TrailGraphicsComponent::Render(sf::RenderTarget& target, sf::RenderStates states, BitmapStore& store)

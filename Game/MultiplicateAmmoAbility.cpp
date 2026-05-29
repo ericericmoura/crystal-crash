@@ -61,6 +61,10 @@ void MultiplicateAmmoAbility::Activate(ni::ComponentLocator& component_locator, 
 	int half_amount = amount_ / 2.0f;
 
 	sf::Vector2f velocity = ni::Converter::MetersToPixels(b2Body_GetLinearVelocity(owner_physics->GetBodyId()));
+	if (velocity.length() == 0)
+	{
+		return;
+	}
 	sf::Vector2f perp = sf::Vector2f(-velocity.y, velocity.x).normalized();
 
 	sf::Vector2f offset_spacing(sprite_size_);
@@ -90,18 +94,23 @@ void MultiplicateAmmoAbility::Activate(ni::ComponentLocator& component_locator, 
 }
 
 void MultiplicateAmmoAbility::SpawnAmmo(ni::ComponentLocator& component_locator, ni::TransformComponent& owner_transform, ni::DynamicBodyPhysicsComponent& owner_physics, sf::Angle spread, sf::Vector2f offset)
-{	
+{		
+	sf::Vector2f owner_velocity = ni::Converter::MetersToPixels(b2Body_GetLinearVelocity(owner_physics.GetBodyId()));
+
+	if (owner_velocity.length() == 0)
+	{
+		return;
+	}
+
+	sf::Vector2f base_direction = owner_velocity.normalized().rotatedBy(spread);
+	sf::Vector2f velocity       = base_direction * owner_velocity.length();
+
 	ni::Id<ni::GameObjectTag> ammo_id = PlatformerObjectFactory::SpawnAmmo(object_blueprint_, object_template_, tileset_, *mode_);
 
 	ni::TransformComponent* ammo_transform = component_locator.GetTransformComponent(ammo_id);
 	ammo_transform->GetTransformable().setPosition(owner_transform.GetTransformable().getPosition() + offset);
 
 	auto ammo_update = static_cast<AmmoUpdateComponent*>(component_locator.GetUpdateComponent(ammo_id));
-
-	sf::Vector2f owner_velocity = ni::Converter::MetersToPixels(b2Body_GetLinearVelocity(owner_physics.GetBodyId()));
-
-	sf::Vector2f base_direction = owner_velocity.normalized().rotatedBy(spread);
-	sf::Vector2f velocity       = base_direction * owner_velocity.length();
 
 	ammo_update->Launch(ni::Converter::PixelsToMeters(velocity));
 	ammo_update->ActivateAbilities(true);

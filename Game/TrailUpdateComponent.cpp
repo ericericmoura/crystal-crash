@@ -19,16 +19,15 @@ TrailUpdateComponent::TrailUpdateComponent(ni::ComponentLocator& component_locat
 
 void TrailUpdateComponent::Update()
 {
-	float time_elapsed_in_seconds = (time_since_last_particle_spawn_ - ni::Engine::time_elapsed).asSeconds();
-	if (time_elapsed_in_seconds >= delay_between_particle_spawn_in_seconds_)
+	ni::TransformComponent* target_transform = component_locator_.GetTransformComponent(target_id_);
+	
+	float distance = (last_particle_position_ - target_transform->GetTransformable().getPosition()).length();
+	
+	if (distance > kDistanceBetweenParticleSpawn)
 	{
-		ni::TransformComponent* target_transform = component_locator_.GetTransformComponent(target_id_);
-
+		last_particle_position_ = target_transform->GetTransformable().getPosition();
 		auto graphics  = static_cast<TrailGraphicsComponent*>(component_locator_.GetGraphicsComponents(owner_id_).front());
-		sf::Vector2f particle_position = target_transform->GetTransformable().getPosition();
 		
-		graphics->SpawnParticle(particle_position);
-
-		time_since_last_particle_spawn_ = ni::Engine::time_elapsed;
+		graphics->SpawnParticle(last_particle_position_);
 	}
 }

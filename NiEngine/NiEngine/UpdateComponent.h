@@ -5,6 +5,8 @@
 
 namespace ni {
 
+class GameMode;
+
 class UpdateComponent : public Component
 {
 protected:

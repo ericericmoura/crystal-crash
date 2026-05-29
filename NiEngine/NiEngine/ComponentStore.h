@@ -6,6 +6,7 @@
 #include <memory>
 #include <utility>
 #include <vector>
+#include <string>
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -20,9 +21,10 @@
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/AnimatedGraphicsComponent.h>
 #include "Tilemap.h"
-#include <string>
 
 namespace ni {
+
+class GameMode;
 
 class ComponentStore : public ComponentLocator
 {
