@@ -14,25 +14,25 @@
                  "y":704
                 }, 
                 {
-                 "id":23,
+                 "id":32,
                  "template":"..\/templates\/gem_dark_blue.json",
-                 "x":1348,
-                 "y":571.666666666667
+                 "x":1376,
+                 "y":571.167
                 }, 
                 {
-                 "id":26,
+                 "id":33,
                  "template":"..\/templates\/gem_turquoise.json",
-                 "x":1430,
-                 "y":607.333333333333
+                 "x":1458,
+                 "y":606.833
                 }, 
                 {
-                 "id":27,
+                 "id":34,
                  "template":"..\/templates\/gem_light_green.json",
-                 "x":1402.16666666667,
-                 "y":541.833333333333
+                 "x":1430.17,
+                 "y":541.333
                 }, 
                 {
-                 "id":28,
+                 "id":35,
                  "properties":[
                         {
                          "name":"growth_multiplier",
@@ -50,11 +50,11 @@
                          "value":8
                         }],
                  "template":"..\/templates\/gem_turquoise.json",
-                 "x":1449.83333333333,
-                 "y":551.333333333333
+                 "x":1477.83,
+                 "y":550.833
                 }, 
                 {
-                 "id":29,
+                 "id":36,
                  "properties":[
                         {
                          "name":"multiplication_angle",
@@ -72,11 +72,11 @@
                          "value":2
                         }],
                  "template":"..\/templates\/gem_dark_blue.json",
-                 "x":1352,
-                 "y":512.5
+                 "x":1380,
+                 "y":512
                 }, 
                 {
-                 "id":30,
+                 "id":37,
                  "properties":[
                         {
                          "name":"growth_multiplier",
@@ -94,8 +94,25 @@
                          "value":8
                         }],
                  "template":"..\/templates\/gem_turquoise.json",
-                 "x":1419,
-                 "y":514
+                 "x":1447,
+                 "y":513.5
+                }, 
+                {
+                 "id":38,
+                 "properties":[
+                        {
+                         "name":"multiplication_angle",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"multiplication_count",
+                         "type":"int",
+                         "value":100
+                        }],
+                 "template":"..\/templates\/gem_turquoise.json",
+                 "x":1404,
+                 "y":490.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -186,7 +203,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":31,
+ "nextobjectid":39,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.12.1",

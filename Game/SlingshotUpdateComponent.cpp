@@ -141,17 +141,20 @@ void SlingshotUpdateComponent::Update()
 
 void SlingshotUpdateComponent::Reload()
 {
+	if (ammo_queue_.empty())
+	{
+		return;
+	}
 	current_ammo_id_ = ammo_queue_.front();
 	ammo_queue_.pop();
-
-	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
-	ammo_transform->GetTransformable().setPosition(initial_ammo_position_);		
 
 	if (ammo_queue_.empty())
 	{
 		out_of_ammo_ = true;
-		return;
 	}
+
+	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
+	ammo_transform->GetTransformable().setPosition(initial_ammo_position_);		
 }
 
 void SlingshotUpdateComponent::LoadAmmoQueue()
