@@ -137,6 +137,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="NiEngine\CollisionCategories.h" />
     <ClInclude Include="NiEngine\DynamicBodyPhysicsComponent.h" />
     <ClInclude Include="NiEngine\HitboxComponent.h" />
     <ClInclude Include="NiEngine\Container.h" />

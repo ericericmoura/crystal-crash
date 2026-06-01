@@ -163,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="AmmoAbility.h" />
     <ClInclude Include="AmmoUpdateComponent.h" />
+    <ClInclude Include="CollisionCategories.h" />
     <ClInclude Include="GrowthAmmoAbility.h" />
     <ClInclude Include="ImpulseAmmoAbility.h" />
     <ClInclude Include="LevelStartBlueprint.h" />

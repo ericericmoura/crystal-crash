@@ -17,8 +17,12 @@
 #include <NiEngine/Id.h>
 #include <NiEngine/ServiceLocator.h>
 #include <NiEngine/GameMode.h>
+#include <NiEngine/CollisionCategories.h>
+#include <NiEngine/Engine.h>
 
+#include "CollisionCategories.h"
 #include "PlatformerObjectFactory.h"
+#include <id.h>
 
 AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator, float max_speed) : UpdateComponent(component_locator)
 {
@@ -61,10 +65,33 @@ void AmmoUpdateComponent::Launch(b2Vec2 velocity)
 
 	active_ = true;
 	spawn_particles_ = true;
+
+	time_since_launch_ = ni::Engine::time_elapsed;
 }
 
 void AmmoUpdateComponent::Update()
 {
+	if (tangible_)
+	{
+		return;
+	}
+	float elapsed_time = (ni::Engine::time_elapsed - time_since_launch_).asSeconds();
+	if (elapsed_time < collision_cooldown_in_seconds)
+	{
+		return;
+	}
+	auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator_.GetPhysicsComponent(owner_id_));
+	b2ShapeId shape_array[1]{};
+	b2Body_GetShapes(ammo_physics->GetBodyId(), shape_array, 1);
+	if (!shape_array)
+	{
+		return;
+	}
+	b2Filter new_filter = {};
+	new_filter.categoryBits = CollisionCategories::kProjectiles;
+	new_filter.maskBits     = ni::CollisionCategories::kTilemap | CollisionCategories::kProjectiles;
+	b2Shape_SetFilter(shape_array[0], new_filter);
+	tangible_ = true;
 }
 
 void AmmoUpdateComponent::SpawnComponents(ni::GameMode& mode)
@@ -85,6 +112,8 @@ b2ShapeDef AmmoUpdateComponent::GetAmmoShapeDefinition()
 	projectile_shape_def.material.restitution = 0.25f;
 	projectile_shape_def.material.friction = 0.3f;
 	projectile_shape_def.enableHitEvents = true;
+	projectile_shape_def.filter.categoryBits = CollisionCategories::kProjectiles;
+	projectile_shape_def.filter.maskBits     = ni::CollisionCategories::kTilemap;
 	return projectile_shape_def;
 }
 

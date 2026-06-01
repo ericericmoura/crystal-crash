@@ -7,6 +7,7 @@
 #include <math_functions.h>
 #include <types.h>
 
+#include <SFML/System/Time.hpp>
 #include <NiEngine/UpdateComponent.h>
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/GameObjectTag.h>
@@ -43,6 +44,11 @@ private:
 
 	bool spawn_particles_   = false;
 	bool particles_spawned_ = false;
+
+	float collision_cooldown_in_seconds = 1.0f;
+	sf::Time time_since_launch_ = {};
+
+	bool tangible_ = false;
 
 	std::vector<std::unique_ptr<AmmoAbility>> ammo_abilities_ = {};
 };

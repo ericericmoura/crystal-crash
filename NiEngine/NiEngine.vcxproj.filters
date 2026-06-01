@@ -255,7 +255,10 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="NiEngine\PolygonUtility.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NiEngine\CollisionCategories.h">
+      <Filter>Header Files\Engine\Physics and Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
