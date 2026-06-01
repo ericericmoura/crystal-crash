@@ -1,25 +1,30 @@
 { "object":
     {
      "gid":1,
-     "height":28,
-     "id":14,
-     "name":"gem - blue",
+     "height":25,
+     "id":26,
+     "name":"gem - turquoise",
      "opacity":1,
      "properties":[
             {
              "name":"growth_multiplier",
              "type":"float",
-             "value":2
+             "value":0.75
             }, 
             {
              "name":"max_speed",
              "type":"float",
-             "value":30
+             "value":40
             }, 
             {
-             "name":"speed_multiplier",
+             "name":"multiplication_angle",
              "type":"float",
-             "value":0.8
+             "value":20
+            }, 
+            {
+             "name":"multiplication_count",
+             "type":"int",
+             "value":4
             }, 
             {
              "name":"type_id",
@@ -29,12 +34,12 @@
      "rotation":0,
      "type":"",
      "visible":true,
-     "width":28
+     "width":21
     },
  "tileset":
     {
      "firstgid":1,
-     "source":"..\/..\/tilesets\/gem_dark_blue.json"
+     "source":"..\/..\/tilesets\/gem_turquoise.json"
     },
  "type":"template"
 }

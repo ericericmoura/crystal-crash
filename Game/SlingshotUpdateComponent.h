@@ -29,6 +29,9 @@ private:
 	bool is_dragging_       = false;
 	bool loaded_ammo_queue_ = false;
 
+	bool out_of_ammo_ = false;
+	bool launched_last_ammo_ = false;
+
 	ni::Id<ni::GameObjectTag> chain_id_ = {};
 
 	std::queue<ni::Id<ni::GameObjectTag>> ammo_queue_ = {};

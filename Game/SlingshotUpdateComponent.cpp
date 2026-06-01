@@ -70,7 +70,12 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 
 			if (ammo_update)
 			{				
-				ammo_update->Launch(drag_direction_, impulse_ratio);
+				ammo_update->Launch(drag_direction_, impulse_ratio);				
+
+				if (out_of_ammo_)
+				{
+					launched_last_ammo_ = true;
+				}
 
 				Reload();
 
@@ -86,6 +91,11 @@ SlingshotUpdateComponent::SlingshotUpdateComponent(ni::ComponentLocator& compone
 
 void SlingshotUpdateComponent::Update()
 {
+	if (out_of_ammo_ && launched_last_ammo_)
+	{
+		return;
+	}
+
 	if (ammo_queue_.empty() && !loaded_ammo_queue_)
 	{
 		LoadAmmoQueue();
@@ -131,15 +141,17 @@ void SlingshotUpdateComponent::Update()
 
 void SlingshotUpdateComponent::Reload()
 {
-	if (ammo_queue_.empty())
-	{
-		return;
-	}
 	current_ammo_id_ = ammo_queue_.front();
 	ammo_queue_.pop();
 
 	ni::TransformComponent* ammo_transform = component_locator_.GetTransformComponent(current_ammo_id_);
 	ammo_transform->GetTransformable().setPosition(initial_ammo_position_);		
+
+	if (ammo_queue_.empty())
+	{
+		out_of_ammo_ = true;
+		return;
+	}
 }
 
 void SlingshotUpdateComponent::LoadAmmoQueue()

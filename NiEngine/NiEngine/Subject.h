@@ -24,7 +24,7 @@ public:
 template<typename ...Args>
 inline int Subject<Args...>::Subscribe(std::function<void(Args...)> on_event)
 {
-	observers_.emplace_back(++next_id_, std::move(on_event));
+	observers_.emplace_back(next_id_++, std::move(on_event));
 	return next_id_;
 }
 
@@ -44,11 +44,14 @@ inline void Subject<Args...>::Remove(int id)
 template<typename ...Args>
 inline void Subject<Args...>::Notify(Args && ...args)
 {
-	for (const auto& [id, on_event] : observers_)
+	auto snapshot = observers_;
+	for (const auto& [id, on_event] : snapshot)
 	{		
-		if (id < 0 || id > observers_.size()) // in this case id is invalid (this happens when adding new items midway through the loop)
+		auto it = std::find_if(observers_.begin(), observers_.end(),
+			[id](const auto& pair) { return pair.first == id; });
+		if (it == observers_.end())
 		{
-			break;
+			continue;
 		}
 		on_event(std::forward<Args>(args)...);
 	}

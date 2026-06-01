@@ -15,57 +15,87 @@
                 }, 
                 {
                  "id":23,
-                 "properties":[
-                        {
-                         "name":"growth_multiplier",
-                         "type":"float",
-                         "value":1.5
-                        }, 
-                        {
-                         "name":"max_speed",
-                         "type":"float",
-                         "value":30
-                        }, 
-                        {
-                         "name":"speed_multiplier",
-                         "type":"float",
-                         "value":1
-                        }],
                  "template":"..\/templates\/gem_dark_blue.json",
-                 "x":128,
-                 "y":736
+                 "x":1348,
+                 "y":571.666666666667
                 }, 
                 {
-                 "id":24,
+                 "id":26,
+                 "template":"..\/templates\/gem_turquoise.json",
+                 "x":1430,
+                 "y":607.333333333333
+                }, 
+                {
+                 "id":27,
+                 "template":"..\/templates\/gem_light_green.json",
+                 "x":1402.16666666667,
+                 "y":541.833333333333
+                }, 
+                {
+                 "id":28,
                  "properties":[
                         {
                          "name":"growth_multiplier",
                          "type":"float",
-                         "value":1.5
-                        }, 
-                        {
-                         "name":"max_speed",
-                         "type":"float",
-                         "value":30
+                         "value":0.4
                         }, 
                         {
                          "name":"multiplication_angle",
                          "type":"float",
-                         "value":20
+                         "value":35
                         }, 
                         {
                          "name":"multiplication_count",
                          "type":"int",
-                         "value":4
+                         "value":8
+                        }],
+                 "template":"..\/templates\/gem_turquoise.json",
+                 "x":1449.83333333333,
+                 "y":551.333333333333
+                }, 
+                {
+                 "id":29,
+                 "properties":[
+                        {
+                         "name":"multiplication_angle",
+                         "type":"float",
+                         "value":30
+                        }, 
+                        {
+                         "name":"multiplication_count",
+                         "type":"int",
+                         "value":2
                         }, 
                         {
                          "name":"speed_multiplier",
                          "type":"float",
-                         "value":1
+                         "value":2
                         }],
                  "template":"..\/templates\/gem_dark_blue.json",
-                 "x":160,
-                 "y":768
+                 "x":1352,
+                 "y":512.5
+                }, 
+                {
+                 "id":30,
+                 "properties":[
+                        {
+                         "name":"growth_multiplier",
+                         "type":"float",
+                         "value":0.4
+                        }, 
+                        {
+                         "name":"multiplication_angle",
+                         "type":"float",
+                         "value":5
+                        }, 
+                        {
+                         "name":"multiplication_count",
+                         "type":"int",
+                         "value":8
+                        }],
+                 "template":"..\/templates\/gem_turquoise.json",
+                 "x":1419,
+                 "y":514
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -156,7 +186,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":26,
+ "nextobjectid":31,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.12.1",
@@ -185,6 +215,10 @@
         {
          "firstgid":161,
          "source":"..\/..\/tilesets\/gem_dark_blue.json"
+        }, 
+        {
+         "firstgid":172,
+         "source":"..\/..\/tilesets\/gem_turquoise.json"
         }],
  "tilewidth":32,
  "type":"map",

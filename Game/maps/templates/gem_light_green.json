@@ -9,12 +9,12 @@
             {
              "name":"max_speed",
              "type":"float",
-             "value":40
+             "value":35
             }, 
             {
              "name":"speed_multiplier",
              "type":"float",
-             "value":2
+             "value":2.5
             }, 
             {
              "name":"type_id",
