@@ -102,6 +102,9 @@ ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint
 	float speed_multiplier  = GetAttributeFromObject<float>(object, object_template, "speed_multiplier");
 	float growth_multiplier = GetAttributeFromObject<float>(object, object_template, "growth_multiplier");
 
+	float multiplication_angle = GetAttributeFromObject<float>(object, object_template, "multiplication_angle");
+	float multiplication_count = GetAttributeFromObject<int  >(object, object_template, "multiplication_count");
+
 	if (speed_multiplier > 0)
 	{
 		update->RegisterAbility(std::make_unique<ImpulseAmmoAbility>(speed_multiplier));
@@ -110,8 +113,10 @@ ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint
 	{
 		update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, growth_multiplier, projectile_shape_def, true));
 	}	
-
-	update->RegisterAbility(std::make_unique<MultiplicateAmmoAbility>(object, object_template, tileset, &mode, tileset.tile_size_, 2, sf::degrees(45)));
+	if (multiplication_angle > 0 && multiplication_count > 0)
+	{
+		update->RegisterAbility(std::make_unique<MultiplicateAmmoAbility>(object, object_template, tileset, &mode, tileset.tile_size_, multiplication_count, sf::degrees(multiplication_angle)));
+	}
 
 	// Defining the body and shape  
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();

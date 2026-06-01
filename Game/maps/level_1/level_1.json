@@ -49,6 +49,16 @@
                          "value":30
                         }, 
                         {
+                         "name":"multiplication_angle",
+                         "type":"float",
+                         "value":20
+                        }, 
+                        {
+                         "name":"multiplication_count",
+                         "type":"int",
+                         "value":4
+                        }, 
+                        {
                          "name":"speed_multiplier",
                          "type":"float",
                          "value":1
