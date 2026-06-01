@@ -111,7 +111,7 @@ ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint
 		update->RegisterAbility(std::make_unique<GrowthAmmoAbility >(tile.polygon_blueprint_, tileset.tile_size_, growth_multiplier, projectile_shape_def, true));
 	}	
 
-	update->RegisterAbility(std::make_unique<MultiplicateAmmoAbility>(object, object_template, tileset, &mode, tileset.tile_size_, 2, sf::degrees(15)));
+	update->RegisterAbility(std::make_unique<MultiplicateAmmoAbility>(object, object_template, tileset, &mode, tileset.tile_size_, 2, sf::degrees(45)));
 
 	// Defining the body and shape  
 	b2BodyDef projectile_body_def     = b2DefaultBodyDef();

@@ -46,7 +46,7 @@ inline void Subject<Args...>::Notify(Args && ...args)
 {
 	for (const auto& [id, on_event] : observers_)
 	{		
-		if (id < 0) // in this case id is invalid (this happens when adding new items midway through the loop)
+		if (id < 0 || id > observers_.size()) // in this case id is invalid (this happens when adding new items midway through the loop)
 		{
 			break;
 		}

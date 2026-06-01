@@ -30,12 +30,17 @@ void GrowthAmmoAbility::Activate(ni::ComponentLocator& component_locator, ni::Id
 	auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator.GetPhysicsComponent(ammo_id));
 
 	b2ShapeId shape_array[1];
-	b2Body_GetShapes(ammo_physics->GetBodyId(), shape_array, 1);
+	int shape_count = b2Body_GetShapes(ammo_physics->GetBodyId(), shape_array, 1);
 
-	if (shape_array)
+	b2Filter old_filter{};
+
+	if (shape_count > 0)
 	{
+		old_filter = b2Shape_GetFilter(shape_array[0]);
 		b2DestroyShape(*shape_array, false);
-	}
+	}	
+
+	shape_definition_.filter = old_filter;
 
 	b2Polygon polygon = ni::PolygonUtility::CreatePolygonFromOffsetPoints(polygon_blueprint_, tile_size_, growth_multiplier_);
 	b2CreatePolygonShape(ammo_physics->GetBodyId(), &shape_definition_, &polygon);

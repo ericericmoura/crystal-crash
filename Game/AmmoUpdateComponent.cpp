@@ -3,9 +3,11 @@
 #include <box2d.h>
 #include <math_functions.h>
 #include <types.h>
+#include <id.h>
 
 #include <iostream>
 
+#include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include <NiEngine/DynamicBodyPhysicsComponent.h>
@@ -22,7 +24,6 @@
 
 #include "CollisionCategories.h"
 #include "PlatformerObjectFactory.h"
-#include <id.h>
 
 AmmoUpdateComponent::AmmoUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator, float max_speed) : UpdateComponent(component_locator)
 {
@@ -82,14 +83,15 @@ void AmmoUpdateComponent::Update()
 	}
 	auto ammo_physics = static_cast<ni::DynamicBodyPhysicsComponent*>(component_locator_.GetPhysicsComponent(owner_id_));
 	b2ShapeId shape_array[1]{};
-	b2Body_GetShapes(ammo_physics->GetBodyId(), shape_array, 1);
-	if (!shape_array)
+	int shape_count = b2Body_GetShapes(ammo_physics->GetBodyId(), shape_array, 1);
+	if (shape_count == 0)
 	{
 		return;
 	}
 	b2Filter new_filter = {};
 	new_filter.categoryBits = CollisionCategories::kProjectiles;
 	new_filter.maskBits     = ni::CollisionCategories::kTilemap | CollisionCategories::kProjectiles;
+
 	b2Shape_SetFilter(shape_array[0], new_filter);
 	tangible_ = true;
 }
