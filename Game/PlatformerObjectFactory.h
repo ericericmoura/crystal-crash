@@ -17,7 +17,8 @@ enum ObjectTypes
 {
 	None      = 0,
 	Slingshot = 1,
-	Ammo      = 2
+	Ammo      = 2,
+	Obstacle  = 3
 };
 
 class PlatformerObjectFactory : public ni::ObjectFactory
@@ -33,6 +34,7 @@ private:
 
 	void SpawnObject   (ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, const std::vector<ni::TilesetBlueprint>& tileset_blueprints, ni::GameMode& mode, int type) override;
 	void SpawnSlingshot(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode);	
+	void SpawnObstacle (ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode);
 
 	template <typename T>
 	static T GetAttributeFromObject(ni::ObjectBlueprint& object, ni::ObjectTemplateBlueprint& object_template, const std::string& attribute)

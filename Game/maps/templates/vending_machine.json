@@ -1,0 +1,25 @@
+{ "object":
+    {
+     "gid":5,
+     "height":84,
+     "id":40,
+     "name":"",
+     "opacity":1,
+     "properties":[
+            {
+             "name":"type_id",
+             "type":"int",
+             "value":3
+            }],
+     "rotation":0,
+     "type":"",
+     "visible":true,
+     "width":47
+    },
+ "tileset":
+    {
+     "firstgid":1,
+     "source":"..\/..\/tilesets\/objects.json"
+    },
+ "type":"template"
+}

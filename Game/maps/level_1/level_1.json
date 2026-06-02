@@ -10,26 +10,26 @@
                 {
                  "id":2,
                  "template":"..\/templates\/slingshot.json",
-                 "x":1312,
-                 "y":704
+                 "x":256,
+                 "y":800
                 }, 
                 {
                  "id":32,
                  "template":"..\/templates\/gem_dark_blue.json",
-                 "x":1376,
-                 "y":571.167
+                 "x":96,
+                 "y":752.667
                 }, 
                 {
                  "id":33,
                  "template":"..\/templates\/gem_turquoise.json",
-                 "x":1458,
-                 "y":606.833
+                 "x":178,
+                 "y":788.333
                 }, 
                 {
                  "id":34,
                  "template":"..\/templates\/gem_light_green.json",
-                 "x":1430.17,
-                 "y":541.333
+                 "x":150.17,
+                 "y":722.833
                 }, 
                 {
                  "id":35,
@@ -50,8 +50,8 @@
                          "value":8
                         }],
                  "template":"..\/templates\/gem_turquoise.json",
-                 "x":1477.83,
-                 "y":550.833
+                 "x":197.83,
+                 "y":732.333
                 }, 
                 {
                  "id":36,
@@ -72,8 +72,8 @@
                          "value":2
                         }],
                  "template":"..\/templates\/gem_dark_blue.json",
-                 "x":1380,
-                 "y":512
+                 "x":100,
+                 "y":693.5
                 }, 
                 {
                  "id":37,
@@ -94,8 +94,8 @@
                          "value":8
                         }],
                  "template":"..\/templates\/gem_turquoise.json",
-                 "x":1447,
-                 "y":513.5
+                 "x":167,
+                 "y":695
                 }, 
                 {
                  "id":38,
@@ -111,8 +111,26 @@
                          "value":100
                         }],
                  "template":"..\/templates\/gem_turquoise.json",
-                 "x":1404,
-                 "y":490.5
+                 "x":124,
+                 "y":672
+                }, 
+                {
+                 "id":47,
+                 "template":"..\/templates\/vending_machine.json",
+                 "x":999.5,
+                 "y":616
+                }, 
+                {
+                 "id":48,
+                 "template":"..\/templates\/vending_machine.json",
+                 "x":976,
+                 "y":702.5
+                }, 
+                {
+                 "id":49,
+                 "template":"..\/templates\/vending_machine.json",
+                 "x":1024,
+                 "y":702.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -203,7 +221,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":39,
+ "nextobjectid":50,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.12.1",
@@ -222,19 +240,19 @@
          "source":"..\/..\/tilesets\/objects.json"
         }, 
         {
-         "firstgid":151,
+         "firstgid":152,
          "source":"..\/..\/tilesets\/gems.json"
         }, 
         {
-         "firstgid":151,
+         "firstgid":152,
          "source":"..\/..\/tilesets\/gem_light_green.json"
         }, 
         {
-         "firstgid":161,
+         "firstgid":162,
          "source":"..\/..\/tilesets\/gem_dark_blue.json"
         }, 
         {
-         "firstgid":172,
+         "firstgid":173,
          "source":"..\/..\/tilesets\/gem_turquoise.json"
         }],
  "tilewidth":32,

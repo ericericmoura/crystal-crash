@@ -1,29 +1,29 @@
 {
     "activeFile": "maps/level_1/level_1.json",
     "expandedProjectPaths": [
-        "maps/level_02",
-        "maps/level_15",
         "maps/level_7",
-        "maps/level_13",
-        "maps/templates",
-        "maps/level_01",
-        "maps/backup/level_5",
-        ".",
-        "maps/level_11",
-        "maps/level_5",
-        "maps/level_12",
-        "maps",
-        "maps/level_3",
-        "maps/backup",
         "maps/level_6",
-        "maps/level_4",
-        "maps/level_14",
-        "maps/backup/level_6",
         "tilesets",
+        "maps/backup/level_6",
+        "maps/backup/level_5",
+        "maps/backup",
+        "maps/templates",
         "maps/level_2",
-        "maps/rules",
+        "maps/level_14",
         "maps/level_9",
-        "maps/level_1"
+        "maps/level_3",
+        "maps/level_11",
+        "maps/level_1",
+        "maps/level_4",
+        "maps/level_01",
+        "maps/level_15",
+        "maps/level_12",
+        "maps/level_13",
+        "maps/rules",
+        "maps/level_02",
+        "maps/level_5",
+        "maps",
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -129,11 +129,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 2,
+            "scale": 0.75,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 238.75,
-                "y": 784.5
+                "x": 920,
+                "y": 662.6666666666665
             }
         },
         "maps/level_10/level_10.json": {
@@ -366,7 +366,9 @@
             "scaleInEditor": 4
         },
         "tilesets/gem_turquoise.json": {
-            "dynamicWrapping": false
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "tilesets/gems.json": {
             "dynamicWrapping": true,
@@ -411,7 +413,7 @@
     },
     "last.exportedFilePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/backup",
     "last.externalTilesetPath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/tilesets",
-    "last.imagePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/graphics/gems",
+    "last.imagePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/graphics",
     "last.objectTemplatePath": "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/crystal-crash/Game/maps/templates",
     "map.height": 30,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
@@ -429,18 +431,18 @@
     "project": "game.tiled-project",
     "property.type": "float",
     "recentFiles": [
+        "tilesets/gem_dark_blue.json",
+        "tilesets/gem_light_green.json",
+        "maps/rules/woods.tmx",
+        "maps/level_1/level_1.json",
+        "tilesets/gem_turquoise.json",
         "tilesets/gems.json",
         "tilesets/objects.json",
         "tilesets/transparent_tiles.json",
         "tilesets/transparent_tiles.tsx",
         "tilesets/woods.json",
-        "tilesets/gem_light_green.json",
-        "tilesets/gem_dark_blue.json",
-        "maps/rules/woods.tmx",
-        "maps/level_1/level_1.json",
         "C:/Users/Eric/Documents/01_Projects/02_Games/04_CustomEngine/Game/Game/maps/rules/ground_autotile_rules.tmx",
-        "maps/rules/woods_hills.tmx",
-        "maps/rules/ground_autotile_rules_karsioriart.tmx"
+        "maps/rules/woods_hills.tmx"
     ],
     "tileset.lastUsedExportFilter": "JSON tileset files (*.tsj *.json)",
     "tileset.lastUsedFormat": "json",

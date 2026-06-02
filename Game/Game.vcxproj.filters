@@ -66,6 +66,9 @@
     <ClCompile Include="TrailGraphicsComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="ObstacleUpdateComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -105,6 +108,9 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="CollisionCategories.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObstacleUpdateComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

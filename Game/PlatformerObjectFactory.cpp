@@ -26,7 +26,10 @@
 #include <NiEngine/DynamicBodyPhysicsComponent.h>
 #include <NiEngine/StandardGraphicsComponent.h>
 #include <NiEngine/PolygonUtility.h>
+#include <NiEngine/CollisionCategories.h>
 
+#include "ObstacleUpdateComponent.h"
+#include "CollisionCategories.h"
 #include "PlatformerGameMode.h"
 #include "SlingshotUpdateComponent.h"
 #include "AmmoUpdateComponent.h"
@@ -48,6 +51,9 @@ void PlatformerObjectFactory::SpawnObject(ni::ObjectBlueprint object, ni::Object
 		break;
 	case ObjectTypes::Ammo:
 		SpawnAmmo(object, object_template, tileset, mode);
+		break;
+	case ObjectTypes::Obstacle:
+		SpawnObstacle(object, object_template, tileset, mode);
 		break;
 	}
 }
@@ -83,6 +89,51 @@ void PlatformerObjectFactory::SpawnSlingshot(ni::ObjectBlueprint object, ni::Obj
 	mode.GetComponentStore().AttachUpdateComponent   (id, std::move(update));
 	mode.GetComponentStore().AttachGraphicsComponent (id, std::move(graphics));
 	mode.GetComponentStore().AttachTransformComponent(id, transform);
+}
+
+void PlatformerObjectFactory::SpawnObstacle(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)
+{
+	// Initializing some variables
+	ni::TileBlueprint tile = tileset.tiles_.at(object_template.tile_gid_ - tileset.first_gid_ - 1);
+
+	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
+
+	b2ShapeDef projectile_shape_def = b2DefaultShapeDef();
+	projectile_shape_def.density = 10.0f;
+	projectile_shape_def.material.restitution = 0.25f;
+	projectile_shape_def.material.friction = 0.3f;
+	projectile_shape_def.enableHitEvents = true;
+	projectile_shape_def.filter.categoryBits = CollisionCategories::kObstacles;
+	projectile_shape_def.filter.maskBits     = ni::CollisionCategories::kTilemap | CollisionCategories::kProjectiles | CollisionCategories::kObstacles;
+
+	// Defining the body and shape  
+	b2BodyDef projectile_body_def = b2DefaultBodyDef();
+	projectile_body_def.type = b2_dynamicBody;
+	projectile_body_def.gravityScale = 2.0f;
+	projectile_body_def.linearDamping = 0.05f;
+	projectile_body_def.enableSleep = true;
+
+	b2BodyId body_id = b2CreateBody(mode.GetPhysicsEngine().GetWorldId(), &projectile_body_def);
+
+	b2Polygon polygon = ni::PolygonUtility::CreatePolygonFromOffsetPoints(tile.polygon_blueprint_, tileset.tile_size_);
+
+	b2CreatePolygonShape(body_id, &projectile_shape_def, &polygon);
+
+	// Creating components	
+	auto physics  = std::make_unique<ni::DynamicBodyPhysicsComponent>(body_id, false);
+	auto graphics = std::make_unique<ni::StandardGraphicsComponent>(ni::FileUtility::RemoveRelativePaths(tile.image_key_));
+
+	auto update = std::make_unique<ObstacleUpdateComponent>(id, mode.GetComponentStore());	
+
+	ni::TransformComponent transform;
+	transform.GetTransformable().setPosition(object.position_);
+	transform.GetTransformable().setOrigin({ tileset.tile_size_.x / 2.0f, tileset.tile_size_.y / 2.0f });
+
+	mode.GetComponentStore().AttachPhysicsComponent  (id, std::move(physics ));
+	mode.GetComponentStore().AttachTransformComponent(id, transform);
+	update->Init();
+	mode.GetComponentStore().AttachUpdateComponent   (id, std::move(update  ));
+	mode.GetComponentStore().AttachGraphicsComponent (id, std::move(graphics));
 }
 
 ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint object, ni::ObjectTemplateBlueprint& object_template, ni::TilesetBlueprint& tileset, ni::GameMode& mode)

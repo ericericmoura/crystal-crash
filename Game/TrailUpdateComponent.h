@@ -21,7 +21,7 @@ private:
 	sf::Vector2f last_particle_position_;
 
 	sf::Time time_since_stopped_    = {};
-	float despawn_delay_in_seconds_ = 5.0f;
+	float despawn_delay_in_seconds_ = 3.0f;
 	bool stop_ = false;
 };
 
