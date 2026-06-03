@@ -17,7 +17,7 @@ public:
 	void Activate();
 	void Deactivate();
 
-	void PhysicsUpdate(TransformComponent& transform_component, b2WorldId world_id) override;
+	void PhysicsUpdate(TransformComponent& transform_component, b2WorldId world_id, b2Transform transform) override;
 
 private:
 	b2BodyId body_id_;

@@ -4,11 +4,10 @@
 #include <box2d.h>
 #include <math_functions.h>
 
-#include <iostream>
-
+#include <SFML/System/Angle.hpp>
 #include <SFML/System/Vector2.hpp>
-#include <NiEngine/Converter.h>
 #include <NiEngine/TransformComponent.h>
+#include <NiEngine/Converter.h>
 
 ni::DynamicBodyPhysicsComponent::DynamicBodyPhysicsComponent(b2BodyId body_id, bool start_active)
 {
@@ -31,15 +30,15 @@ void ni::DynamicBodyPhysicsComponent::Deactivate()
 	b2Body_Disable(body_id_);
 }
 
-void ni::DynamicBodyPhysicsComponent::PhysicsUpdate(TransformComponent& transform_component, b2WorldId world_id)
+void ni::DynamicBodyPhysicsComponent::PhysicsUpdate(TransformComponent& transform_component, b2WorldId world_id, b2Transform transform)
 {
 	if (!active_)
 	{
 		return;
 	}
-	sf::Vector2f body_position = Converter::MetersToPixels(b2Body_GetPosition(body_id_));
-	float body_rotation        = b2Rot_GetAngle(b2Body_GetRotation(body_id_));
+	sf::Angle    rotation = sf::radians(b2Rot_GetAngle(transform.q));
+	sf::Vector2f position = ni::Converter::MetersToPixels(transform.p);
 
-	transform_component.GetTransformable().setPosition(body_position);
-	transform_component.GetTransformable().setRotation(sf::radians(body_rotation));
+	transform_component.GetTransformable().setPosition(position);
+	transform_component.GetTransformable().setRotation(rotation);
 }

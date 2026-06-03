@@ -1,29 +1,29 @@
 {
     "activeFile": "maps/level_1/level_1.json",
     "expandedProjectPaths": [
-        "maps/level_7",
-        "maps/level_6",
-        "tilesets",
         "maps/backup/level_6",
-        "maps/backup/level_5",
+        "maps/rules",
+        "maps/level_15",
+        "tilesets",
+        "maps/level_5",
         "maps/backup",
+        "maps",
+        "maps/level_6",
         "maps/templates",
         "maps/level_2",
-        "maps/level_14",
-        "maps/level_9",
-        "maps/level_3",
+        "maps/level_7",
+        "maps/level_01",
         "maps/level_11",
         "maps/level_1",
-        "maps/level_4",
-        "maps/level_01",
-        "maps/level_15",
-        "maps/level_12",
-        "maps/level_13",
-        "maps/rules",
+        ".",
+        "maps/level_14",
         "maps/level_02",
-        "maps/level_5",
-        "maps",
-        "."
+        "maps/level_4",
+        "maps/level_13",
+        "maps/level_3",
+        "maps/backup/level_5",
+        "maps/level_9",
+        "maps/level_12"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -129,11 +129,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 0.75,
+            "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 920,
-                "y": 662.6666666666665
+                "x": 1028,
+                "y": 611
             }
         },
         "maps/level_10/level_10.json": {
@@ -423,21 +423,19 @@
     "map.tileWidth": 32,
     "map.width": 50,
     "openFiles": [
-        "tilesets/gem_light_green.json",
-        "tilesets/gem_dark_blue.json",
-        "maps/rules/woods.tmx",
-        "maps/level_1/level_1.json"
+        "maps/level_1/level_1.json",
+        "tilesets/objects.json"
     ],
     "project": "game.tiled-project",
     "property.type": "float",
     "recentFiles": [
+        "tilesets/objects.json",
+        "maps/level_1/level_1.json",
         "tilesets/gem_dark_blue.json",
         "tilesets/gem_light_green.json",
         "maps/rules/woods.tmx",
-        "maps/level_1/level_1.json",
         "tilesets/gem_turquoise.json",
         "tilesets/gems.json",
-        "tilesets/objects.json",
         "tilesets/transparent_tiles.json",
         "tilesets/transparent_tiles.tsx",
         "tilesets/woods.json",

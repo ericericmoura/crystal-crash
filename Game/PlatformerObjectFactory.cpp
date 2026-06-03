@@ -98,26 +98,27 @@ void PlatformerObjectFactory::SpawnObstacle(ni::ObjectBlueprint object, ni::Obje
 
 	ni::Id<ni::GameObjectTag> id = mode.CreateGameObject();
 
-	b2ShapeDef projectile_shape_def = b2DefaultShapeDef();
-	projectile_shape_def.density = 10.0f;
-	projectile_shape_def.material.restitution = 0.25f;
-	projectile_shape_def.material.friction = 0.3f;
-	projectile_shape_def.enableHitEvents = true;
-	projectile_shape_def.filter.categoryBits = CollisionCategories::kObstacles;
-	projectile_shape_def.filter.maskBits     = ni::CollisionCategories::kTilemap | CollisionCategories::kProjectiles | CollisionCategories::kObstacles;
+	b2ShapeDef obstacle_shape_def = b2DefaultShapeDef();
+	obstacle_shape_def.density = 10.0f;
+	obstacle_shape_def.material.restitution = 0.25f;
+	obstacle_shape_def.material.friction = 0.3f;
+	obstacle_shape_def.enableHitEvents = true;
+	obstacle_shape_def.filter.categoryBits = CollisionCategories::kObstacles;
+	obstacle_shape_def.filter.maskBits     = ni::CollisionCategories::kTilemap | CollisionCategories::kProjectiles | CollisionCategories::kObstacles;
 
 	// Defining the body and shape  
-	b2BodyDef projectile_body_def = b2DefaultBodyDef();
-	projectile_body_def.type = b2_dynamicBody;
-	projectile_body_def.gravityScale = 2.0f;
-	projectile_body_def.linearDamping = 0.05f;
-	projectile_body_def.enableSleep = true;
+	b2BodyDef obstacle_body_def = b2DefaultBodyDef();
+	obstacle_body_def.type = b2_dynamicBody;
+	obstacle_body_def.gravityScale = 2.0f;
+	obstacle_body_def.linearDamping = 0.05f;
+	obstacle_body_def.enableSleep = true;
+	obstacle_body_def.userData = new ni::Id<ni::GameObjectTag>(id);
 
-	b2BodyId body_id = b2CreateBody(mode.GetPhysicsEngine().GetWorldId(), &projectile_body_def);
+	b2BodyId body_id = b2CreateBody(mode.GetPhysicsEngine().GetWorldId(), &obstacle_body_def);
 
 	b2Polygon polygon = ni::PolygonUtility::CreatePolygonFromOffsetPoints(tile.polygon_blueprint_, tileset.tile_size_);
 
-	b2CreatePolygonShape(body_id, &projectile_shape_def, &polygon);
+	b2CreatePolygonShape(body_id, &obstacle_shape_def, &polygon);
 
 	// Creating components	
 	auto physics  = std::make_unique<ni::DynamicBodyPhysicsComponent>(body_id, false);
@@ -176,6 +177,7 @@ ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint
 	projectile_body_def.gravityScale  = 2.0f;
 	projectile_body_def.linearDamping = 0.05f;
 	projectile_body_def.enableSleep   = true;
+	projectile_body_def.userData      = new ni::Id<ni::GameObjectTag>(id);
 
 	b2BodyId body_id = b2CreateBody(mode.GetPhysicsEngine().GetWorldId(), &projectile_body_def);
 

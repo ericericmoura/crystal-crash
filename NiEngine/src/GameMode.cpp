@@ -5,6 +5,7 @@
 #include <SFML/Window/Mouse.hpp>
 #include <NiEngine/BitmapStore.h>
 #include <NiEngine/GameModeController.h>
+#include <NiEngine/PhysicsEngine.h>
 
 ni::GameMode::GameMode()
 {

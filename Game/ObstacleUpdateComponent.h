@@ -11,5 +11,10 @@ public:
 	ObstacleUpdateComponent(ni::Id<ni::GameObjectTag> owner_id, ni::ComponentLocator& component_locator_);
 	void Init();
 	void Update() override;
+
+private:
+	float health_    = 100.0f;
+	float toughness_ = 1.0f;
+
 };
 

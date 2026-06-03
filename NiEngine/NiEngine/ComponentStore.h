@@ -21,6 +21,7 @@
 #include <NiEngine/TransformComponent.h>
 #include <NiEngine/ComponentLocator.h>
 #include <NiEngine/AnimatedGraphicsComponent.h>
+
 #include "Tilemap.h"
 
 namespace ni {
@@ -36,6 +37,8 @@ private:
 	std::unordered_map<Id<GameObjectTag>, std::unique_ptr<UpdateComponent>>                update_components_     = {};
 
 	std::unordered_set<Id<GameObjectTag>> ids_marked_for_deletion_ = {};
+
+	void HandleBox2dEvents(b2WorldId world_id);	
 
 public:
 	// Component Attaching/Removing	

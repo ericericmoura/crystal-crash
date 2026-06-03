@@ -1,13 +1,14 @@
 #include <NiEngine/ComponentStore.h>
 
 #include <id.h>
+#include <box2d.h>
+#include <types.h>
 
 #include <vector>
 #include <string>
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
-
 #include <NiEngine/BitmapStore.h>
 #include <NiEngine/Id.h>
 #include <NiEngine/TransformComponent.h>
@@ -67,17 +68,8 @@ void ni::ComponentStore::PhysicsUpdate(b2WorldId world_id, const Tilemap& curren
 	{
 		return;
 	}
-	for (auto& [id, component] : physics_components_)
-	{
-		TransformComponent* transform = GetTransformComponent(id);
-
-		if (!transform)
-		{
-			continue;
-		}
-		component->PhysicsUpdate(*transform, current_tilemap, delta);
-		component->PhysicsUpdate(*transform, world_id);		
-	}
+	
+	HandleBox2dEvents(world_id);
 
 	for (auto& id : ids_marked_for_deletion_)
 	{
@@ -169,15 +161,32 @@ ni::Id<ni::GameObjectTag> ni::ComponentStore::GetIdByTag(std::string tag)
 	return GetIdsByTag(tag).front();
 }
 
+void ni::ComponentStore::HandleBox2dEvents(b2WorldId world_id)
+{
+	b2BodyEvents events = b2World_GetBodyEvents(world_id);
+	for (int i = 0; i < events.moveCount; ++i)
+	{
+		const b2BodyMoveEvent* event = events.moveEvents + i;
+		auto id = static_cast<ni::Id<ni::GameObjectTag>*>(event->userData);
+
+		TransformComponent* transform_component = GetTransformComponent(*id);
+		PhysicsComponent* physics = GetPhysicsComponent(*id);
+
+		if (!transform_component || !physics)
+		{
+			continue;
+		}
+		physics->PhysicsUpdate(*transform_component, world_id, event->transform);
+	}
+}
+
 void ni::ComponentStore::Clear()
 {
 	transform_components_.clear();
 	update_components_   .clear();
 	graphics_components_ .clear();
 	physics_components_  .clear();
-
 	id_tag_map_.clear();
-
 }
 
 std::vector<ni::GraphicsComponent*> ni::ComponentStore::GetGraphicsComponents(Id<ni::GameObjectTag> id)
