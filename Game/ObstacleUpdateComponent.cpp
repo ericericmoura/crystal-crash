@@ -29,3 +29,13 @@ void ObstacleUpdateComponent::Init()
 void ObstacleUpdateComponent::Update()
 {
 }
+
+void ObstacleUpdateComponent::Damage(float speed)
+{
+	health_ -= speed;
+
+	if (health_ <= 0)
+	{
+		component_locator_.MarkIdForDeletion(owner_id_);
+	}
+}

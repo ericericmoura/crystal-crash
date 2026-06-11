@@ -8,8 +8,8 @@
 #include <vector>
 #include <memory>
 #include <utility>
+#include <cstdarg>
 
-#include <SFML/System/Angle.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <NiEngine/TilesetBlueprint.h>
 #include <NiEngine/GameMode.h>
@@ -112,7 +112,7 @@ void PlatformerObjectFactory::SpawnObstacle(ni::ObjectBlueprint object, ni::Obje
 	obstacle_body_def.gravityScale = 2.0f;
 	obstacle_body_def.linearDamping = 0.05f;
 	obstacle_body_def.enableSleep = true;
-	obstacle_body_def.userData = new ni::Id<ni::GameObjectTag>(id);
+	obstacle_body_def.userData = reinterpret_cast<void*>(static_cast<uintptr_t>(id.id_));
 
 	b2BodyId body_id = b2CreateBody(mode.GetPhysicsEngine().GetWorldId(), &obstacle_body_def);
 
@@ -129,6 +129,8 @@ void PlatformerObjectFactory::SpawnObstacle(ni::ObjectBlueprint object, ni::Obje
 	ni::TransformComponent transform;
 	transform.GetTransformable().setPosition(object.position_);
 	transform.GetTransformable().setOrigin({ tileset.tile_size_.x / 2.0f, tileset.tile_size_.y / 2.0f });
+
+	update->unique_tag_ = PlatformerGameMode::kObstacleTag;
 
 	mode.GetComponentStore().AttachPhysicsComponent  (id, std::move(physics ));
 	mode.GetComponentStore().AttachTransformComponent(id, transform);
@@ -177,7 +179,7 @@ ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint
 	projectile_body_def.gravityScale  = 2.0f;
 	projectile_body_def.linearDamping = 0.05f;
 	projectile_body_def.enableSleep   = true;
-	projectile_body_def.userData      = new ni::Id<ni::GameObjectTag>(id);
+	projectile_body_def.userData      = reinterpret_cast<void*>(static_cast<uintptr_t>(id.id_));
 
 	b2BodyId body_id = b2CreateBody(mode.GetPhysicsEngine().GetWorldId(), &projectile_body_def);
 
@@ -201,6 +203,8 @@ ni::Id<ni::GameObjectTag> PlatformerObjectFactory::SpawnAmmo(ni::ObjectBlueprint
 	ni::TransformComponent transform;
 	transform.GetTransformable().setPosition(object.position_);
 	transform.GetTransformable().setOrigin({tileset.tile_size_.x / 2.0f, tileset.tile_size_.y / 2.0f });
+
+	update->unique_tag_ = PlatformerGameMode::kSlingshotAmmoTag;
 
 	mode.GetComponentStore().RegisterTagForId        (id, PlatformerGameMode::kSlingshotAmmoTag);
 	mode.GetComponentStore().AttachUpdateComponent   (id, std::move(update  ));

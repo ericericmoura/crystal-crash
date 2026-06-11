@@ -8,10 +8,15 @@
 #include <utility>
 #include <format>
 #include <string>
+#include <cstdarg>
+#include <cstdint>
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/Color.hpp>
+#include <NiEngine/GameObjectTag.h>
+#include <NiEngine/Id.h>
+#include <NiEngine/UpdateComponent.h>
 #include <NiEngine/Converter.h>
 #include <NiEngine/BitmapStore.h>
 #include <NiEngine/GameMode.h>
@@ -24,6 +29,7 @@
 
 #include "LevelStartBlueprint.h"
 #include "PlatformerObjectFactory.h"
+#include "ObstacleUpdateComponent.h"
 
 PlatformerGameMode::PlatformerGameMode() : hud_(sf::Color::Black, {20, 0}, { 20, 15 }, false, 2, {0, 0})
 {		
@@ -119,6 +125,21 @@ void PlatformerGameMode::RestartLevel()
 	restart_level_ = true;
 }
 
+void PlatformerGameMode::PhysicsUpdate(float delta)
+{
+	if (paused_)
+	{
+		return;
+	}
+	if (box2d_enabled_)
+	{
+		physics_engine_.PhysicsUpdate();
+
+		HandleCollisions();
+	}
+	component_store_.PhysicsUpdate(physics_engine_.GetWorldId(), level_.GetCurrentTilemap(), delta);
+}
+
 void PlatformerGameMode::Update(ni::GameModeController& controller)
 {
 	if ((restart_level_ || load_next_level_) && !transitioning_)
@@ -163,4 +184,40 @@ ni::Text* PlatformerGameMode::GetLevelTextHUD(int component_index) const
 	}
 	auto text_component = static_cast<ni::Text*>(hud_component);
 	return text_component;
+}
+
+void PlatformerGameMode::HandleCollisions()
+{
+	b2ContactEvents contactEvents = b2World_GetContactEvents(physics_engine_.GetWorldId());
+	for (int i = 0; i < contactEvents.hitCount; ++i)
+	{
+		b2ContactHitEvent* hit_event = contactEvents.hitEvents + i;
+		if (hit_event->approachSpeed > 10.0f)
+		{
+			ni::Id<ni::GameObjectTag> body_a_id;
+			b2BodyId body_a = b2Shape_GetBody(hit_event->shapeIdA);
+			body_a_id.id_ = static_cast<uint32_t>(reinterpret_cast<uintptr_t>(b2Body_GetUserData(body_a)));
+
+			ni::Id<ni::GameObjectTag> body_b_id;
+			b2BodyId body_b = b2Shape_GetBody(hit_event->shapeIdB);
+			body_b_id.id_ = static_cast<uint32_t>(reinterpret_cast<uintptr_t>(b2Body_GetUserData(body_b)));
+
+			ni::UpdateComponent* update_a = component_store_.GetUpdateComponent(body_a_id);
+			ni::UpdateComponent* update_b = component_store_.GetUpdateComponent(body_b_id);
+
+			if (!update_a || !update_b)
+			{
+				continue;
+			}
+
+			if (update_a->unique_tag_ == PlatformerGameMode::kObstacleTag)
+			{
+				static_cast<ObstacleUpdateComponent*>(update_a)->Damage(25);
+			}
+			else if (update_b->unique_tag_ == PlatformerGameMode::kObstacleTag)
+			{
+				static_cast<ObstacleUpdateComponent*>(update_b)->Damage(25);
+			}
+		}
+	}
 }

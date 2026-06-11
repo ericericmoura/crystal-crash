@@ -36,7 +36,7 @@ void ni::GameMode::PhysicsUpdate(float delta)
 	{
 		return;
 	}
-	if (box2d_enabled)
+	if (box2d_enabled_)
 	{
 		physics_engine_.PhysicsUpdate();
 	}

@@ -1,29 +1,29 @@
 {
     "activeFile": "maps/level_1/level_1.json",
     "expandedProjectPaths": [
-        "maps/backup/level_6",
-        "maps/rules",
-        "maps/level_15",
-        "tilesets",
-        "maps/level_5",
-        "maps/backup",
         "maps",
         "maps/level_6",
-        "maps/templates",
-        "maps/level_2",
-        "maps/level_7",
-        "maps/level_01",
-        "maps/level_11",
-        "maps/level_1",
-        ".",
-        "maps/level_14",
-        "maps/level_02",
-        "maps/level_4",
-        "maps/level_13",
         "maps/level_3",
+        "maps/level_15",
+        "maps/level_14",
+        "maps/level_11",
+        "maps/level_7",
+        "maps/level_1",
+        "maps/level_01",
         "maps/backup/level_5",
+        "maps/level_13",
+        "maps/level_4",
+        "maps/level_12",
+        "maps/templates",
+        ".",
+        "maps/level_5",
+        "maps/rules",
+        "maps/level_02",
         "maps/level_9",
-        "maps/level_12"
+        "maps/backup/level_6",
+        "maps/level_2",
+        "maps/backup",
+        "tilesets"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -132,8 +132,8 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1028,
-                "y": 611
+                "x": 1028.25,
+                "y": 611.25
             }
         },
         "maps/level_10/level_10.json": {

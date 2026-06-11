@@ -12,6 +12,8 @@ public:
 	void Init();
 	void Update() override;
 
+	void Damage(float speed);
+
 private:
 	float health_    = 100.0f;
 	float toughness_ = 1.0f;

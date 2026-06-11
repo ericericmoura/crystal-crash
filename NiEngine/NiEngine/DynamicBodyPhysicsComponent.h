@@ -11,6 +11,7 @@ class DynamicBodyPhysicsComponent : public PhysicsComponent
 {
 public:
 	DynamicBodyPhysicsComponent(b2BodyId body_id, bool start_active = false);
+	~DynamicBodyPhysicsComponent();
 	
 	b2BodyId GetBodyId() const { return body_id_; }
 

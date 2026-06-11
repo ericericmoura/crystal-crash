@@ -28,11 +28,11 @@ private:
 
 	Id<GameObjectTag> current_game_object_id_{ 0 };
 
-	bool box2d_enabled = false;
 
 protected:
 	bool paused_ = false;
 
+	bool box2d_enabled_ = false;
 	Level level_;
 	
 	Camera world_camera_;
@@ -74,7 +74,7 @@ public:
 
 	void SetBox2dEnabled(bool value)
 	{
-		box2d_enabled = value;
+		box2d_enabled_ = value;
 	}
 
 	virtual void PhysicsUpdate(float delta);

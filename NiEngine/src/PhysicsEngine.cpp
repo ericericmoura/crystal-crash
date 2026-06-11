@@ -2,6 +2,7 @@
 
 #include <types.h>
 #include <box2d.h>
+#include <id.h>
 
 ni::PhysicsEngine::PhysicsEngine(const b2WorldDef& world_definition)
 {

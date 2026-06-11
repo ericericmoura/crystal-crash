@@ -6,6 +6,8 @@
 
 #include <vector>
 #include <string>
+#include <cstdarg>
+#include <cstdint>
 
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -167,10 +169,13 @@ void ni::ComponentStore::HandleBox2dEvents(b2WorldId world_id)
 	for (int i = 0; i < events.moveCount; ++i)
 	{
 		const b2BodyMoveEvent* event = events.moveEvents + i;
-		auto id = static_cast<ni::Id<ni::GameObjectTag>*>(event->userData);
 
-		TransformComponent* transform_component = GetTransformComponent(*id);
-		PhysicsComponent* physics = GetPhysicsComponent(*id);
+		ni::Id<ni::GameObjectTag> id;
+		auto raw_id = static_cast<uint32_t>(reinterpret_cast<uintptr_t>(event->userData));
+		id.id_ = raw_id;
+
+		TransformComponent* transform_component = GetTransformComponent(id);
+		PhysicsComponent* physics = GetPhysicsComponent(id);
 
 		if (!transform_component || !physics)
 		{

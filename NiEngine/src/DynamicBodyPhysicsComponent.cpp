@@ -18,6 +18,11 @@ ni::DynamicBodyPhysicsComponent::DynamicBodyPhysicsComponent(b2BodyId body_id, b
 	}
 }
 
+ni::DynamicBodyPhysicsComponent::~DynamicBodyPhysicsComponent()
+{
+	b2DestroyBody(body_id_);
+}
+
 void ni::DynamicBodyPhysicsComponent::Activate()
 {
 	active_ = true;
